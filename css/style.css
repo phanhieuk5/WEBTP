@@ -228,3 +228,84 @@ footer p {
         flex-direction: column;
     }
 }
+/* Thanh tìm kiếm trong header */
+..search-container, .filter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.search-container input, .filter-container input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-btn, .search-btn {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn:hover, .search-btn:hover {
+    background-color: #7b3e14;
+}
+.add-to-cart-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Màu xanh lá cây */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049; /* Màu xanh lá cây đậm hơn khi hover */
+}
+/* Định dạng cơ bản cho giỏ hàng */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.cart-summary {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-checkout {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: #7b3e14;
+}

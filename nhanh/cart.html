@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="../css/style.css"> <!-- CSS chung cho trang -->
+    <link rel="stylesheet" href="../css/cart.css"> <!-- CSS riêng cho giỏ hàng -->
 </head>
-<body>
+<body onload="cartLoadPage()">
+    <!-- Header giống với trang chủ để đồng bộ -->
     <header>
-        <h1>Giỏ hàng</h1>
-        <nav><a href="index.html">Trang chủ</a></nav>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">🏠 Trang chủ</a></li>
+                    <li><a href="../nhanh/products.html">Sản phẩm</a></li>
+                    <li><a href="../nhanh/recipes.html">Công thức nấu ăn</a></li>
+                    <li><a href="../nhanh/contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="../nhanh/login.html"><i class="fa fa-user"></i></a>
+                <a href="../nhanh/cart.html"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
     </header>
-    <section id="cart">
-        <h2>Sản phẩm trong giỏ hàng</h2>
-        <p>Chưa có sản phẩm nào trong giỏ hàng.</p>
-    </section>
-    <footer>&copy; 2024 Trang web bán thực phẩm sạch.</footer>
+
+    <!-- Nội dung giỏ hàng -->
+    <main class="content">
+        <div class="container">
+            <h1>Giỏ Hàng</h1>
+            <div id="cart-items" class="cart-items">
+                <!-- Sản phẩm sẽ được chèn vào đây từ JavaScript -->
+            </div>
+            <h2>Tổng giá: <span id="total-price">0 VND</span></h2>
+            <button class="btn-checkout">Thanh toán</button>
+        </div>
+    </main>
+
+    <!-- Footer giống với trang chủ -->
+    <footer>
+        <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
+    </footer>
+
+    <!-- Liên kết tới file JavaScript -->
+    <script src="../js/cart.js"></script>
 </body>
 </html>
