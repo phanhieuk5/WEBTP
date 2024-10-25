@@ -1,6 +1,6 @@
 let currentPage = 1;
-const productsPerPage = 8;
-let totalPages = 1; // Giá trị này sẽ được tính động dựa trên tổng số sản phẩm
+const productsPerPage = 10; // Mỗi trang hiển thị 10 sản phẩm
+let totalPages = 1;
 
 function updatePageIndicator() {
     const pageIndicator = document.getElementById('page-indicator');
@@ -42,34 +42,29 @@ function changePage(direction) {
 }
 
 function createPageButtons() {
-    const pageButtonsContainer = document.getElementById('page-buttons');
-    if (pageButtonsContainer) {
-        pageButtonsContainer.innerHTML = ''; // Xóa nội dung cũ trước khi thêm mới
-        for (let i = 1; i <= totalPages; i++) {
-            const button = document.createElement('button');
-            button.innerText = i;
-            button.disabled = (i === currentPage);
-            button.addEventListener('click', () => goToPage(i));
-            pageButtonsContainer.appendChild(button);
-        }
-    }
-}
-
-function goToPage(page) {
-    currentPage = page;
-    displayProducts();
+    const paginationContainer = document.querySelector('.pagination');
+    paginationContainer.innerHTML = `
+        <button id="prevPage" onclick="changePage(-1)">Trang trước</button>
+        <button id="nextPage" onclick="changePage(1)">Trang sau</button>
+    `;
     updatePageIndicator();
     toggleNavigationButtons();
 }
 
-// Khởi động hiển thị trang đầu tiên
 window.onload = function() {
-    // Tính toán tổng số trang dựa trên tổng số sản phẩm và sản phẩm mỗi trang
     const productElements = document.querySelectorAll('.product');
     totalPages = Math.ceil(productElements.length / productsPerPage);
 
     displayProducts();
+    createPageButtons();
     updatePageIndicator();
     toggleNavigationButtons();
-    createPageButtons();
 };
+
+/* Chức năng trượt xuống phần sản phẩm khi nhấn "Mua ngay" */
+document.querySelector('.btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('product-list').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
