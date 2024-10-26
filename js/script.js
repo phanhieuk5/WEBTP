@@ -154,4 +154,38 @@ window.onload = function() {
     updatePageIndicator();        // Cập nhật chỉ báo trang
     toggleNavigationButtons();    // Kích hoạt hoặc vô hiệu hóa các nút chuyển trang
 };
+// chuyển động của bannaer
+let currentSlide = 0;
+const slides = document.querySelectorAll('.banner-slide');
+const totalSlides = slides.length;
 
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 5000); // Chuyển ảnh mỗi 5 giây
+// danh muc sản phẩm
+function filterByCategory(category) {
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+        
+        // Kiểm tra nếu sản phẩm thuộc danh mục đã chọn
+        if (category === 'Tất cả' || productCategory === category) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}

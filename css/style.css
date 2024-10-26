@@ -11,36 +11,35 @@
 /* Điều chỉnh header */
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 30px; /* Giảm padding để header nhỏ gọn hơn */
-    background-color: #A8D5BA; /* Màu xanh pastel */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Thêm shadow nhẹ để tạo chiều sâu */
+    justify-content: space-between;
+    background-color: #A5D6A7; /* Màu nền pastel xanh lá */
+    padding: 10px 20px;
 }
 
-.logo img {
-    width: 100px; /* Giảm kích thước logo */
-    height: auto;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
+.header-container .logo img {
+    height: 50px; /* Kích thước logo */
 }
 
 nav ul li {
     margin: 0 15px;
 }
 
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
 nav ul li a {
-    color: white; /* Đổi màu text */
-    text-decoration: none;
-    font-size: 16px; /* Giữ kích thước chữ vừa phải */
+    color: white;
     font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #FFC107; /* Màu khi hover */
 }
 
 .header-icons a {
@@ -229,32 +228,49 @@ footer p {
     }
 }
 /* Thanh tìm kiếm trong header */
-..search-container, .filter-container {
+/* Thanh tìm kiếm trong header */
+.search-container, .filter-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Khoảng cách giữa các phần tử trong thanh tìm kiếm */
     justify-content: center;
     margin: 10px 0;
 }
 
-.search-container input, .filter-container input {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.search-container input {
+    padding: 8px 12px; /* Điều chỉnh padding để ô tìm kiếm cân đối hơn */
+    border: 1px solid #ccc; /* Viền nhẹ cho ô nhập */
+    border-radius: 5px; /* Bo tròn góc */
+    font-size: 14px; /* Kích thước chữ */
+    width: 180px; /* Đặt chiều rộng cho ô tìm kiếm nhỏ hơn nhưng vẫn đủ cho văn bản */
+}
+
+.filter-container input {
+    padding: 8px 10px; /* Padding cho ô nhập bộ lọc */
+    border: 1px solid #ccc; /* Viền nhẹ cho ô nhập */
+    border-radius: 5px; /* Bo tròn góc */
+    font-size: 14px; /* Kích thước chữ */
+    width: 100px; /* Đặt chiều rộng cho ô nhập bộ lọc nhỏ hơn nhưng đủ để nhập số */
 }
 
 .filter-btn, .search-btn {
-    background-color: #8B4513;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #8B4513; /* Màu nền cho nút tìm kiếm */
+    color: white; /* Màu chữ */
+    border: none; /* Bỏ viền */
+    padding: 8px 12px; /* Thêm khoảng trống cho nút */
+    border-radius: 5px; /* Bo tròn góc */
+    cursor: pointer; /* Thay đổi con trỏ khi di chuột */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    font-size: 14px; /* Kích thước chữ cho nút */
 }
 
 .filter-btn:hover, .search-btn:hover {
-    background-color: #7b3e14;
+    background-color: #7b3e14; /* Màu nền khi hover */
 }
+
+
+
+/* thêm giỏ hàng */
 .add-to-cart-btn {
     display: inline-block;
     margin-top: 10px;
@@ -308,4 +324,117 @@ h2 {
 
 .btn-checkout:hover {
     background-color: #7b3e14;
+}
+/* Styles cho banner xoay vòng */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.banner-slide {
+    min-width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transition: opacity 1s ease, left 1s ease;
+}
+
+.banner-slide.active {
+    left: 0;
+    opacity: 1;
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Cập nhật banner-text để văn bản rõ ràng hơn */
+/* Cập nhật banner-text để hiển thị đẹp hơn mà không cần viền đen *//* Căn chỉnh nút "Mua ngay" */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 70%;
+}
+
+.banner-text h1,
+.banner-text p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bóng chữ để chữ nổi bật hơn */
+}
+
+.banner-text .btn {
+    display: inline-block;
+    margin-top: 15px; /* Tạo khoảng cách giữa văn bản và nút */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.banner-text .btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Tăng kích thước khi hover */
+}
+
+/* Ẩn văn bản trong slide đầu tiên nếu cần */
+.slide-1 .banner-text h1,
+.slide-1 .banner-text p {
+    display: none;
+}
+/* danh mục hàng */
+.horizontal-category {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    background-color: #A5D6A7; /* Màu nền xanh lá nhạt */
+    border-radius: 15px; /* Góc bo tròn */
+    margin: 20px auto;
+    width: 90%; /* Căn giữa và không quá rộng */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho chiều sâu */
+}
+
+.horizontal-category-list {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.horizontal-category-list li {
+    margin: 0;
+}
+
+.horizontal-category-list li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.horizontal-category-list li a:hover {
+    color: #A5D6A7; /* Đổi màu chữ khi rê chuột */
+    background-color: white; /* Nền trắng khi rê chuột */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng khi rê chuột */
 }
