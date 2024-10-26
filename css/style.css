@@ -204,29 +204,42 @@ footer p {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
+/* Đối với thiết bị di động */
+@media (max-width: 599px) {
+    /* CSS cho thiết bị di động */
+    body {
+        font-size: 14px; /* Kích thước chữ nhỏ hơn */
     }
-
-    .hero-image img {
-        margin-top: 30px;
-    }
-
-    .product-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product {
-        width: 100%;
-    }
-
-    .header-container {
-        flex-direction: column;
+    .header {
+        display: flex;
+        flex-direction: column; /* Sắp xếp theo chiều dọc */
     }
 }
+
+/* Đối với máy tính bảng */
+@media (min-width: 600px) and (max-width: 899px) {
+    /* CSS cho máy tính bảng */
+    body {
+        font-size: 16px; /* Kích thước chữ vừa */
+    }
+    .header {
+        display: flex;
+        flex-direction: row; /* Sắp xếp theo chiều ngang */
+    }
+}
+
+/* Đối với máy tính để bàn */
+@media (min-width: 900px) {
+    /* CSS cho máy tính để bàn */
+    body {
+        font-size: 18px; /* Kích thước chữ lớn hơn */
+    }
+    .header {
+        display: flex;
+        justify-content: space-between; /* Khoảng cách giữa các phần tử */
+    }
+}
+
 /* Thanh tìm kiếm trong header */
 /* Thanh tìm kiếm trong header */
 .search-container, .filter-container {
