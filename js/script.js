@@ -138,6 +138,12 @@ function displayCartItems() {
         document.getElementById('total-price').innerHTML = `Tổng giá: <span>${totalPrice} VND</span>`;
     }
 }
+//hàm cuộn khi ấn vào mua ngay
+function scrollToProduct() {
+    document.getElementById('product-list').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
 
 window.onload = function() {
     const productElements = document.querySelectorAll('.product'); // Lấy tất cả sản phẩm
