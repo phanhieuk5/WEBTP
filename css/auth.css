@@ -1,0 +1,78 @@
+/* auth.css */
+
+/* Thêm nền cho trang */
+.background {
+    background-image: url('../img/background.jpg'); /* Đường dẫn tới ảnh nền thương hiệu */
+    background-size: cover; /* Kéo dài ảnh để che phủ toàn bộ */
+    background-position: center; /* Căn giữa ảnh */
+    height: 100vh; /* Đặt chiều cao đầy đủ cho trang */
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Cấu trúc chung cho container */
+.container {
+    max-width: 400px; /* Đặt chiều rộng tối đa */
+    margin: 20px; /* Thêm khoảng cách */
+    padding: 20px; /* Padding cho các phần tử bên trong */
+    background-color: rgba(255, 255, 255, 0.9); /* Màu nền trắng với độ trong suốt */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+/* Định dạng tiêu đề */
+h1 {
+    text-align: center; /* Căn giữa tiêu đề */
+    color: #333; /* Màu chữ */
+}
+
+/* Định dạng label cho các trường nhập liệu */
+label {
+    display: block; /* Hiển thị mỗi label trên một dòng */
+    margin-top: 10px; /* Khoảng cách trên mỗi label */
+}
+
+/* Định dạng input */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Chiều rộng đầy đủ */
+    padding: 10px; /* Padding cho input */
+    margin-top: 5px; /* Khoảng cách trên input */
+    border: 1px solid #ccc; /* Viền xung quanh */
+    border-radius: 5px; /* Bo tròn góc */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+/* Định dạng nút */
+button {
+    width: 100%; /* Chiều rộng đầy đủ */
+    padding: 10px; /* Padding cho nút */
+    background-color: #4CAF50; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không viền */
+    border-radius: 5px; /* Bo tròn góc */
+    cursor: pointer; /* Con trỏ tay khi di chuột */
+    margin-top: 15px; /* Khoảng cách trên nút */
+    font-size: 16px; /* Kích thước chữ */
+}
+
+/* Hiệu ứng hover cho nút */
+button:hover {
+    background-color: #45a049; /* Thay đổi màu khi hover */
+}
+
+/* Định dạng liên kết */
+p {
+    text-align: center; /* Căn giữa */
+}
+
+a {
+    color: #4CAF50; /* Màu chữ liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/cart.css"> <!-- CSS riêng cho giỏ hàng -->
 </head>
 <body onload="cartLoadPage()">
-    <!-- Header giống với trang chủ để đồng bộ -->
+    <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -36,7 +36,48 @@
             <div id="cart-items" class="cart-items">
                 <!-- Sản phẩm sẽ được chèn vào đây từ JavaScript -->
             </div>
-            <h2>Tổng giá: <span id="total-price">0 VND</span></h2>
+            <h2>Tổng giá: <span id="total-price">0 VNĐ</span></h2>
+
+            <!-- Nhập địa chỉ giao hàng -->
+            <div>
+                <h3>Địa chỉ giao hàng</h3>
+                <label for="address">Chọn địa chỉ từ tài khoản:</label>
+                <select id="address-select">
+                    <option value="address1">Địa chỉ 1</option>
+                    <option value="address2">Địa chỉ 2</option>
+                </select>
+                <br>
+                <label for="new-address">Hoặc nhập địa chỉ mới:</label>
+                <input type="text" id="new-address" placeholder="Nhập địa chỉ mới...">
+            </div>
+
+            <!-- Chọn phương thức thanh toán -->
+            <div>
+                <h3>Phương thức thanh toán</h3>
+                <label>
+                    <input type="radio" name="payment" value="cash"> Tiền mặt
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="bank_transfer"> Chuyển khoản
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="credit_card"> Thẻ tín dụng
+                </label>
+            </div>
+
+            <!-- Thông tin thẻ tín dụng -->
+            <div id="credit-card-info" style="display: none;">
+                <h3>Thông tin thẻ tín dụng</h3>
+                <label for="card-number">Số thẻ:</label>
+                <input type="text" id="card-number" placeholder="Nhập số thẻ...">
+                <br>
+                <label for="card-expiry">Ngày hết hạn:</label>
+                <input type="text" id="card-expiry" placeholder="MM/YY">
+                <br>
+                <label for="card-cvc">CVC:</label>
+                <input type="text" id="card-cvc" placeholder="Nhập CVC...">
+            </div>
+
             <button class="btn-checkout">Thanh toán</button>
         </div>
     </main>

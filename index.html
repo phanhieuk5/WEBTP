@@ -43,6 +43,17 @@
                 <a href="nhanh/cart.html"><i class="fa fa-shopping-cart"></i></a>
             </div>
         </div>
+        <!-- nút đăng xuất --> 
+        <div id="user-info-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeUserInfoModal()">&times;</span>
+        <h2>Thông tin tài khoản</h2>
+        <p id="user-name"></p>
+        <p id="user-email"></p>
+        <button onclick="logout()">Đăng Xuất</button> <!-- Nút đăng xuất -->
+    </div>
+</div>
+
     </header>
 
     <!-- Banner lớn -->
@@ -380,6 +391,17 @@
     </div>
 </div>
 
+<!-- Modal Thông Tin Người Dùng -->
+<div id="user-info-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeUserInfoModal()">&times;</span>
+        <h2>Thông Tin Người Dùng</h2>
+        <p id="user-name"></p>
+        <p id="user-email"></p>
+        <button onclick="logout()">Đăng Xuất</button>
+    </div>
+</div>
+
 
         <!-- Phân trang -->
         <div class="pagination">
@@ -396,5 +418,6 @@
     <!-- Gọi file JavaScript -->
     <script src="js/script.js"></script>
     <script src="js/modal.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

@@ -438,3 +438,37 @@ h2 {
     background-color: white; /* Nền trắng khi rê chuột */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng khi rê chuột */
 }
+/* Modal Styles */
+.modal {
+    display: none; /* Ẩn modal mặc định */
+    position: fixed; /* Đặt modal ở vị trí cố định */
+    z-index: 1; /* Đặt z-index để hiển thị trên tất cả các phần tử khác */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Đen với độ trong suốt */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% từ trên và căn giữa */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Có thể điều chỉnh width */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

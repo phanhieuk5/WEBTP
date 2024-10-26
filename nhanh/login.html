@@ -3,25 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Đăng Nhập Tài Khoản</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css"> <!-- Liên kết đến auth.css -->
 </head>
 <body>
     <header>
-        <h1>Đăng nhập</h1>
-        <nav><a href="index.html">Trang chủ</a></nav>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">🏠 Trang chủ</a></li>
+                    <li><a href="../nhanh/products.html">Sản phẩm</a></li>
+                    <li><a href="../nhanh/recipes.html">Công thức nấu ăn</a></li>
+                    <li><a href="../nhanh/contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="../nhanh/login.html"><i class="fa fa-user"></i></a>
+                <a href="../nhanh/cart.html"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
     </header>
-    <section id="login-form">
-        <form action="#" method="POST">
-            <label for="username">Tên đăng nhập:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Mật khẩu:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Đăng nhập</button>
-        </form>
-        <p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
-    </section>
+
+    <div class="background">
+        <div class="container">
+            <h1>Đăng Nhập Tài Khoản</h1>
+            <form id="login-form">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" required>
+
+                <label for="login-password">Mật khẩu:</label>
+                <input type="password" id="login-password" required>
+
+                <button type="submit">Đăng Nhập</button>
+            </form>
+            <p>Chưa có tài khoản? <a href="register.html">Đăng Ký</a></p>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
 </body>
 </html>
