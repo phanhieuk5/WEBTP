@@ -1,8 +1,10 @@
+// script.js
+
+// ==================== PHÂN TRANG ====================
 let currentPage = 1;
 const productsPerPage = 10; // Mỗi trang hiển thị 10 sản phẩm
 let totalPages = 1;
 
-// Hàm cập nhật chỉ báo trang
 function updatePageIndicator() {
     const pageIndicator = document.getElementById('page-indicator');
     if (pageIndicator) {
@@ -10,7 +12,6 @@ function updatePageIndicator() {
     }
 }
 
-// Hàm chuyển đổi trạng thái nút điều hướng
 function toggleNavigationButtons() {
     const prevButton = document.getElementById('prevPage');
     const nextButton = document.getElementById('nextPage');
@@ -23,37 +24,28 @@ function toggleNavigationButtons() {
     }
 }
 
-// Hàm hiển thị sản phẩm
 function displayProducts() {
     const productElements = document.querySelectorAll('.product');
     productElements.forEach((product, index) => {
-        // Tính toán trang mà sản phẩm này thuộc về
         const productPage = Math.floor(index / productsPerPage) + 1;
         product.style.display = (productPage === currentPage) ? 'block' : 'none';
     });
 }
 
-// Hàm thay đổi trang
 function changePage(direction) {
     currentPage += direction;
-    if (currentPage < 1) {
-        currentPage = 1;
-    } else if (currentPage > totalPages) {
-        currentPage = totalPages;
-    }
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
     displayProducts();
     updatePageIndicator();
     toggleNavigationButtons();
 }
 
-// Hàm tạo các nút phân trang
 function createPageButtons() {
-    const paginationContainer = document.querySelector('.pagination');
     updatePageIndicator();
     toggleNavigationButtons();
 }
 
-// Hàm khi trang được tải
 window.onload = function() {
     const productElements = document.querySelectorAll('.product');
     totalPages = Math.ceil(productElements.length / productsPerPage);
@@ -64,7 +56,7 @@ window.onload = function() {
     toggleNavigationButtons();
 };
 
-// Các hàm tìm kiếm và lọc
+// ==================== TÌM KIẾM VÀ LỌC SẢN PHẨM ====================
 function filterByName() {
     const name = document.getElementById('search-name').value.toLowerCase();
     const products = document.querySelectorAll('.product');
@@ -93,19 +85,12 @@ function filterByPrice() {
 function updatePagination() {
     const visibleProducts = document.querySelectorAll('.product[style*="display: block"]');
     totalPages = Math.ceil(visibleProducts.length / productsPerPage);
-    currentPage = 1; // Reset về trang đầu
+    currentPage = 1;
     displayProducts();
     createPageButtons();
 }
 
-// Hàm cuộn khi ấn vào mua ngay
-function scrollToProduct() {
-    document.getElementById('product-list').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-// Chuyển động của banner
+// ==================== CHUYỂN ĐỘNG CỦA BANNER ====================
 let currentSlide = 0;
 const slides = document.querySelectorAll('.banner-slide');
 const totalSlides = slides.length;
@@ -126,76 +111,55 @@ function nextSlide() {
 
 setInterval(nextSlide, 5000); // Chuyển ảnh mỗi 5 giây
 
-// Danh mục sản phẩm
+// ==================== LỌC SẢN PHẨM THEO DANH MỤC ====================
 function filterByCategory(category) {
     const products = document.querySelectorAll('.product');
 
     products.forEach(product => {
         const productCategory = product.getAttribute('data-category');
-        
-        // Kiểm tra nếu sản phẩm thuộc danh mục đã chọn
-        if (category === 'Tất cả' || productCategory === category) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
+        product.style.display = (category === 'Tất cả' || productCategory === category) ? 'block' : 'none';
     });
 }
-//Bieu tuong người dùng
-function openUserInfoModal() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser) {
-        document.getElementById('user-name').innerText = `Tên: ${loggedInUser.username}`;
-        document.getElementById('user-email').innerText = `Email: ${loggedInUser.email}`;
-    }
-    document.getElementById('user-info-modal').style.display = 'block';
-}
 
-function closeUserInfoModal() {
-    document.getElementById('user-info-modal').style.display = 'none';
-}
+// ==================== MODAL NGƯỜI DÙNG VÀ ĐĂNG NHẬP ====================
 
-// Gọi hàm openUserInfoModal khi nhấp vào biểu tượng người dùng
-document.querySelector('.header-icons a:nth-child(1)').addEventListener('click', function(event) {
-    event.preventDefault(); // Ngăn chặn hành động mặc định
-    openUserInfoModal(); // Mở modal
-});
-//
-document.addEventListener('DOMContentLoaded', () => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    
-    // Nếu có người dùng đã đăng nhập, hiển thị tên người dùng
-    if (loggedInUser) {
-        document.querySelector('.header-icons a:nth-child(1)').innerText = `Xin chào, ${loggedInUser.username}!`;
-        document.querySelector('.header-icons a:nth-child(1)').addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định
-            openUserInfoModal(); // Mở modal thông tin người dùng
-        });
-    } else {
-        // Nếu không có người dùng đăng nhập, hiển thị thông báo mặc định hoặc chuyển đến trang đăng nhập
-        document.querySelector('.header-icons a:nth-child(1)').innerText = 'Đăng Nhập';
-        document.querySelector('.header-icons a:nth-child(1)').addEventListener('click', function() {
-            window.location.href = 'nhanh/login.html'; // Chuyển đến trang đăng nhập
-        });
-    }
-});
-function logout() {
-    localStorage.removeItem('loggedInUser'); // Xóa thông tin đăng nhập
-    window.location.href = 'nhanh/login.html'; // Chuyển hướng về trang đăng nhập
-}
 function displayLoggedInUser() {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    const userGreeting = document.querySelector('.header-icons a:nth-child(1)'); // Giả sử đây là vị trí hiển thị thông tin người dùng
+    const userGreeting = document.getElementById('user-greeting');
 
-    if (loggedInUser) {
-        userGreeting.innerText = `Xin chào, ${loggedInUser.username}!`;
-        userGreeting.href = "#"; // Ngăn chặn chuyển hướng nếu đã đăng nhập
-        userGreeting.addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định
-            openUserInfoModal(); // Mở modal hiển thị thông tin người dùng
-        });
+    if (loggedInUser && loggedInUser.username) {
+        // Nếu người dùng đã đăng nhập, hiển thị lời chào kèm theo tên
+        userGreeting.innerHTML = `<i class="fa fa-user"></i> Xin chào, ${loggedInUser.username}!`;
+        userGreeting.href = "javascript:void(0);"; // Không chuyển hướng khi nhấn vào biểu tượng
+        userGreeting.onclick = toggleUserMenu; // Gọi hàm mở menu khi nhấn vào biểu tượng
     } else {
-        userGreeting.innerText = 'Đăng Nhập'; // Nếu không có người dùng đăng nhập
-        userGreeting.href = 'nhanh/login.html'; // Chuyển đến trang đăng nhập
+        // Nếu người dùng chưa đăng nhập, chỉ hiển thị biểu tượng và chuyển đến trang đăng nhập khi nhấn
+        userGreeting.innerHTML = `<i class="fa fa-user"></i>`;
+        userGreeting.href = 'nhanh/login.html'; // Chuyển hướng đến trang đăng nhập
+        userGreeting.onclick = null; // Bỏ sự kiện mở menu khi chưa đăng nhập
     }
 }
+document.addEventListener('DOMContentLoaded', displayLoggedInUser);
+// ==================== CUỘN ĐẾN DANH SÁCH SẢN PHẨM ====================
+function scrollToProduct() {
+    document.getElementById('product-list').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+let profileDropdownList = document.querySelector(".profile-dropdown-list");
+let btn = document.querySelector(".profile-dropdown-btn");
+
+const toggleDropdown = () => profileDropdownList.classList.toggle("show");
+
+window.addEventListener("click", function (e) {
+    if (!btn.contains(e.target)) profileDropdownList.classList.remove("show");
+});
+
+// Hàm đăng xuất
+function logout() {
+    alert("Bạn đã đăng xuất.");
+    window.location.href = "nhanh/login.html"; // Đường dẫn đến trang đăng nhập
+}
+
+
+

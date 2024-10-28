@@ -1,0 +1,101 @@
+/* checkout.css */
+
+/* Định dạng container cho trang thanh toán */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề trang thanh toán */
+h1, h3 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Phần chọn địa chỉ và phương thức thanh toán */
+label, input, select {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+#address-select, #new-address {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Phương thức thanh toán */
+input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+#credit-card-info {
+    margin-top: 20px;
+    display: none;
+}
+
+/* Tóm tắt hóa đơn */
+#order-summary {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.cart-item span {
+    font-size: 16px;
+}
+
+/* Nút thanh toán */
+.btn-checkout, #confirm-payment {
+    width: 100%;
+    background-color: #8B4513;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-checkout:hover, #confirm-payment:hover {
+    background-color: #7b3e14;
+}
+
+/* Thông tin thẻ tín dụng */
+#credit-card-info input {
+    margin-top: 5px;
+}
+
+#credit-card-info label {
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

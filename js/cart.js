@@ -34,8 +34,9 @@ const products = [
     { id: 31, name: "Rau ngót", price: 15000, description: "Rau ngót tươi, bổ dưỡng.", image: "img/raungot.jpg" },
     { id: 32, name: "Dưa gang", price: 25000, description: "Dưa gang thơm ngon.", image: "img/duagang.jpg" }
 ];
-// Hàm để tải giỏ hàng khi trang tải
+// Tải giỏ hàng từ localStorage khi trang tải
 function cartLoadPage() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartItemsContainer = document.getElementById('cart-items');
     const totalPriceElement = document.getElementById('total-price');
     cartItemsContainer.innerHTML = ''; // Xóa nội dung cũ
@@ -51,10 +52,10 @@ function cartLoadPage() {
             <img src="../img/${product.image}" alt="${product.name}">
             <span>${product.name}</span>
             <span>${product.price.toLocaleString()} VNĐ</span>
-            <input type="number" value="${product.quantity}" min="1" class="form-control"
+            <input type="number" value="${product.quantity}" min="1" class="quantity-input"
                    onchange="updateQuantity(${index}, this.value)">
             <span>${(product.price * product.quantity).toLocaleString()} VNĐ</span>
-            <button class="btn btn-danger" onclick="removeFromCart(${index})">Xóa</button>
+            <button class="btn-remove" onclick="removeFromCart(${index})">Xóa</button>
         `;
 
         cartItemsContainer.appendChild(productElement);
@@ -64,35 +65,20 @@ function cartLoadPage() {
     totalPriceElement.innerText = totalPrice.toLocaleString() + ' VNĐ';
 }
 
-// Hàm cập nhật số lượng sản phẩm
+// Cập nhật số lượng sản phẩm
 function updateQuantity(index, quantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart[index].quantity = parseInt(quantity);
     localStorage.setItem('cart', JSON.stringify(cart));
     cartLoadPage(); // Cập nhật lại giỏ hàng
 }
 
-// Hàm xóa sản phẩm khỏi giỏ hàng
+// Xóa sản phẩm khỏi giỏ hàng
 function removeFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     cartLoadPage(); // Cập nhật lại giỏ hàng
-}
-
-// Hàm thêm sản phẩm vào giỏ hàng
-function addToCart(name, price, image) {
-    const existingProduct = cart.find(item => item.name === name);
-    
-    if (existingProduct) {
-        existingProduct.quantity += 1;
-    } else {
-        const productToAdd = products.find(product => product.name === name);
-        if (productToAdd) {
-            cart.push({ name: productToAdd.name, price: productToAdd.price, image: productToAdd.image, quantity: 1 });
-        }
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} đã được thêm vào giỏ hàng!`);
 }
 
 // Gọi hàm cartLoadPage để tải giỏ hàng khi trang được mở

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenFarm - Thực phẩm sạch</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/modal.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/modal_product.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
 
@@ -25,37 +25,42 @@
                 </ul>
             </nav>
 
-            <!-- Thanh tìm kiếm -->
-            <div class="search-container">
-                <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm..." oninput="filterByName()">
-                <button onclick="filterByName()" class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-
-            <!-- Bộ lọc theo giá -->
-            <div class="filter-container">
-                <input type="number" id="min-price" placeholder="Giá từ" min="10000" max="5000000" value="10000">
-                <input type="number" id="max-price" placeholder="Giá đến" min="10000" max="5000000" value="5000000">
-                <button onclick="filterByPrice()" class="filter-btn">Lọc</button>
-            </div>
-
-            <div class="header-icons">
-                <a href="nhanh/login.html"><i class="fa fa-user"></i></a>
-                <a href="nhanh/cart.html"><i class="fa fa-shopping-cart"></i></a>
-            </div>
+<div class="header-icons">
+    <!-- Dropdown Tài khoản -->
+    <div class="profile-dropdown">
+        <div class="profile-dropdown-btn" onclick="toggleDropdown()">
+            <i class="fa fa-user"></i>
+            <span>Tài khoản <i class="fa fa-angle-down"></i></span>
         </div>
-        <!-- nút đăng xuất --> 
-        <div id="user-info-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeUserInfoModal()">&times;</span>
-        <h2>Thông tin tài khoản</h2>
-        <p id="user-name"></p>
-        <p id="user-email"></p>
-        <button onclick="logout()">Đăng Xuất</button> <!-- Nút đăng xuất -->
+
+        <ul class="profile-dropdown-list">
+            <li class="profile-dropdown-list-item">
+                <a href="nhanh/cart.html">
+                    <i class="fa fa-shopping-cart"></i> Giỏ hàng
+                </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+                <a href="nhanh/customer_info.html">
+                    <i class="fa-regular fa-user"></i> Thông tin khách hàng
+                </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+                <a href="nhanh/purchase_history.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng
+                </a>
+            </li>
+            <hr>
+            <li class="profile-dropdown-list-item">
+                <a href="javascript:void(0);" onclick="logout()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 
+    
     </header>
-
     <!-- Banner lớn -->
     <section class="hero">
     <div class="banner-slider">
@@ -85,6 +90,16 @@
     </div>
 </section>
 <section class="horizontal-category">
+     <div class="search-filter-dropdown">
+    <button onclick="toggleSearchFilter()" class="dropdown-button">🔍 Tìm kiếm và Lọc</button>
+    <div class="search-filter-container">
+        <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm">
+        <input type="number" id="min-price" placeholder="Giá tối thiểu">
+        <input type="number" id="max-price" placeholder="Giá tối đa">
+        <input type="button" onclick="filterByName()" value="Tìm kiếm">
+        <input type="button" onclick="filterByPrice()" value="Lọc theo giá">
+    </div>
+</div>
     <ul class="horizontal-category-list">
         <li><a href="javascript:void(0);" onclick="filterByCategory('Tất cả')">Tất cả</a></li>
         <li><a href="javascript:void(0);" onclick="filterByCategory('Trái cây')">Trái cây</a></li>
@@ -391,17 +406,31 @@
     </div>
 </div>
 
-<!-- Modal Thông Tin Người Dùng -->
-<div id="user-info-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeUserInfoModal()">&times;</span>
-        <h2>Thông Tin Người Dùng</h2>
-        <p id="user-name"></p>
-        <p id="user-email"></p>
-        <button onclick="logout()">Đăng Xuất</button>
-    </div>
+<<!-- Menu thả xuống cho người dùng -->
+<div id="user-menu" class="dropdown-menu">
+    <a href="nhanh/customer_info.html">Thông tin khách hàng</a>
+    <a href="nhanh/purchase_history.html">Lịch sử mua hàng</a>
+    <a href="javascript:void(0);" onclick="logout()">Đăng Xuất</a>
 </div>
 
+<div id="product-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <div class="modal-body">
+            <img id="modal-product-image" src="" alt="Hình ảnh sản phẩm">
+            <div class="product-info">
+                <h2 id="modal-product-name"></h2>
+                <p id="modal-product-price"></p>
+                <p id="modal-product-description"></p>
+                <div>
+                    <label>Số lượng:</label>
+                    <input type="number" id="modal-quantity" min="1" value="1">
+                </div>
+                <button onclick="addToCart()">Thêm vào giỏ</button>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Phân trang -->
         <div class="pagination">
@@ -417,7 +446,8 @@
   
     <!-- Gọi file JavaScript -->
     <script src="js/script.js"></script>
-    <script src="js/modal.js"></script>
+    <script src="js/modal_product.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

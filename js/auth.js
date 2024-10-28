@@ -42,43 +42,4 @@ document.getElementById('login-form')?.addEventListener('submit', function(e) {
     }
 });
 
-// Hàm để hiển thị thông tin tài khoản đang đăng nhập
-function displayLoggedInUser() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser) {
-        const welcomeMessage = document.createElement('p');
-        welcomeMessage.innerText = `Xin chào, ${loggedInUser.username}!`;
-        document.body.prepend(welcomeMessage);
-    }
-}
-// Hàm để hiển thị thông tin tài khoản đang đăng nhập
-function displayLoggedInUser() {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser) {
-        const welcomeMessage = document.createElement('div');
-        welcomeMessage.innerText = `Xin chào, ${loggedInUser.username}!`;
-        welcomeMessage.style.cursor = 'pointer';
-        welcomeMessage.onclick = () => showUserModal(); // Gọi hàm showUserModal khi nhấp vào
-        document.querySelector('.header-icons').insertBefore(welcomeMessage, document.querySelector('.header-icons a'));
-    }
-}
-
-// Hàm hiển thị modal thông tin người dùng
-function showUserModal() {
-    const modal = document.getElementById('user-modal');
-    modal.style.display = 'block';
-}
-
-// Hàm đóng modal
-function closeUserModal() {
-    const modal = document.getElementById('user-modal');
-    modal.style.display = 'none';
-}
-// Hàm đăng xuất
-function logout() {
-    localStorage.removeItem('loggedInUser'); // Xóa thông tin đăng nhập
-    window.location.href = 'nhanh/login.html'; // Chuyển hướng về trang đăng nhập
-}
-
-
-
+document.addEventListener('DOMContentLoaded', displayLoggedInUser);

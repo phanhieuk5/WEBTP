@@ -1,30 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ Hàng</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- CSS chung cho trang -->
-    <link rel="stylesheet" href="../css/cart.css"> <!-- CSS riêng cho giỏ hàng -->
+    <title>GreenFarm - Giỏ Hàng</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body onload="cartLoadPage()">
+
     <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
+                <!-- Chuyển hướng về trang chủ khi nhấn vào logo -->
                 <a href="../index.html"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
             </div>
             <nav>
                 <ul>
+                    <!-- Liên kết đến các trang khác -->
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
-                    <li><a href="../nhanh/products.html">Sản phẩm</a></li>
+                    <li><a href="../index.html#product-list">Sản phẩm</a></li> <!-- Cuộn đến phần sản phẩm -->
                     <li><a href="../nhanh/recipes.html">Công thức nấu ăn</a></li>
                     <li><a href="../nhanh/contact.html">Liên hệ</a></li>
                 </ul>
             </nav>
+
+            <!-- Thanh tìm kiếm -->
+            <div class="search-container">
+                <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm..." oninput="filterByName()">
+                <button onclick="filterByName()" class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Bộ lọc theo giá -->
+            <div class="filter-container">
+                <input type="number" id="min-price" placeholder="Giá từ" min="10000" max="5000000" value="10000">
+                <input type="number" id="max-price" placeholder="Giá đến" min="10000" max="5000000" value="5000000">
+                <button onclick="filterByPrice()" class="filter-btn">Lọc</button>
+            </div>
+
+            <!-- Các icon chức năng -->
             <div class="header-icons">
                 <a href="../nhanh/login.html"><i class="fa fa-user"></i></a>
-                <a href="../nhanh/cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
             </div>
         </div>
     </header>
@@ -37,48 +56,7 @@
                 <!-- Sản phẩm sẽ được chèn vào đây từ JavaScript -->
             </div>
             <h2>Tổng giá: <span id="total-price">0 VNĐ</span></h2>
-
-            <!-- Nhập địa chỉ giao hàng -->
-            <div>
-                <h3>Địa chỉ giao hàng</h3>
-                <label for="address">Chọn địa chỉ từ tài khoản:</label>
-                <select id="address-select">
-                    <option value="address1">Địa chỉ 1</option>
-                    <option value="address2">Địa chỉ 2</option>
-                </select>
-                <br>
-                <label for="new-address">Hoặc nhập địa chỉ mới:</label>
-                <input type="text" id="new-address" placeholder="Nhập địa chỉ mới...">
-            </div>
-
-            <!-- Chọn phương thức thanh toán -->
-            <div>
-                <h3>Phương thức thanh toán</h3>
-                <label>
-                    <input type="radio" name="payment" value="cash"> Tiền mặt
-                </label>
-                <label>
-                    <input type="radio" name="payment" value="bank_transfer"> Chuyển khoản
-                </label>
-                <label>
-                    <input type="radio" name="payment" value="credit_card"> Thẻ tín dụng
-                </label>
-            </div>
-
-            <!-- Thông tin thẻ tín dụng -->
-            <div id="credit-card-info" style="display: none;">
-                <h3>Thông tin thẻ tín dụng</h3>
-                <label for="card-number">Số thẻ:</label>
-                <input type="text" id="card-number" placeholder="Nhập số thẻ...">
-                <br>
-                <label for="card-expiry">Ngày hết hạn:</label>
-                <input type="text" id="card-expiry" placeholder="MM/YY">
-                <br>
-                <label for="card-cvc">CVC:</label>
-                <input type="text" id="card-cvc" placeholder="Nhập CVC...">
-            </div>
-
-            <button class="btn-checkout">Thanh toán</button>
+            <button class="btn-checkout" onclick="window.location.href='checkout.html'">Thanh toán</button>
         </div>
     </main>
 
@@ -87,7 +65,7 @@
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
-    <!-- Liên kết tới file JavaScript -->
+    <!-- Gọi file JavaScript cho giỏ hàng -->
     <script src="../js/cart.js"></script>
 </body>
 </html>
