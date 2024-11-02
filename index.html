@@ -114,278 +114,393 @@
 
     <!-- Nội dung chính về sản phẩm -->
     <main class="content">
-        <section class="product-list" id="product-list">
-    <!-- Trái cây -->
-    <div class="product" data-category="Trái cây" data-name="Bơ Booth" data-price="50000">
-        <img src="img/bobooth.jpg" alt="Bơ Booth">
-        <h2>Bơ Booth</h2>
-        <p>Giá: 50,000 VND/(1kg)</p>
-        <a href="product.html?id=1" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Bơ Booth" data-price="50000">
+    <section class="product-list" id="product-list">
+        <!-- Trái cây -->
+        <div class="product" data-id="1" data-name="Bơ Booth" data-price="50000">
+    <img src="img/bobooth.jpg" alt="Bơ Booth">
+    <h2>Bơ Booth</h2>
+    <p>Giá: 50,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('1')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('1')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Trái cây" data-name="Nho mẫu đơn" data-price="180000">
-        <img src="img/nhomaudon.jpg" alt="Nho mẫu đơn">
-        <h2>Nho mẫu đơn</h2>
-        <p>Giá: 180,000 VND/(1kg)</p>
-        <a href="product.html?id=2" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Nho mẫu đơn" data-price="180000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Trái cây" data-name="Táo Mỹ" data-price="150000">
-        <img src="img/taomy.jpg" alt="Táo Mỹ">
-        <h2>Táo Mỹ</h2>
-        <p>Giá: 150,000 VND/(1kg)</p>
-        <a href="product.html?id=3" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Táo Mỹ" data-price="150000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Trái cây" data-name="Việt quất" data-price="180000">
-        <img src="img/vietquat.jpg" alt="Việt quất">
-        <h2>Việt quất</h2>
-        <p>Giá: 180,000 VND/(1kg)</p>
-        <a href="product.html?id=4" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Việt quất" data-price="180000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Trái cây" data-name="Táo xanh" data-price="80000">
-        <img src="img/taoxanh.jpg" alt="Táo xanh">
-        <h2>Táo xanh</h2>
-        <p>Giá: 80,000 VND/(1kg)</p>
-        <a href="product.html?id=5" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Táo xanh" data-price="80000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Trái cây" data-name="Dâu Tây Đà Lạt" data-price="100000">
-        <img src="img/dautaydalat.jpg" alt="Dâu Tây Đà Lạt">
-        <h2>Dâu Tây Đà Lạt</h2>
-        <p>Giá: 100,000 VND/(1kg)</p>
-        <a href="product.html?id=6" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Dâu Tây Đà Lạt" data-price="100000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
+</div>
 
-    <!-- Rau củ -->
-    <div class="product" data-category="Rau củ" data-name="Bắp cải xanh" data-price="25000">
-        <img src="img/bapcaixanh.jpg" alt="Bắp cải xanh">
-        <h2>Bắp cải xanh</h2>
-        <p>Giá: 25,000 VND/(1kg)</p>
-        <a href="product.html?id=7" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Bắp cải xanh" data-price="25000">
+<div class="product" data-id="2" data-name="Nho mẫu đơn" data-price="180000">
+    <img src="img/nhomaudon.jpg" alt="Nho mẫu đơn">
+    <h2>Nho mẫu đơn</h2>
+    <p>Giá: 180,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('2')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('2')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Rau củ" data-name="Cà Chua" data-price="20000">
-        <img src="img/cachua.jpg" alt="Cà Chua">
-        <h2>Cà Chua</h2>
-        <p>Giá: 20,000 VND/(1kg)</p>
-        <a href="product.html?id=8" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Cà Chua" data-price="20000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Rau củ" data-name="Cà Rốt" data-price="30000">
-        <img src="img/carot.jpg" alt="Cà Rốt">
-        <h2>Cà Rốt</h2>
-        <p>Giá: 30,000 VND/(1kg)</p>
-        <a href="product.html?id=9" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Cà Rốt" data-price="30000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Rau củ" data-name="Khoai Tây" data-price="25000">
-        <img src="img/khoaitay.jpg" alt="Khoai Tây">
-        <h2>Khoai Tây</h2>
-        <p>Giá: 25,000 VND/(1kg)</p>
-        <a href="product.html?id=10" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Khoai Tây" data-price="25000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Rau củ" data-name="Bông cải trắng" data-price="35000">
-        <img src="img/bongcaitrang.jpg" alt="Bông cải trắng">
-        <h2>Bông cải trắng</h2>
-        <p>Giá: 35,000 VND/(1kg)</p>
-        <a href="product.html?id=11" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Bông cải trắng" data-price="35000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Rau củ" data-name="Cà tím loại 1" data-price="20000">
-        <img src="img/catimloai1.jpg" alt="Cà tím loại 1">
-        <h2>Cà tím loại 1</h2>
-        <p>Giá: 20,000 VND/(1kg)</p>
-        <a href="product.html?id=12" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Cà tím loại 1" data-price="20000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
+</div>
 
-    <!-- Hải sản -->
-    <div class="product" data-category="Hải sản" data-name="Cua Hoàng Đế" data-price="800000">
-        <img src="img/cuahoangde.jpg" alt="Cua Hoàng Đế">
-        <h2>Cua Hoàng Đế</h2>
-        <p>Giá: 800,000 VND/(1kg)</p>
-        <a href="product.html?id=13" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Cua Hoàng Đế" data-price="800000">
+<div class="product" data-id="3" data-name="Táo Mỹ" data-price="150000">
+    <img src="img/taomy.jpg" alt="Táo Mỹ">
+    <h2>Táo Mỹ</h2>
+    <p>Giá: 150,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('3')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('3')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Hải sản" data-name="Cá hồi miền" data-price="200000">
-        <img src="img/cahoimien.jpg" alt="Cá hồi miền">
-        <h2>Cá hồi miền</h2>
-        <p>Giá: 200,000 VND/(1kg)</p>
-        <a href="product.html?id=14" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Cá hồi miền" data-price="200000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Hải sản" data-name="Thịt cá ngừ đại dương" data-price="200000">
-        <img src="img/thitcangudaiduong.jpg" alt="Thịt cá ngừ đại dương">
-        <h2>Thịt cá ngừ đại dương</h2>
-        <p>Giá: 200,000 VND/(1kg)</p>
-        <a href="product.html?id=15" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Thịt cá ngừ đại dương" data-price="200000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Hải sản" data-name="Ghẹ" data-price="250000">
-        <img src="img/ghe.jpg" alt="Ghẹ">
-        <h2>Ghẹ</h2>
-        <p>Giá: 250,000 VND/(1kg)</p>
-        <a href="product.html?id=16" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Ghẹ" data-price="250000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Hải sản" data-name="Tôm" data-price="250000">
-        <img src="img/tom.jpg" alt="Tôm">
-        <h2>Tôm</h2>
-        <p>Giá: 250,000 VND/(1kg)</p>
-        <a href="product.html?id=17" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Tôm" data-price="250000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Hải sản" data-name="Sò Huyết" data-price="70000">
-        <img src="img/sohuyet.jpg" alt="Sò Huyết">
-        <h2>Sò Huyết</h2>
-        <p>Giá: 70,000 VND/(1kg)</p>
-        <a href="product.html?id=18" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Sò Huyết" data-price="70000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
+</div>
 
-    <!-- Thịt và trứng -->
-    <div class="product" data-category="Thịt và trứng" data-name="Đùi gà thả vườn" data-price="120000">
-        <img src="img/duigathavuon.jpg" alt="Đùi gà thả vườn">
-        <h2>Đùi gà thả vườn</h2>
-        <p>Giá: 120,000 VND/(1kg)</p>
-        <a href="product.html?id=19" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Đùi gà thả vườn" data-price="120000">
+<div class="product" data-id="4" data-name="Việt quất" data-price="180000">
+    <img src="img/vietquat.jpg" alt="Việt quất">
+    <h2>Việt quất</h2>
+    <p>Giá: 180,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('4')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('4')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Thịt và trứng" data-name="Thịt bò thượng hạng" data-price="350000">
-        <img src="img/thitbothuonghang.jpg" alt="Thịt bò thượng hạng">
-        <h2>Thịt bò thượng hạng</h2>
-        <p>Giá: 350,000 VND/(1kg)</p>
-        <a href="product.html?id=20" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Thịt bò thượng hạng" data-price="350000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Thịt và trứng" data-name="Trứng gà thả vườn" data-price="40000">
-        <img src="img/trunggathavuon.jpg" alt="Trứng gà thả vườn">
-        <h2>Trứng gà thả vườn</h2>
-        <p>Giá: 40,000 VND/(1kg)</p>
-        <a href="product.html?id=21" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Trứng gà thả vườn" data-price="40000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Thịt và trứng" data-name="Gà ta" data-price="150000">
-        <img src="img/gata.jpg" alt="Gà ta">
-        <h2>Gà ta</h2>
-        <p>Giá: 150,000 VND/(1kg)</p>
-        <a href="product.html?id=22" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Gà ta" data-price="150000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
-    <div class="product" data-category="Thịt và trứng" data-name="Thịt cá ngừ đại dương" data-price="200000">
-        <img src="img/thitcangudaiduong.jpg" alt="Thịt cá ngừ đại dương">
-        <h2>Thịt cá ngừ đại dương</h2>
-        <p>Giá: 200,000 VND/(1kg)</p>
-        <a href="product.html?id=23" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Thịt cá ngừ đại dương" data-price="200000">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-    </div>
+</div>
 
-    <!-- Khác -->
-    <div class="product" data-category="Khác" data-name="Bắp Mỹ" data-price="15000">
-        <img src="img/bapmy.jpg" alt="Bắp Mỹ">
-        <h2>Bắp Mỹ</h2>
-        <p>Giá: 15,000 VND/(1kg)</p>
-        <a href="product.html?id=24" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Bắp Mỹ" data-price="15000">
+<div class="product" data-id="5" data-name="Táo xanh" data-price="80000">
+    <img src="img/taoxanh.jpg" alt="Táo xanh">
+    <h2>Táo xanh</h2>
+    <p>Giá: 80,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('5')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('5')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Khác" data-name="Dưa chuột" data-price="18000">
-        <img src="img/duachuot.jpg" alt="Dưa chuột">
-        <h2>Dưa chuột</h2>
-        <p>Giá: 18,000 VND/(1kg)</p>
-        <a href="product.html?id=25" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Dưa chuột" data-price="18000">
+</div>
+
+<div class="product" data-id="6" data-name="Dâu Tây Đà Lạt" data-price="100000">
+    <img src="img/dautaydalat.jpg" alt="Dâu Tây Đà Lạt">
+    <h2>Dâu Tây Đà Lạt</h2>
+    <p>Giá: 100,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('6')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('6')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Khác" data-name="Tỏi khô" data-price="50000">
-        <img src="img/toikho.jpg" alt="Tỏi khô">
-        <h2>Tỏi khô</h2>
-        <p>Giá: 50,000 VND/(1kg)</p>
-        <a href="product.html?id=26" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Tỏi khô" data-price="50000">
+</div>
+
+<div class="product" data-id="7" data-name="Bắp cải xanh" data-price="25000">
+    <img src="img/bapcaixanh.jpg" alt="Bắp cải xanh">
+    <h2>Bắp cải xanh</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('7')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('7')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Khác" data-name="Bí ngòi xanh" data-price="25000">
-        <img src="img/bingoixanh.jpg" alt="Bí ngòi xanh">
-        <h2>Bí ngòi xanh</h2>
-        <p>Giá: 25,000 VND/(1kg)</p>
-        <a href="product.html?id=27" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Bí ngòi xanh" data-price="25000">
+</div>
+
+<div class="product" data-id="8" data-name="Cà Chua" data-price="20000">
+    <img src="img/cachua.jpg" alt="Cà Chua">
+    <h2>Cà Chua</h2>
+    <p>Giá: 20,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('8')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('8')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Khác" data-name="Rong nho" data-price="50000">
-        <img src="img/rongnho.jpg" alt="Rong nho">
-        <h2>Rong nho</h2>
-        <p>Giá: 50,000 VND/(1kg)</p>
-        <a href="product.html?id=28" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Rong nho" data-price="50000">
+</div>
+
+<div class="product" data-id="9" data-name="Cà Rốt" data-price="30000">
+    <img src="img/carot.jpg" alt="Cà Rốt">
+    <h2>Cà Rốt</h2>
+    <p>Giá: 30,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('9')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('9')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-    <div class="product" data-category="Khác" data-name="Lúa mì" data-price="30000">
-        <img src="img/luami.jpg" alt="Lúa mì">
-        <h2>Lúa mì</h2>
-        <p>Giá: 30,000 VND/(1kg)</p>
-        <a href="product.html?id=29" class="button">Xem chi tiết</a>
-        <button class="add-to-cart-btn" data-name="Lúa mì" data-price="30000">
+</div>
+
+<div class="product" data-id="10" data-name="Khoai Tây" data-price="25000">
+    <img src="img/khoaitay.jpg" alt="Khoai Tây">
+    <h2>Khoai Tây</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('10')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('10')">
             <i class="fas fa-shopping-cart"></i>
         </button>
     </div>
-</section>
+</div>
+
+<div class="product" data-id="11" data-name="Bông cải trắng" data-price="35000">
+    <img src="img/bongcaitrang.jpg" alt="Bông cải trắng">
+    <h2>Bông cải trắng</h2>
+    <p>Giá: 35,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('11')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('11')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="12" data-name="Cà tím loại 1" data-price="20000">
+    <img src="img/catimloai1.jpg" alt="Cà tím loại 1">
+    <h2>Cà tím loại 1</h2>
+    <p>Giá: 20,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('12')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('12')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="13" data-name="Cua Hoàng Đế" data-price="800000">
+    <img src="img/cuahoangde.jpg" alt="Cua Hoàng Đế">
+    <h2>Cua Hoàng Đế</h2>
+    <p>Giá: 800,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('13')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('13')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="14" data-name="Cá hồi miền" data-price="200000">
+    <img src="img/cahoimien.jpg" alt="Cá hồi miền">
+    <h2>Cá hồi miền</h2>
+    <p>Giá: 200,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('14')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('14')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="15" data-name="Thịt cá ngừ đại dương" data-price="200000">
+    <img src="img/thitcangudaiduong.jpg" alt="Thịt cá ngừ đại dương">
+    <h2>Thịt cá ngừ đại dương</h2>
+    <p>Giá: 200,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('15')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('15')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="16" data-name="Ghẹ" data-price="250000">
+    <img src="img/ghe.jpg" alt="Ghẹ">
+    <h2>Ghẹ</h2>
+    <p>Giá: 250,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('16')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('16')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="17" data-name="Tôm" data-price="250000">
+    <img src="img/tom.jpg" alt="Tôm">
+    <h2>Tôm</h2>
+    <p>Giá: 250,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('17')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('17')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="18" data-name="Sò Huyết" data-price="70000">
+    <img src="img/sohuyet.jpg" alt="Sò Huyết">
+    <h2>Sò Huyết</h2>
+    <p>Giá: 70,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('18')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('18')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="19" data-name="Đùi gà thả vườn" data-price="120000">
+    <img src="img/duigathavuon.jpg" alt="Đùi gà thả vườn">
+    <h2>Đùi gà thả vườn</h2>
+    <p>Giá: 120,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('19')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('19')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="20" data-name="Thịt bò thượng hạng" data-price="350000">
+    <img src="img/thitbothuonghang.jpg" alt="Thịt bò thượng hạng">
+    <h2>Thịt bò thượng hạng</h2>
+    <p>Giá: 350,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('20')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('20')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="21" data-name="Trứng gà thả vườn" data-price="40000">
+    <img src="img/trunggathavuon.jpg" alt="Trứng gà thả vườn">
+    <h2>Trứng gà thả vườn</h2>
+    <p>Giá: 40,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('21')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('21')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="22" data-name="Gà ta" data-price="150000">
+    <img src="img/gata.jpg" alt="Gà ta">
+    <h2>Gà ta</h2>
+    <p>Giá: 150,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('22')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('22')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="23" data-name="Thịt cá ngừ đại dương" data-price="200000">
+    <img src="img/thitcangudaiduong.jpg" alt="Thịt cá ngừ đại dương">
+    <h2>Thịt cá ngừ đại dương</h2>
+    <p>Giá: 200,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('23')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('23')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="24" data-name="Bắp Mỹ" data-price="15000">
+    <img src="img/bapmy.jpg" alt="Bắp Mỹ">
+    <h2>Bắp Mỹ</h2>
+    <p>Giá: 15,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('24')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('24')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="25" data-name="Dưa chuột" data-price="18000">
+    <img src="img/duachuot.jpg" alt="Dưa chuột">
+    <h2>Dưa chuột</h2>
+    <p>Giá: 18,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('25')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('25')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="26" data-name="Tỏi khô" data-price="50000">
+    <img src="img/toikho.jpg" alt="Tỏi khô">
+    <h2>Tỏi khô</h2>
+    <p>Giá: 50,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('26')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('26')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="27" data-name="Bí ngòi xanh" data-price="25000">
+    <img src="img/bingoixanh.jpg" alt="Bí ngòi xanh">
+    <h2>Bí ngòi xanh</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('27')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('27')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="28" data-name="Rong nho" data-price="50000">
+    <img src="img/rongnho.jpg" alt="Rong nho">
+    <h2>Rong nho</h2>
+    <p>Giá: 50,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('28')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('28')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="29" data-name="Lúa mì" data-price="30000">
+    <img src="img/luami.jpg" alt="Lúa mì">
+    <h2>Lúa mì</h2>
+    <p>Giá: 30,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('29')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('29')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="30" data-name="Ngô ngọt" data-price="17000">
+    <img src="img/ngongot.jpg" alt="Ngô ngọt">
+    <h2>Ngô ngọt</h2>
+    <p>Giá: 17,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('30')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('30')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="31" data-name="Khoai lang" data-price="30000">
+    <img src="img/khoailang.jpg" alt="Khoai lang">
+    <h2>Khoai lang</h2>
+    <p>Giá: 30,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('31')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('31')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+<div class="product" data-id="32" data-name="Hành tây" data-price="25000">
+    <img src="img/hanhtay.jpg" alt="Hành tây">
+    <h2>Hành tây</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <button class="button" onclick="openModal('32')">Xem chi tiết</button>
+        <button class="add-to-cart-btn" onclick="addToCart('32')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+</div>
+
+    </section>
 <!-- Modal Chi Tiết Sản Phẩm -->
 <div id="product-modal" class="modal" style="display: none;">
     <div class="modal-content">
@@ -449,5 +564,6 @@
     <script src="js/modal_product.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/product.js"></script>
 </body>
 </html>

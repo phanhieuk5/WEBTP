@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenFarm - Lịch Sử Mua Hàng</title>
+    <title>GreenFarm - Thông Tin Khách Hàng</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -29,13 +29,25 @@
         </div>
     </header>
 
-    <!-- Nội dung Lịch Sử Mua Hàng -->
+    <!-- Nội dung Thông Tin Khách Hàng -->
     <main class="content">
         <div class="container">
-            <h1>Lịch Sử Mua Hàng</h1>
-            <div id="purchase-history">
-                <!-- Đơn hàng sẽ được thêm vào từ JavaScript -->
-            </div>
+            <h1>Thông Tin Khách Hàng</h1>
+            <form id="customer-info-form">
+                <label for="name">Tên:</label>
+                <input type="text" id="name" placeholder="Nhập tên của bạn">
+
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" placeholder="Nhập số điện thoại">
+
+                <label for="address1">Địa chỉ 1:</label>
+                <input type="text" id="address1" placeholder="Nhập địa chỉ thứ nhất">
+
+                <label for="address2">Địa chỉ 2:</label>
+                <input type="text" id="address2" placeholder="Nhập địa chỉ thứ hai">
+                
+                <button type="button" onclick="saveCustomerInfo()">Lưu Thông Tin</button>
+            </form>
         </div>
     </main>
 
@@ -43,6 +55,6 @@
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
-    <script src="../js/purchase_history.js"></script>
+    <script src="../js/customer_info.js"></script>
 </body>
 </html>

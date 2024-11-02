@@ -69,23 +69,6 @@ input[type="radio"] {
     font-size: 16px;
 }
 
-/* Nút thanh toán */
-.btn-checkout, #confirm-payment {
-    width: 100%;
-    background-color: #8B4513;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.btn-checkout:hover, #confirm-payment:hover {
-    background-color: #7b3e14;
-}
 
 /* Thông tin thẻ tín dụng */
 #credit-card-info input {
@@ -98,4 +81,45 @@ input[type="radio"] {
 
 button:hover {
     background-color: #45a049;
+}
+.checkout-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Nút "Quay lại" */
+.btn-back {
+    width: 48%; /* Đảm bảo hai nút cùng kích thước */
+    background-color: #bbb; /* Màu sắc đồng bộ với trang */
+    color: #333;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #a6a6a6;
+}
+
+/* Nút "Xác Nhận Thanh Toán" */
+.btn-checkout {
+    width: 48%; /* Đảm bảo hai nút cùng kích thước */
+    background-color: #8B4513;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #7b3e14;
 }

@@ -1,5 +1,4 @@
 /* cart.css */
-
 /* Định dạng container giỏ hàng */
 .container {
     max-width: 800px;
@@ -83,4 +82,44 @@ h1, h2 {
 
 .btn-checkout:hover {
     background-color: #7b3e14;
+}
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown-btn {
+    cursor: pointer;
+    color: #333;
+}
+
+.profile-dropdown-list {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.profile-dropdown-list li {
+    list-style: none;
+}
+
+.profile-dropdown-list a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown-list a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
 }

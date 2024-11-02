@@ -14,36 +14,32 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <!-- Chuyển hướng về trang chủ khi nhấn vào logo -->
                 <a href="../index.html"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
             </div>
             <nav>
                 <ul>
-                    <!-- Liên kết đến các trang khác -->
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
-                    <li><a href="../index.html#product-list">Sản phẩm</a></li> <!-- Cuộn đến phần sản phẩm -->
+                    <li><a href="../index.html#product-list">Sản phẩm</a></li>
                     <li><a href="../nhanh/recipes.html">Công thức nấu ăn</a></li>
                     <li><a href="../nhanh/contact.html">Liên hệ</a></li>
                 </ul>
             </nav>
 
-            <!-- Thanh tìm kiếm -->
-            <div class="search-container">
-                <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm..." oninput="filterByName()">
-                <button onclick="filterByName()" class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-
-            <!-- Bộ lọc theo giá -->
-            <div class="filter-container">
-                <input type="number" id="min-price" placeholder="Giá từ" min="10000" max="5000000" value="10000">
-                <input type="number" id="max-price" placeholder="Giá đến" min="10000" max="5000000" value="5000000">
-                <button onclick="filterByPrice()" class="filter-btn">Lọc</button>
-            </div>
-
-            <!-- Các icon chức năng -->
             <div class="header-icons">
-                <a href="../nhanh/login.html"><i class="fa fa-user"></i></a>
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <div class="profile-dropdown">
+                    <div class="profile-dropdown-btn" onclick="toggleDropdown()">
+                        <i class="fa fa-user"></i>
+                        <span>Tài khoản <i class="fa fa-angle-down"></i></span>
+                    </div>
+
+                    <ul class="profile-dropdown-list">
+                        <li><a href="../nhanh/cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a href="../nhanh/customer_info.html"><i class="fa-regular fa-user"></i> Thông tin khách hàng</a></li>
+                        <li><a href="../nhanh/purchase_history.html"><i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng</a></li>
+                        <hr>
+                        <li><a href="javascript:void(0);" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -52,20 +48,19 @@
     <main class="content">
         <div class="container">
             <h1>Giỏ Hàng</h1>
-            <div id="cart-items" class="cart-items">
-                <!-- Sản phẩm sẽ được chèn vào đây từ JavaScript -->
-            </div>
+            <div id="cart-items" class="cart-items"></div>
             <h2>Tổng giá: <span id="total-price">0 VNĐ</span></h2>
             <button class="btn-checkout" onclick="window.location.href='checkout.html'">Thanh toán</button>
         </div>
     </main>
 
-    <!-- Footer giống với trang chủ -->
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
-    <!-- Gọi file JavaScript cho giỏ hàng -->
     <script src="../js/cart.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/script.js"></script>
+   
 </body>
 </html>

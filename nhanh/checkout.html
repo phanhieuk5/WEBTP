@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenFarm - Thanh Toán</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/checkout.css">
 </head>
 <body>
 
-    <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -34,8 +33,6 @@
     <main class="content">
         <div class="container">
             <h1>Thanh Toán</h1>
-            
-            <!-- Chọn địa chỉ giao hàng -->
             <div>
                 <h3>Địa chỉ giao hàng</h3>
                 <label for="address-select">Chọn địa chỉ từ tài khoản:</label>
@@ -47,22 +44,12 @@
                 <label for="new-address">Hoặc nhập địa chỉ mới:</label>
                 <input type="text" id="new-address" placeholder="Nhập địa chỉ mới...">
             </div>
-
-            <!-- Chọn phương thức thanh toán -->
             <div>
                 <h3>Phương thức thanh toán</h3>
-                <label>
-                    <input type="radio" name="payment" value="cash" checked> Tiền mặt
-                </label>
-                <label>
-                    <input type="radio" name="payment" value="bank_transfer"> Chuyển khoản
-                </label>
-                <label>
-                    <input type="radio" name="payment" value="credit_card"> Thẻ tín dụng
-                </label>
+                <label><input type="radio" name="payment" value="cash" checked> Tiền mặt</label>
+                <label><input type="radio" name="payment" value="bank_transfer"> Chuyển khoản</label>
+                <label><input type="radio" name="payment" value="credit_card"> Thẻ tín dụng</label>
             </div>
-
-            <!-- Thông tin thẻ tín dụng -->
             <div id="credit-card-info" style="display: none;">
                 <h3>Thông tin thẻ tín dụng</h3>
                 <label for="card-number">Số thẻ:</label>
@@ -72,25 +59,20 @@
                 <label for="card-cvc">CVC:</label>
                 <input type="text" id="card-cvc" placeholder="Nhập CVC...">
             </div>
-
-            <!-- Tóm tắt hóa đơn -->
             <div id="order-summary">
                 <h3>Tóm Tắt Hóa Đơn</h3>
                 <div id="summary-items"></div>
                 <p><strong>Tổng giá: </strong><span id="summary-total-price">0 VNĐ</span></p>
             </div>
-
-            <!-- Nút xác nhận thanh toán -->
+             <button class="btn-back" onclick="window.location.href='cart.html'">Quay lại</button>
             <button class="btn-checkout" id="confirm-payment">Xác Nhận Thanh Toán</button>
         </div>
     </main>
 
-    <!-- Footer giống với trang chủ -->
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
-    <!-- Gọi file JavaScript cho thanh toán -->
     <script src="../js/checkout.js"></script>
 </body>
 </html>

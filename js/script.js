@@ -129,7 +129,6 @@ function displayLoggedInUser() {
 
     if (loggedInUser && loggedInUser.username) {
         // Nếu người dùng đã đăng nhập, hiển thị lời chào kèm theo tên
-        userGreeting.innerHTML = `<i class="fa fa-user"></i> Xin chào, ${loggedInUser.username}!`;
         userGreeting.href = "javascript:void(0);"; // Không chuyển hướng khi nhấn vào biểu tượng
         userGreeting.onclick = toggleUserMenu; // Gọi hàm mở menu khi nhấn vào biểu tượng
     } else {
@@ -160,6 +159,3 @@ function logout() {
     alert("Bạn đã đăng xuất.");
     window.location.href = "nhanh/login.html"; // Đường dẫn đến trang đăng nhập
 }
-
-
-
