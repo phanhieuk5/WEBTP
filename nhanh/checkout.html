@@ -30,16 +30,13 @@
     </header>
 
     <!-- Nội dung thanh toán -->
-    <main class="content">
+     <main class="content">
         <div class="container">
             <h1>Thanh Toán</h1>
             <div>
                 <h3>Địa chỉ giao hàng</h3>
                 <label for="address-select">Chọn địa chỉ từ tài khoản:</label>
-                <select id="address-select">
-                    <option value="address1">Địa chỉ 1: 123 Đường ABC, Quận 1</option>
-                    <option value="address2">Địa chỉ 2: 456 Đường XYZ, Quận 2</option>
-                </select>
+                <select id="address-select"></select>
                 <br>
                 <label for="new-address">Hoặc nhập địa chỉ mới:</label>
                 <input type="text" id="new-address" placeholder="Nhập địa chỉ mới...">
@@ -64,10 +61,11 @@
                 <div id="summary-items"></div>
                 <p><strong>Tổng giá: </strong><span id="summary-total-price">0 VNĐ</span></p>
             </div>
-             <button class="btn-back" onclick="window.location.href='cart.html'">Quay lại</button>
+            <button class="btn-back" onclick="window.location.href='cart.html'">Quay lại</button>
             <button class="btn-checkout" id="confirm-payment">Xác Nhận Thanh Toán</button>
         </div>
     </main>
+
 
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>

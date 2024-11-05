@@ -5,6 +5,11 @@ function saveCustomerInfo() {
     const address1 = document.getElementById("address1").value;
     const address2 = document.getElementById("address2").value;
 
+    if (!name || !phone || !address1) {
+        alert("Vui lòng điền đầy đủ thông tin cần thiết.");
+        return;
+    }
+
     const customerInfo = {
         name,
         phone,

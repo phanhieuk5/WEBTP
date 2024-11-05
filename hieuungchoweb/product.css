@@ -139,12 +139,13 @@ body {
 
 /* Danh sách sản phẩm */
 .product-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Chia thành 5 cột */
+    display: flex;
+    flex-wrap: wrap; /* Cho phép dòng mới khi hết không gian */
     gap: 20px;
 }
 
 .product {
+    flex: 0 0 calc(20% - 20px); /* Mỗi sản phẩm chiếm 20% chiều rộng trừ khoảng cách */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

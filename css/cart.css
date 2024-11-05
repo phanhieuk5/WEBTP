@@ -18,6 +18,7 @@ h1, h2 {
 /* Danh sách sản phẩm trong giỏ hàng */
 .cart-items {
     margin-bottom: 20px;
+     min-height: 100px;
 }
 
 .cart-item {

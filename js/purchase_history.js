@@ -23,3 +23,6 @@ function displayPurchaseHistory() {
 
 // Gọi hàm khi trang tải
 document.addEventListener("DOMContentLoaded", displayPurchaseHistory);
+
+// Gọi hàm khi trang tải
+document.addEventListener("DOMContentLoaded", displayPurchaseHistory);
