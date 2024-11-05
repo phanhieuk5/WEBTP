@@ -176,6 +176,18 @@ body {
     font-weight: bold;
     margin-top: 5px;
 }
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .product {
+        flex: 1 1 calc(50% - 10px); /* 2 sản phẩm mỗi hàng trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        flex: 1 1 100%; /* 1 sản phẩm mỗi hàng trên màn hình rất nhỏ */
+    }
+}
 
 /* Button container để căn 2 nút */
 .button-container {

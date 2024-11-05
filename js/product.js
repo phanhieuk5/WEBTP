@@ -38,7 +38,8 @@ const products = [
 function openModal(productId) {
     const product = products.find(item => item.id === productId);
     if (product) {
-        document.getElementById("modal-product-image").src = product.image;
+        document.getElementById("modal-product-image").src = `img/${product.image}`;
+
         document.getElementById("modal-product-name").textContent = product.name;
         document.getElementById("modal-product-price").textContent = `Giá: ${product.price.toLocaleString()} VND`;
         document.getElementById("modal-product-description").textContent = product.description;
