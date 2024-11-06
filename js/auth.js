@@ -24,29 +24,35 @@ document.getElementById('register-form')?.addEventListener('submit', function(e)
 });
 
 // Hàm đăng nhập người dùng
-document.getElementById('login-form')?.addEventListener('submit', function(e) {
-    e.preventDefault(); // Ngăn chặn hành động mặc định của form
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn chặn hành động mặc định của form
 
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
 
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.email === email && user.password === password);
+        // Lấy danh sách người dùng từ localStorage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(user => user.email === email && user.password === password);
 
-    if (user) {
-        alert(`Chào mừng ${user.username}!`);
-        localStorage.setItem('loggedInUser', JSON.stringify(user)); // Lưu thông tin người dùng đã đăng nhập
-        window.location.href = '../index.html'; // Chuyển hướng về trang chính
-    } else {
-        alert('Thông tin đăng nhập không chính xác. Vui lòng thử lại.');
-    }
-});
-function logout() {
-    localStorage.removeItem("loggedInUser"); // Xóa thông tin người dùng khỏi localStorage
-    alert("Bạn đã đăng xuất thành công.");
-    window.location.reload(); // Tải lại trang để cập nhật giao diện
+        if (user) {
+            if (user.status === 'Locked') {
+                alert('Tài khoản của bạn đã bị khóa. Vui lòng liên hệ với quản trị viên.');
+                return; // Ngừng thực hiện nếu tài khoản bị khóa
+            }
+
+            alert(`Chào mừng ${user.username}!`);
+            localStorage.setItem('loggedInUser', JSON.stringify(user)); // Lưu thông tin người dùng đã đăng nhập
+            window.location.href = '../index.html';
+        } else {
+            alert('Thông tin đăng nhập không chính xác. Vui lòng thử lại.');
+        }
+    });
+} else {
+    console.warn("Phần tử 'login-form' không tồn tại trên trang.");
 }
-// auth.js
+
 
 // Hàm hiển thị trạng thái đăng nhập của người dùng
 function displayLoggedInUser() {
@@ -84,10 +90,25 @@ function displayLoggedInUser() {
     }
 }
 function logout() {
-    localStorage.removeItem('loggedInUser'); // Xóa thông tin đăng nhập của người dùng
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    
+    if (loggedInUser) {
+        const username = loggedInUser.username;
+        
+        // Xóa thông tin tài khoản, giỏ hàng và lịch sử mua hàng của người dùng hiện tại
+        localStorage.removeItem(`customerInfo_${username}`);
+        localStorage.removeItem(`cart_${username}`);
+        localStorage.removeItem(`purchaseHistory_${username}`);
+        
+        // Xóa thông tin người dùng đăng nhập
+        localStorage.removeItem('loggedInUser');
+        sessionStorage.removeItem("currentUsername");
+    }
+
     alert("Bạn đã đăng xuất thành công.");
     displayLoggedInUser(); // Cập nhật lại giao diện sau khi đăng xuất
 }
+
 
 // Gọi hàm hiển thị khi trang tải
 document.addEventListener('DOMContentLoaded', displayLoggedInUser);

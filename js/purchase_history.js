@@ -1,5 +1,9 @@
 function displayPurchaseHistory() {
-    const purchaseHistory = JSON.parse(localStorage.getItem("purchaseHistory")) || [];
+      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser) return;
+
+    const username = loggedInUser.username;
+    const purchaseHistory = JSON.parse(localStorage.getItem(`purchaseHistory_${username}`)) || [];
     const historyContainer = document.getElementById("purchase-history");
 
     if (purchaseHistory.length === 0) {

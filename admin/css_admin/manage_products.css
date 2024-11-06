@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+#add-product-form, #edit-product-form {
+    margin: 20px 0;
+}
+
+#product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#product-table th, #product-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#product-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.product-image {
+    width: 50px;
+    height: auto;
+}
+
+.btn-edit {
+    background-color: #ffa500;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-edit:hover {
+    background-color: #ff8c00;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-delete:hover {
+    background-color: #e53935;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button.active {
+    background-color: #45a049;
+}
+
+.pagination button:hover {
+    background-color: #45a049;
+}
+
+/* Thêm định dạng cho form thêm sản phẩm */
+#add-product-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#add-product-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#add-product-form input[type="text"],
+#add-product-form input[type="number"],
+#add-product-form textarea,
+#add-product-form input[type="file"],
+#add-product-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#add-product-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-product-form button:hover {
+    background-color: #45a049;
+}

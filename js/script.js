@@ -1,14 +1,14 @@
-const productsPerPage = 10; // Số sản phẩm mỗi trang
-let currentPage = 1; // Trang hiện tại
+const productsPerPage = 10;
+let currentPage = 1;
 let filteredProducts = []; // Mảng để lưu trữ sản phẩm đã lọc
 
-// Hàm để hiển thị sản phẩm
 function renderProducts() {
-    const products = document.querySelectorAll('.product'); // Lấy tất cả sản phẩm từ HTML
-    const totalProducts = filteredProducts.length; // Tổng số sản phẩm đã lọc
+    const allProducts = JSON.parse(localStorage.getItem("products")) || [];
+    filteredProducts = allProducts; // Mặc định hiển thị tất cả sản phẩm nếu không có bộ lọc
 
-    // Xóa sản phẩm hiện tại
-    products.forEach(product => product.style.display = 'none'); // Ẩn tất cả sản phẩm
+    const totalProducts = filteredProducts.length;
+    const productList = document.getElementById("product-list");
+    productList.innerHTML = ''; // Xóa sản phẩm hiện tại
 
     // Tính toán chỉ số bắt đầu và kết thúc cho trang hiện tại
     const startIndex = (currentPage - 1) * productsPerPage;
@@ -16,8 +16,26 @@ function renderProducts() {
 
     // Hiển thị sản phẩm cho trang hiện tại
     for (let i = startIndex; i < endIndex && i < totalProducts; i++) {
-        const productElement = filteredProducts[i];
-        productElement.style.display = 'block'; // Hiển thị sản phẩm
+        const product = filteredProducts[i];
+        const productElement = document.createElement('div');
+        productElement.className = 'product';
+        productElement.setAttribute('data-id', product.id);
+        productElement.setAttribute('data-name', product.name);
+        productElement.setAttribute('data-price', product.price);
+        productElement.setAttribute('data-category', product.category);
+        productElement.setAttribute('data-description', product.description);
+        productElement.setAttribute('data-image', product.image);
+
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p>Giá: ${product.price.toLocaleString()} VND/(1kg)</p>
+            <div class="button-container">
+                <button class="button" onclick="openModal(this)">Xem chi tiết</button>
+                <button class="add-to-cart-btn" onclick="addToCart(this)"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+        `;
+        productList.appendChild(productElement);
     }
 
     // Cập nhật thông tin phân trang
@@ -25,6 +43,17 @@ function renderProducts() {
     document.getElementById('prev').disabled = currentPage === 1;
     document.getElementById('next').disabled = endIndex >= totalProducts;
 }
+
+// Hàm thay đổi trang
+function changePage(direction) {
+    currentPage += direction;
+    renderProducts();
+}
+
+// Gọi hàm khi trang tải
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts();
+});
 
 // Hàm lọc sản phẩm theo danh mục
 function filterByCategory(category) {
@@ -44,13 +73,6 @@ function filterByCategory(category) {
     currentPage = 1; // Đặt lại về trang đầu
     renderProducts(); // Hiển thị lại sản phẩm sau khi lọc
 }
-
-// Hàm thay đổi trang
-function changePage(direction) {
-    currentPage += direction; // Cập nhật trang hiện tại
-    renderProducts(); // Hiển thị lại sản phẩm cho trang mới
-}
-
 // Gọi hàm khi trang tải
 document.addEventListener('DOMContentLoaded', () => {
     filterByCategory('Tất cả'); // Mặc định hiển thị tất cả sản phẩm khi trang tải lên

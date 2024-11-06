@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Sản Phẩm</title>
+    <link rel="stylesheet" href="../css_admin/manage_products.css">
+</head>
+<body>
+    <h1>Quản lý Sản Phẩm</h1>
+
+    <!-- Nút thêm sản phẩm -->
+    <form id="add-product-form">
+        <label for="product-name">Tên sản phẩm:</label>
+        <input type="text" id="product-name" required>
+
+        <label for="product-price">Giá:</label>
+        <input type="number" id="product-price" required>
+
+        <label for="product-category">Phân loại:</label>
+        <select id="product-category" required>
+            <option value="" disabled selected>Chọn phân loại</option>
+            <option value="Trái cây">Trái cây</option>
+            <option value="Rau củ">Rau củ</option>
+            <option value="Hải sản">Hải sản</option>
+            <option value="Thịt và trứng">Thịt và trứng</option>
+            <option value="Khác">Khác</option>
+        </select>
+
+        <label for="product-description">Mô tả:</label>
+        <textarea id="product-description" required></textarea>
+
+        <label for="product-image">Hình ảnh:</label>
+        <input type="file" id="product-image" accept="image/*" required>
+
+        <button type="button" onclick="addProduct()">Thêm Sản Phẩm</button>
+    </form>
+
+    <!-- Bảng danh sách sản phẩm -->
+    <table id="product-table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Mô tả</th>
+                <th>Hình ảnh</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div id="pagination" class="pagination"></div>
+
+    <!-- Form sửa sản phẩm ẩn (sẽ hiển thị khi cần) -->
+    <form id="edit-product-form" style="display: none;">
+        <h2>Sửa Sản Phẩm</h2>
+        <label for="edit-product-name">Tên sản phẩm:</label>
+        <input type="text" id="edit-product-name" required>
+
+        <label for="edit-product-price">Giá:</label>
+        <input type="number" id="edit-product-price" required>
+
+        <label for="edit-product-description">Mô tả:</label>
+        <textarea id="edit-product-description" required></textarea>
+
+        <label for="edit-product-category">Phân loại:</label>
+        <select id="edit-product-category" required>
+            <option value="" disabled selected>Chọn phân loại</option>
+            <option value="Trái cây">Trái cây</option>
+            <option value="Rau củ">Rau củ</option>
+            <option value="Hải sản">Hải sản</option>
+            <option value="Thịt và trứng">Thịt và trứng</option>
+            <option value="Khác">Khác</option>
+        </select>
+
+        <label for="edit-product-image">Hình ảnh:</label>
+        <input type="file" id="edit-product-image" accept="image/*">
+
+        <button type="button" onclick="saveEditedProduct()">Lưu thay đổi</button>
+        <button type="button" onclick="cancelEdit()">Hủy</button>
+    </form>
+
+    <script src="../../js/product.js"></script>
+    <script src="../js_admin/manage_products.js"></script>
+</body>
+</html>

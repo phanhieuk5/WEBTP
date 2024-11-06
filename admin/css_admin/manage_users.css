@@ -1,0 +1,61 @@
+/* manage_users.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f8e9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2e7d32;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #A5D6A7;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
+
+footer {
+    background-color: #A5D6A7;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}

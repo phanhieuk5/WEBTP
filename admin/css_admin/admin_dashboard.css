@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f1f8e9; /* Màu nền nhẹ nhàng */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Giữ cho logo bên trái và nav-bar bên phải */
+    background-color: #A5D6A7; /* Light pastel green */
+    padding: 15px 20px;
+}
+
+/* Logo */
+.header-container .logo img {
+    height: 40px; /* Kích thước logo nhỏ hơn */
+}
+
+/* Thanh Điều Hướng */
+/* Thanh Điều Hướng */
+.nav-bar {
+    flex-grow: 1; /* Cho phép nav-bar chiếm không gian còn lại */
+    display: flex; /* Hiển thị nav-bar dưới dạng flex */
+    justify-content: center; /* Căn giữa nav-bar */
+}
+
+.nav-bar ul {
+    list-style-type: none; /* Không sử dụng ký hiệu cho danh sách */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Sử dụng flexbox để sắp xếp các mục */
+}
+
+.nav-bar ul li {
+    margin: 0 15px; /* Khoảng cách giữa các mục */
+}
+
+.nav-bar ul li a {
+    text-decoration: none; /* Không gạch chân */
+    color: #1b5e20; /* Màu chữ cho thanh điều hướng */
+    font-weight: bold; /* Chữ in đậm */
+}
+
+.nav-bar ul li a:hover {
+    color: #FFC107; /* Màu chữ khi hover */
+}
+/* Nội dung */
+.content {
+    padding: 20px;
+}
+
+footer {
+    background-color: #A5D6A7; /* Màu xanh pastel cho footer */
+    text-align: center;
+    padding: 10px;
+    color: #fff; /* Màu chữ trắng cho footer */
+}
