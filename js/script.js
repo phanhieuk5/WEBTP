@@ -2,13 +2,14 @@ const productsPerPage = 10;
 let currentPage = 1;
 let filteredProducts = []; // Mảng để lưu trữ sản phẩm đã lọc
 
+// Hàm để hiển thị sản phẩm từ localStorage với phân trang
 function renderProducts() {
     const allProducts = JSON.parse(localStorage.getItem("products")) || [];
     filteredProducts = allProducts; // Mặc định hiển thị tất cả sản phẩm nếu không có bộ lọc
 
     const totalProducts = filteredProducts.length;
     const productList = document.getElementById("product-list");
-    productList.innerHTML = ''; // Xóa sản phẩm hiện tại
+    productList.innerHTML = ''; // Xóa nội dung cũ
 
     // Tính toán chỉ số bắt đầu và kết thúc cho trang hiện tại
     const startIndex = (currentPage - 1) * productsPerPage;
@@ -52,6 +53,7 @@ function changePage(direction) {
 
 // Gọi hàm khi trang tải
 document.addEventListener('DOMContentLoaded', () => {
+    saveInitialProducts();
     renderProducts();
 });
 
@@ -73,6 +75,7 @@ function filterByCategory(category) {
     currentPage = 1; // Đặt lại về trang đầu
     renderProducts(); // Hiển thị lại sản phẩm sau khi lọc
 }
+
 // Gọi hàm khi trang tải
 document.addEventListener('DOMContentLoaded', () => {
     filterByCategory('Tất cả'); // Mặc định hiển thị tất cả sản phẩm khi trang tải lên

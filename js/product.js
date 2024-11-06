@@ -88,7 +88,7 @@ function addToCart(element = null) {
 }
 // Hàm lưu trữ sản phẩm ban đầu từ HTML vào localStorage
 function saveInitialProducts() {
-    if (!localStorage.getItem("products")) { // Chỉ lưu nếu chưa có
+    if (!localStorage.getItem("products") || JSON.parse(localStorage.getItem("products")).length === 0) {
         const products = Array.from(document.querySelectorAll('.product')).map(product => ({
             id: product.getAttribute('data-id'),
             name: product.getAttribute('data-name'),
@@ -102,4 +102,6 @@ function saveInitialProducts() {
 }
 
 // Gọi hàm lưu dữ liệu khi tải trang
-window.onload = saveInitialProducts;
+window.onload = function() {
+    saveInitialProducts();
+};
