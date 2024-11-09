@@ -4,7 +4,7 @@ function getUsers() {
 
     users.forEach(user => {
         const customerInfo = JSON.parse(localStorage.getItem(`customerInfo_${user.username}`)) || {};
-        user.address = customerInfo.address1 || 'N/A'; // Chỉ cần một địa chỉ
+        user.address = customerInfo.address || 'N/A'; // Chỉ cần một địa chỉ
         user.phone = customerInfo.phone || 'N/A';
         user.status = user.status || 'Active';
     });
@@ -29,10 +29,30 @@ function displayUsers() {
             <td>
                 <button onclick="editUser('${user.username}')">Sửa</button>
                 <button onclick="toggleUserStatus('${user.username}')">${user.status === 'Active' ? 'Khóa' : 'Mở khóa'}</button>
+                <button onclick="deleteUser('${user.username}')">Xóa</button>
             </td>
         `;
         tableBody.appendChild(row);
     });
+}
+
+// Xóa người dùng khỏi danh sách và localStorage
+function deleteUser(username) {
+    const confirmation = confirm("Bạn có chắc chắn muốn xóa tài khoản này không?");
+    if (!confirmation) return;
+
+    // Lấy danh sách người dùng hiện tại và lọc bỏ người dùng cần xóa
+    let users = getUsers();
+    users = users.filter(user => user.username !== username);
+    localStorage.setItem('users', JSON.stringify(users)); // Lưu lại danh sách người dùng đã cập nhật
+
+    // Xóa thông tin cá nhân của người dùng trong localStorage
+    localStorage.removeItem(`customerInfo_${username}`);
+    localStorage.removeItem(`cart_${username}`);
+    localStorage.removeItem(`purchaseHistory_${username}`);
+
+    // Hiển thị lại danh sách người dùng sau khi xóa
+    displayUsers();
 }
 
 // Chỉnh sửa thông tin người dùng
@@ -52,7 +72,7 @@ function editUser(username) {
         const customerInfo = {
             name: user.username,
             phone: newPhone,
-            address1: newAddress
+            address: newAddress
         };
         localStorage.setItem(`customerInfo_${username}`, JSON.stringify(customerInfo));
 
@@ -90,7 +110,7 @@ function addUser() {
         const customerInfo = {
             name: username,
             phone: phone,
-            address1: address
+            address: address
         };
         localStorage.setItem(`customerInfo_${username}`, JSON.stringify(customerInfo));
 

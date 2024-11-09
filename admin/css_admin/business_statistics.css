@@ -1,0 +1,140 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px;
+}
+
+.header-container .logo img {
+    height: 50px;
+}
+
+.header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.header-container nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    padding: 20px;
+}
+
+.statistics-section {
+    margin-bottom: 30px;
+}
+
+.statistics-section h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#total-revenue, #best-selling-product, #least-selling-product {
+    margin-top: 10px;
+}
+
+/* Modal cho danh sách hóa đơn */
+#invoice-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+#close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#close-modal:hover,
+#close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#invoice-table, #invoice-table th, #invoice-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#invoice-table th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+
+#invoice-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Đặt khoảng cách để chi tiết sản phẩm hiển thị rõ ràng */
+#invoice-table tbody tr td:nth-child(1) {
+    padding-left: 20px;
+    font-style: italic;
+}

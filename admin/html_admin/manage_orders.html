@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn hàng - Green Farm</title>
+    <link rel="stylesheet" href="../css_admin/admin_dashboard.css">
+    <link rel="stylesheet" href="../css_admin/manage_orders.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="manage_users.html">Quản lý người dùng</a></li>
+                    <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
+                    <li><a href="manage_orders.html" class="active">Quản lý đơn hàng</a></li>
+                    <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   <main class="content">
+     <h1>Quản lý đơn hàng</h1>
+
+    <!-- Bộ lọc và sắp xếp đơn hàng -->
+    <div class="order-filters">
+        <h2>Bộ lọc đơn hàng</h2>
+        <div class="filter-group">
+            <label>Ngày bắt đầu: <input type="date" id="startDate"></label>
+            <label>Ngày kết thúc: <input type="date" id="endDate"></label>
+            <label>Quận:
+                <input type="text" id="districtFilter" placeholder="Nhập quận">
+            </label>
+            <label>Tình trạng:
+                <select id="statusFilter">
+                    <option value="">Tất cả</option>
+                    <option value="delivered">Đã nhận hàng</option>
+                    <option value="cancelled">Đã hủy</option>
+                    <option value="pending">Chưa xử lý</option>
+                    <option value="confirmed">Đã xác nhận</option>
+                </select>
+            </label>
+            <button onclick="applyFilters()">Lọc</button>
+        </div>
+    </div>
+
+    <section class="order-list">
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortOrdersByDistrict()">Địa chỉ</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Ngày đặt</th>
+                    <th>Khách hàng</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="order-table-body">
+                <!-- Các đơn hàng sẽ được thêm từ JavaScript -->
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
+    </footer>
+
+    <script src="../js_admin/manage_orders.js"></script>
+</body>
+</html>

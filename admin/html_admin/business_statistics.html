@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê kinh doanh - Green Farm</title>
+    <link rel="stylesheet" href="../css_admin/business_statistics.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="manage_users.html">Quản lý người dùng</a></li>
+                    <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
+                    <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
+                    <li><a href="business_statistics.html" class="active">Thống kê kinh doanh</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        <h1>Thống kê kinh doanh</h1>
+
+        <!-- Thống kê theo mặt hàng -->
+        <section class="statistics-section">
+            <h2>Thống kê mặt hàng</h2>
+            <table id="product-stats-table">
+                <thead>
+                    <tr>
+                        <th>Mặt hàng</th>
+                        <th>Số lượng bán ra</th>
+                        <th>Tổng tiền thu được</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu sẽ được thêm từ JavaScript -->
+                </tbody>
+            </table>
+            <p id="total-revenue">Tổng doanh thu: 0 VNĐ</p>
+            <p id="best-selling-product">Mặt hàng bán chạy nhất: N/A</p>
+            <p id="least-selling-product">Mặt hàng bán ế nhất: N/A</p>
+        </section>
+
+        <!-- Modal hiển thị hóa đơn -->
+        <div id="invoice-modal" class="modal">
+            <div id="modal-content">
+                <span id="close-modal">&times;</span>
+                <h2>Danh sách hóa đơn</h2>
+                <table id="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày</th>
+                            <th>Khách hàng</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Các hóa đơn sẽ được thêm vào đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Thống kê theo khách hàng -->
+        <section class="statistics-section">
+            <h2>Thống kê khách hàng</h2>
+            <table id="customer-stats-table">
+                <thead>
+                    <tr>
+                        <th>Khách hàng</th>
+                        <th>Số hóa đơn</th>
+                        <th>Tổng tiền chi tiêu</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu sẽ được thêm từ JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
+    </footer>
+
+    <script src="../js_admin/business_statistics.js"></script>
+</body>
+</html>

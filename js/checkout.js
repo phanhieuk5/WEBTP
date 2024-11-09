@@ -1,4 +1,3 @@
-// Tải địa chỉ người dùng
 function loadUserAddresses() {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (!loggedInUser) return;
@@ -10,25 +9,15 @@ function loadUserAddresses() {
     if (addressSelect) {
         addressSelect.innerHTML = ''; // Xóa địa chỉ cũ
 
-        if (customerInfo.address1) {
-            const option1 = document.createElement('option');
-            option1.value = customerInfo.address1;
-            option1.innerText = customerInfo.address1;
-            addressSelect.appendChild(option1);
+        if (customerInfo.address) { // Sử dụng customerInfo.address thay vì address1 và address2
+            const option = document.createElement('option');
+            option.value = customerInfo.address;
+            option.innerText = customerInfo.address;
+            addressSelect.appendChild(option);
         }
-
-        if (customerInfo.address2) {
-            const option2 = document.createElement('option');
-            option2.value = customerInfo.address2;
-            option2.innerText = customerInfo.address2;
-            addressSelect.appendChild(option2);
-        }
-    } else {
-        console.warn("Phần tử 'address-select' không tồn tại trên trang.");
     }
 }
 
-// Xác nhận thanh toán
 const confirmPaymentButton = document.getElementById('confirm-payment');
 if (confirmPaymentButton) {
     confirmPaymentButton.addEventListener('click', () => {
@@ -36,38 +25,42 @@ if (confirmPaymentButton) {
         if (!loggedInUser) return;
 
         const username = loggedInUser.username;
-        const selectedAddress = document.getElementById('address-select').value || document.getElementById('new-address').value;
-        const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value;
+        const recipientName = document.getElementById('recipient-name').value;
+        const accountAddress = document.getElementById('address-select').value;
+        const newAddress = document.getElementById('new-address').value;
+        const selectedAddress = newAddress ? newAddress : accountAddress;
+        const paymentMethod = document.getElementById('payment-method').value;
         const cart = JSON.parse(localStorage.getItem(`cart_${username}`)) || [];
+        const orderId = localStorage.getItem('currentOrderId');
 
-        if (selectedAddress && paymentMethod && cart.length > 0) {
+        if (recipientName && selectedAddress && paymentMethod && cart.length > 0) {
             const order = {
+                id: orderId,
                 date: new Date().toLocaleString(),
+                customer: recipientName,
+                address: selectedAddress,
                 items: cart.map(item => ({
                     name: item.name,
                     quantity: item.quantity,
                     price: item.price
                 })),
-                totalPrice: cart.reduce((total, item) => total + (item.price * item.quantity), 0)
+                totalPrice: cart.reduce((total, item) => total + (item.price * item.quantity), 0),
+                status: "Đang xử lý"
             };
 
-            // Lưu đơn hàng vào lịch sử mua hàng
             let purchaseHistory = JSON.parse(localStorage.getItem(`purchaseHistory_${username}`)) || [];
             purchaseHistory.push(order);
             localStorage.setItem(`purchaseHistory_${username}`, JSON.stringify(purchaseHistory));
 
-            // Xóa giỏ hàng
             localStorage.removeItem(`cart_${username}`);
+            localStorage.removeItem('currentOrderId');
 
-            alert(`Đã xác nhận thanh toán với địa chỉ: ${selectedAddress} và phương thức: ${paymentMethod}`);
-            // Chuyển đến trang xác nhận đơn hàng hoặc về trang chủ
+            alert(`Đã xác nhận thanh toán với tên người nhận: ${recipientName}, địa chỉ: ${selectedAddress}, và phương thức: ${paymentMethod}`);
             window.location.href = '../index.html';
         } else {
-            alert('Vui lòng chọn địa chỉ và phương thức thanh toán.');
+            alert('Vui lòng nhập tên người nhận, chọn địa chỉ và phương thức thanh toán.');
         }
     });
-} else {
-    console.warn("Phần tử 'confirm-payment' không tồn tại trên trang.");
 }
 
 // Hiển thị tóm tắt giỏ hàng
@@ -97,27 +90,59 @@ function displayOrderSummary() {
     summaryTotalPrice.innerText = totalPrice.toLocaleString() + ' VNĐ';
 }
 
-// Hàm checkout để kiểm tra và chuyển đến trang thanh toán
-function checkout() {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!loggedInUser) {
-        alert("Bạn cần đăng nhập để thanh toán.");
-        window.location.href = 'login.html';
-        return;
-    }
-    
-    const username = loggedInUser.username;
-    const cart = JSON.parse(localStorage.getItem(`cart_${username}`)) || [];
-    
-    if (cart.length === 0) {
-        alert('Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm trước khi thanh toán.');
+document.getElementById('payment-method').addEventListener("change", (event) => {
+    const selectedMethod = event.target.value;
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const orderId = localStorage.getItem('currentOrderId');
+
+    if (selectedMethod === "credit_card") {
+        toggleCreditCardInfo(true);
+        toggleBankTransferInfo(false);
+    } else if (selectedMethod === "bank_transfer") {
+        toggleBankTransferInfo(true);
+        toggleCreditCardInfo(false);
+        displayBankTransferDetails(orderId, loggedInUser.username);
     } else {
-        window.location.href = 'checkout.html';
+        toggleCreditCardInfo(false);
+        toggleBankTransferInfo(false);
     }
+});
+
+function toggleCreditCardInfo(show) {
+    document.getElementById("credit-card-info").style.display = show ? "block" : "none";
+}
+
+function toggleBankTransferInfo(show) {
+    document.getElementById("bank-transfer-info").style.display = show ? "block" : "none";
+}
+
+function displayBankTransferDetails(orderId, username) {
+    const bankTransferInfo = document.getElementById("bank-transfer-info");
+    bankTransferInfo.innerHTML = `
+        <img src="path/to/your/qr-code-image.png" alt="QR Code for Bank Transfer">
+        <p>Nội dung chuyển khoản: ${orderId || 'N/A'} - ${username || 'N/A'}</p>
+    `;
+    bankTransferInfo.style.display = "block";
 }
 
 // Gọi hàm hiển thị tóm tắt hóa đơn và tải địa chỉ khi trang được tải
 document.addEventListener("DOMContentLoaded", () => {
-    loadUserAddresses(); // Tải địa chỉ khi trang được mở
-    displayOrderSummary(); // Hiển thị tóm tắt đơn hàng
+    loadUserAddresses();
+    displayOrderSummary();
+
+    // Tạo mã đơn hàng khi vào trang
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (!loggedInUser) return;
+
+    let orderId = localStorage.getItem('currentOrderId');
+    if (!orderId) {
+        // Tạo mã đơn hàng ngẫu nhiên nếu chưa có
+        orderId = `ORDER${Math.floor(Math.random() * 100000)}`;
+        localStorage.setItem('currentOrderId', orderId);
+    }
+
+    // Xóa mã đơn hàng nếu người dùng rời khỏi trang
+    window.addEventListener("beforeunload", () => {
+        localStorage.removeItem('currentOrderId');
+    });
 });

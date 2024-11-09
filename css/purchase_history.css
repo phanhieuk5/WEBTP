@@ -1,0 +1,49 @@
+/* CSS cho tiêu đề */
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #4CAF50; /* Màu xanh lá nhẹ */
+    margin-bottom: 20px;
+}
+
+/* CSS cho bảng lịch sử mua hàng */
+#purchase-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#purchase-history th, #purchase-history td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#purchase-history th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#purchase-history tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#purchase-history tr:hover {
+    background-color: #e6f7e6; /* Màu khi rê chuột qua */
+}
+
+/* CSS cho nút "Đã nhận hàng" */
+#purchase-history button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#purchase-history button:hover {
+    background-color: #45a049;
+}

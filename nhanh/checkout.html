@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenFarm - Thanh Toán</title>
+    <title>GreenFarm - Giỏ Hàng</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
+    <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -22,53 +24,83 @@
                     <li><a href="../nhanh/contact.html">Liên hệ</a></li>
                 </ul>
             </nav>
+
             <div class="header-icons">
-                <a href="../nhanh/login.html"><i class="fa fa-user"></i></a>
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <div class="profile-dropdown">
+                    <div class="profile-dropdown-btn" onclick="toggleDropdown()">
+                        <i class="fa fa-user"></i>
+                        <span>Tài khoản <i class="fa fa-angle-down"></i></span>
+                    </div>
+
+                    <ul class="profile-dropdown-list">
+                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a href="customer_info.html"><i class="fa-regular fa-user"></i> Thông tin khách hàng</a></li>
+                        <li><a href="purchase_history.html"><i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng</a></li>
+                        <hr>
+                        <li><a href="javascript:void(0);" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Nội dung thanh toán -->
-     <main class="content">
-        <div class="container">
+
+    <!-- Nội dung chính - Thanh Toán -->
+ <main class="content">
+        <div class="checkout-container">
             <h1>Thanh Toán</h1>
-            <div>
-                <h3>Địa chỉ giao hàng</h3>
+            <div class="checkout-form">
+                <label for="recipient-name">Tên người nhận:</label>
+                <input type="text" id="recipient-name" placeholder="Nhập tên người nhận...">
+
                 <label for="address-select">Chọn địa chỉ từ tài khoản:</label>
-                <select id="address-select"></select>
-                <br>
+                <select id="address-select">
+                    <option value="">-- Chọn địa chỉ đã lưu --</option>
+                </select>
+
                 <label for="new-address">Hoặc nhập địa chỉ mới:</label>
                 <input type="text" id="new-address" placeholder="Nhập địa chỉ mới...">
+
+                <label for="payment-method">Phương thức thanh toán:</label>
+                <select id="payment-method">
+                    <option value="cash">Tiền mặt</option>
+                    <option value="bank_transfer">Chuyển khoản</option>
+                    <option value="credit_card">Thẻ tín dụng</option>
+                </select>
+
+                <!-- Phần thông tin thẻ tín dụng -->
+<div id="credit-card-info" style="display:none;">
+    <label for="card-number">Số thẻ:</label>
+    <input type="text" id="card-number" placeholder="Nhập số thẻ...">
+    <label for="expiry-date">Ngày hết hạn:</label>
+    <input type="text" id="expiry-date" placeholder="MM/YY">
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" placeholder="Nhập CVV...">
+</div>
+<!-- Tóm tắt đơn hàng -->
+<div id="order-summary" class="order-summary">
+    <h2>Tóm Tắt Đơn Hàng</h2>
+    <div id="summary-items"></div>
+    <p>Tổng cộng: <span id="summary-total-price">0 VNĐ</span></p>
+</div>
+
+<!-- Phần thông tin chuyển khoản -->
+<div id="bank-transfer-info" style="display:none;">
+    <img src="path/to/your/qr-code-image.png" alt="QR Code for Bank Transfer">
+    <p>Nội dung chuyển khoản: [Mã đơn hàng - Tên khách hàng]</p>
+</div>
+
+
+                <!-- Các nút điều hướng -->
+                <div class="checkout-buttons">
+                    <button class="btn-back" onclick="window.history.back();">Quay lại</button>
+                    <button class="btn-checkout" id="confirm-payment">Xác Nhận Thanh Toán</button>
+                </div>
             </div>
-            <div>
-                <h3>Phương thức thanh toán</h3>
-                <label><input type="radio" name="payment" value="cash" checked> Tiền mặt</label>
-                <label><input type="radio" name="payment" value="bank_transfer"> Chuyển khoản</label>
-                <label><input type="radio" name="payment" value="credit_card"> Thẻ tín dụng</label>
-            </div>
-            <div id="credit-card-info" style="display: none;">
-                <h3>Thông tin thẻ tín dụng</h3>
-                <label for="card-number">Số thẻ:</label>
-                <input type="text" id="card-number" placeholder="Nhập số thẻ...">
-                <label for="card-expiry">Ngày hết hạn:</label>
-                <input type="text" id="card-expiry" placeholder="MM/YY">
-                <label for="card-cvc">CVC:</label>
-                <input type="text" id="card-cvc" placeholder="Nhập CVC...">
-            </div>
-            <div id="order-summary">
-                <h3>Tóm Tắt Hóa Đơn</h3>
-                <div id="summary-items"></div>
-                <p><strong>Tổng giá: </strong><span id="summary-total-price">0 VNĐ</span></p>
-            </div>
-            <button class="btn-back" onclick="window.location.href='cart.html'">Quay lại</button>
-            <button class="btn-checkout" id="confirm-payment">Xác Nhận Thanh Toán</button>
         </div>
     </main>
-
-
     <footer>
-        <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
+        <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
     <script src="../js/checkout.js"></script>
