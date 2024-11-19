@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFarm - Thông tin </title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal_product.css"> 
+    <link rel="stylesheet" href="../css/information.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header giống với trang chủ -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">🏠 Trang chủ</a></li>
+                    <li><a href="../index.html#product-list">Sản phẩm</a></li>
+                    <li><a href="information.html">Công thức nấu ăn</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <div class="profile-dropdown">
+                    <div class="profile-dropdown-btn" onclick="toggleDropdown()">
+                        <i class="fa fa-user"></i>
+                        <span>Tài khoản <i class="fa fa-angle-down"></i></span>
+                    </div>
+
+                    <ul class="profile-dropdown-list">
+                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a href="customer_info.html"><i class="fa-regular fa-user"></i> Thông tin khách hàng</a></li>
+                        <li><a href="purchase_history.html"><i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng</a></li>
+                        <hr>
+                        <li><a href="javascript:void(0);" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main>
+    <section id="about">
+        <h2>Về chúng tôi</h2>
+
+        <p>GreenFarm ra đời từ năm 1984 tại TP.HCM, với sứ mệnh mang đến những sản phẩm nông nghiệp sạch, an toàn và chất lượng cao cho người tiêu dùng. Với hơn 40 kinh nghiệm, chúng tôi đã không ngừng phát triển và mở rộng quy mô, trở thành một trong những thương hiệu nông sản hữu cơ uy tín nhất.</p>
+    </section>
+
+    <section id="products">
+        <h2>Sản phẩm của chúng tôi</h2>
+        <p>GreenFarm cung cấp đa dạng các sản phẩm nông sản hữu cơ, được trồng và thu hoạch tại các trang trại đạt chuẩn VietGAP. Chúng tôi cũng nhập khẩu một số loại trái cây đặc sản từ các quốc gia như Mỹ,Nhật,Pháp,..., đảm bảo chất lượng và độ tươi ngon.</p>
+        <ul>
+            <li>Rau củ quả tươi</li>
+            <li>Trái cây theo mùa</li>
+            <li>Các sản phẩm chế biến</li>
+        </ul>
+    </section>
+
+    <section id="branches">
+        <h2>Hệ thống cửa hàng</h2>
+        <div class="branch">
+            <h3>[chi nhánh 1]</h3>
+            <p>Địa chỉ: [địa chỉ]</p>
+            <p>Điện thoại: [0869696969]</p>
+        </div>
+        <div class="branch">
+            <h3>[chi nhánh 2]</h3>
+            <p>Địa chỉ: [địa chỉ]</p>
+            <p>Điện thoại: [0827969696]</p>
+        </div>
+        </section>
+</main>
+    <footer>
+        <p>&copy; 2024 GREENFARM. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

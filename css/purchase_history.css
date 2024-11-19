@@ -47,3 +47,44 @@ h1 {
 #purchase-history button:hover {
     background-color: #45a049;
 }
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container, .checkout-container, .modal-content, .content, .hero {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .product {
+        flex: 1 1 calc(50% - 10px); /* 2 products per row */
+    }
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-back, .btn-checkout, button {
+        width: 100%;
+    }
+    h1, h2, h3 {
+        font-size: 18px;
+    }
+}
+
+/* Responsive for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    .product {
+        flex: 1 1 100%; /* 1 product per row */
+    }
+    .modal-content {
+        width: 90%;
+    }
+    .header, .footer, .banner-text {
+        text-align: center;
+        padding: 10px;
+    }
+}

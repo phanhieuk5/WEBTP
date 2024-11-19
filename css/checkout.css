@@ -127,21 +127,44 @@
     background-color: #7b3e14;
 }
 
-/* Responsive cho màn hình nhỏ hơn */
-@media (max-width: 600px) {
-    .checkout-container .checkout-form label, 
-    .checkout-container .checkout-form input, 
-    .checkout-container .checkout-form select {
-        width: 100%;
-        display: block;
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
     }
-    
-    .checkout-container .checkout-buttons {
+    .container, .checkout-container, .modal-content, .content, .hero {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .product {
+        flex: 1 1 calc(50% - 10px); /* 2 products per row */
+    }
+    .button-container {
         flex-direction: column;
+        gap: 10px;
     }
-
-    .checkout-container .btn-back, .checkout-container .btn-checkout {
+    .btn-back, .btn-checkout, button {
         width: 100%;
-        margin-top: 10px;
+    }
+    h1, h2, h3 {
+        font-size: 18px;
+    }
+}
+
+/* Responsive for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    .product {
+        flex: 1 1 100%; /* 1 product per row */
+    }
+    .modal-content {
+        width: 90%;
+    }
+    .header, .footer, .banner-text {
+        text-align: center;
+        padding: 10px;
     }
 }

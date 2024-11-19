@@ -47,19 +47,6 @@ nav ul li a:hover {
     color: #FFC107; /* Yellow on hover */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-}
 .profile-dropdown-list {
     position: absolute;
     top: 100%;
@@ -75,4 +62,107 @@ nav ul li a:hover {
 
 .profile-dropdown-list.show {
     display: block !important;
+}
+/* Header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color:  #b2e0c0;
+}
+
+.header-container .logo img {
+    height: 50px;
+}
+
+.header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-container nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-container .header-icons .profile-dropdown {
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-dropdown .profile-dropdown-list {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-dropdown:hover .profile-dropdown-list {
+    display: block;
+}
+
+.profile-dropdown-list-item {
+    margin: 5px 0;
+}
+
+.profile-dropdown-list-item a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .header-container, .banner-slider, .banner-text {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .banner-text h1, .banner-text p {
+        font-size: 16px;
+    }
+    .banner-text .btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* Responsive for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    .banner-slide img {
+        height: auto;
+    }
+    .banner-text {
+        padding: 10px;
+    }
+    .header-container {
+        text-align: center;
+        padding: 5px;
+    }
+    .banner-text h1, .banner-text p {
+        font-size: 14px;
+    }
+    .banner-text .btn {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
 }

@@ -20,13 +20,26 @@
                 <ul>
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
                     <li><a href="../index.html#product-list">Sản phẩm</a></li>
-                    <li><a href="../nhanh/recipes.html">Công thức nấu ăn</a></li>
-                    <li><a href="../nhanh/contact.html">Liên hệ</a></li>
+                    <li><a href="information.html">Công thức nấu ăn</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
                 </ul>
             </nav>
+
             <div class="header-icons">
-                <a href="../nhanh/login.html"><i class="fa fa-user"></i></a>
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <div class="profile-dropdown">
+                    <div class="profile-dropdown-btn" onclick="toggleDropdown()">
+                        <i class="fa fa-user"></i>
+                        <span>Tài khoản <i class="fa fa-angle-down"></i></span>
+                    </div>
+
+                    <ul class="profile-dropdown-list">
+                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a href="customer_info.html"><i class="fa-regular fa-user"></i> Thông tin khách hàng</a></li>
+                        <li><a href="purchase_history.html"><i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng</a></li>
+                        <hr>
+                        <li><a href="javascript:void(0);" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>

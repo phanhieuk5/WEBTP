@@ -110,8 +110,8 @@
     color: white;
     font-weight: bold;
     text-decoration: none;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 18px;
+    padding: 15px 25px;
     border-radius: 15px;
     transition: background-color 0.3s, color 0.3s;
     display: flex;
@@ -122,4 +122,74 @@
     color: #A5D6A7;
     background-color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+
+    .horizontal-category {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .horizontal-category-list {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .horizontal-category-list li a {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+    .container, .checkout-container, .modal-content, .content, .hero {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .product {
+        flex: 1 1 calc(50% - 10px); /* 2 products per row */
+    }
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-back, .btn-checkout, button {
+        width: 100%;
+    }
+    h1, h2, h3 {
+        font-size: 18px;
+    }
+}
+
+/* Responsive for very small screens */
+
+    .horizontal-category {
+        padding: 5px;
+    }
+
+    .horizontal-category-list li a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    .product {
+        flex: 1 1 100%; /* 1 product per row */
+    }
+    .modal-content {
+        width: 90%;
+    }
+    .header, .footer, .banner-text {
+        text-align: center;
+        padding: 10px;
+    }
 }

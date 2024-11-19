@@ -69,3 +69,50 @@
     background-color: #45a049;
     transform: scale(1.05);
 }
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .header-container, .banner-slider, .banner-text {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .banner-text h1, .banner-text p {
+        font-size: 16px;
+    }
+    .banner-text .btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* Responsive for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    .banner-slide img {
+        height: auto;
+    }
+    .banner-text {
+        padding: 10px;
+    }
+    .header-container {
+        text-align: center;
+        padding: 5px;
+    }
+    .banner-text h1, .banner-text p {
+        font-size: 14px;
+    }
+    .banner-text .btn {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+}
