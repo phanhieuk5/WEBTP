@@ -1,5 +1,67 @@
 /* manage_users.css */
 
+/* Tiêu đề chính */
+h1 {
+    width: 200px;
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2em;
+    margin-bottom: 50px;
+    margin: 0 auto;
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px;
+    
+}
+
+.header-container .logo img {
+    height: 50px;
+}
+
+.header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.header-container nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-bar {
+    flex-grow: 1; /* Cho phép nav-bar chiếm không gian còn lại */
+    display: flex; /* Hiển thị nav-bar dưới dạng flex */
+    justify-content: center; /* Căn giữa nav-bar */
+}
+
+.nav-bar ul {
+    list-style-type: none; /* Không sử dụng ký hiệu cho danh sách */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Sử dụng flexbox để sắp xếp các mục */
+}
+
+.nav-bar ul li {
+    margin: 0 15px; /* Khoảng cách giữa các mục */
+}
+
+.nav-bar ul li a {
+    text-decoration: none; /* Không gạch chân */
+    color: #1b5e20; /* Màu chữ cho thanh điều hướng */
+    font-weight: bold; /* Chữ in đậm */
+}
+
+.nav-bar ul li a:hover {
+    color: #FFC107; /* Màu chữ khi hover */
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f1f8e9;
@@ -9,7 +71,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #2e7d32;
+    color: #4CAF50;
     margin-top: 20px;
 }
 
@@ -58,4 +120,35 @@ footer {
     text-align: center;
     padding: 10px;
     color: #fff;
+}
+
+/* Common Header and Navbar Styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+}
+
+.header-container .logo img {
+    height: 50px;
+}
+
+.header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.header-container nav ul li a:hover {
+    color: #FFC107;
 }

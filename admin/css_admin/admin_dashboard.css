@@ -7,8 +7,9 @@
 
 body {
     background-color: #f1f8e9; /* Màu nền nhẹ nhàng */
-    margin: 0;
-    padding: 0;
+    /*margin: 0;*/
+    width: 800px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the body horizontally */
 }
 
 /* Header Container */
@@ -16,14 +17,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Giữ cho logo bên trái và nav-bar bên phải */
-    background-color: #A5D6A7; /* Light pastel green */
+    background-color: #4CAF50; /* Light pastel green */
     padding: 15px 20px;
+    height: 80px; /* Adjust the height as needed */
+    
 }
 
-/* Logo */
-.header-container .logo img {
-    height: 40px; /* Kích thước logo nhỏ hơn */
-}
 
 /* Thanh Điều Hướng */
 /* Thanh Điều Hướng */
@@ -62,5 +61,38 @@ footer {
     background-color: #A5D6A7; /* Màu xanh pastel cho footer */
     text-align: center;
     padding: 10px;
+    width: 800px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the footer horizontally */
     color: #fff; /* Màu chữ trắng cho footer */
+}
+
+/* Common Header and Navbar Styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+}
+
+.header-container .logo img {
+    height: 50px;
+}
+
+.header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.header-container nav ul li a:hover {
+    color: #FFC107;
 }

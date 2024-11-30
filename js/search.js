@@ -1,38 +1,40 @@
 // search.js
 
+
+function normalizeString(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
 // Hàm để tìm kiếm sản phẩm theo tên
 function filterByName() {
-    const searchName = document.getElementById("search-name").value.toLowerCase();
-    const productElements = document.querySelectorAll(".product");
+    const searchName = normalizeString(document.getElementById("search-name").value);
+    const allProducts = JSON.parse(localStorage.getItem("products")) || [];
 
-    productElements.forEach(product => {
-        const productName = product.getAttribute("data-name").toLowerCase();
-        if (productName.includes(searchName)) {
-            product.style.display = "block";
-        } else {
-            product.style.display = "none";
-        }
+    // Lọc sản phẩm theo tên
+    filteredProducts = allProducts.filter(product => {
+        const normalizedProductName = normalizeString(product.name);
+        return normalizedProductName.includes(searchName);
     });
 
-    // Cập nhật phân trang sau khi lọc
-    updatePagination();
+    currentPage = 1; // Đặt về trang đầu tiên
+    renderProducts(); // Hiển thị lại sản phẩm sau khi lọc
 }
 
 // Hàm lọc sản phẩm theo giá
 function filterByPrice() {
-    const minPrice = parseFloat(document.getElementById('min-price').value) || 10000;
-    const maxPrice = parseFloat(document.getElementById('max-price').value) || 5000000;
-    const products = document.querySelectorAll('.product');
+    const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
 
-    products.forEach(product => {
-        const productPrice = parseFloat(product.dataset.price);
-        product.style.display = (productPrice >= minPrice && productPrice <= maxPrice) ? 'block' : 'none';
+    const allProducts = JSON.parse(localStorage.getItem("products")) || [];
+
+    // Lọc sản phẩm theo giá
+    filteredProducts = allProducts.filter(product => {
+        const productPrice = parseFloat(product.price);
+        return productPrice >= minPrice && productPrice <= maxPrice;
     });
 
-    // Cập nhật phân trang sau khi lọc
-    updatePagination();
+    currentPage = 1; // Đặt về trang đầu tiên
+    renderProducts(); // Hiển thị lại sản phẩm sau khi lọc
 }
-
 // Cập nhật phân trang sau khi lọc
 function updatePagination() {
     const visibleProducts = document.querySelectorAll('.product[style*="display: block"]');

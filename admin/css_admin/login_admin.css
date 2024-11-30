@@ -13,7 +13,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px;
+    width: 400px;
     text-align: center;
 }
 
@@ -27,7 +27,7 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -49,4 +49,35 @@ button:hover {
 #message {
     color: red; /* Màu đỏ cho thông báo lỗi */
     margin-top: 10px;
+}
+
+/* Common Header and Navbar Styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+}
+
+.header-container .logo img {
+    height: 50px;
+}
+
+.header-container nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.header-container nav ul li a:hover {
+    color: #FFC107;
 }

@@ -4,9 +4,6 @@ let filteredProducts = []; // Mảng để lưu trữ sản phẩm đã lọc
 
 // Hàm để hiển thị sản phẩm từ localStorage với phân trang
 function renderProducts() {
-    const allProducts = JSON.parse(localStorage.getItem("products")) || [];
-    filteredProducts = allProducts; // Mặc định hiển thị tất cả sản phẩm nếu không có bộ lọc
-
     const totalProducts = filteredProducts.length;
     const productList = document.getElementById("product-list");
     productList.innerHTML = ''; // Xóa nội dung cũ
@@ -44,7 +41,6 @@ function renderProducts() {
     document.getElementById('prev').disabled = currentPage === 1;
     document.getElementById('next').disabled = endIndex >= totalProducts;
 }
-
 // Hàm thay đổi trang
 function changePage(direction) {
     currentPage += direction;
@@ -59,23 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Hàm lọc sản phẩm theo danh mục
 function filterByCategory(category) {
-    const products = document.querySelectorAll('.product');
-    
-    // Lọc sản phẩm theo danh mục và đếm số lượng sản phẩm phù hợp
-    filteredProducts = Array.from(products).filter(product => {
-        const productCategory = product.getAttribute('data-category');
-        if (category === 'Tất cả' || productCategory === category) {
-            return true; // Giữ lại sản phẩm phù hợp
-        } else {
-            return false; // Bỏ qua sản phẩm không phù hợp
-        }
-    });
+    const allProducts = JSON.parse(localStorage.getItem("products")) || [];
 
-    // Cập nhật lại `currentPage` và hiển thị lại sản phẩm
-    currentPage = 1; // Đặt lại về trang đầu
+    // Lọc sản phẩm theo danh mục
+    filteredProducts = category === 'Tất cả'
+        ? allProducts
+        : allProducts.filter(product => product.category === category);
+
+    currentPage = 1; // Đặt về trang đầu tiên
     renderProducts(); // Hiển thị lại sản phẩm sau khi lọc
 }
-
 // Gọi hàm khi trang tải
 document.addEventListener('DOMContentLoaded', () => {
     filterByCategory('Tất cả'); // Mặc định hiển thị tất cả sản phẩm khi trang tải lên
