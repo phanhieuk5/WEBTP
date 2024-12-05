@@ -6,85 +6,52 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* CSS cho bảng lịch sử mua hàng */
-#purchase-history table {
+/* Thiết kế bảng lịch sử mua hàng */
+.purchase-history-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: #f8f8f8;
 }
 
-#purchase-history th, #purchase-history td {
-    padding: 12px;
-    text-align: left;
+.purchase-history-table th,
+.purchase-history-table td {
+    padding: 10px;
+    text-align: center; /* Căn giữa chữ trong th và td */
     border: 1px solid #ddd;
 }
 
-#purchase-history th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-#purchase-history tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-#purchase-history tr:hover {
-    background-color: #e6f7e6; /* Màu khi rê chuột qua */
-}
-
-/* CSS cho nút "Đã nhận hàng" */
-#purchase-history button {
-    background-color: #4CAF50;
+.purchase-history-table th {
+    background-color: rgb(178, 224, 192);
     color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 0.9em;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
 }
 
-#purchase-history button:hover {
-    background-color: #45a049;
-}
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-    .container, .checkout-container, .modal-content, .content, .hero {
-        width: 95%;
-        margin: 0 auto;
-        padding: 10px;
-    }
-    .product {
-        flex: 1 1 calc(50% - 10px); /* 2 products per row */
-    }
-    .button-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .btn-back, .btn-checkout, button {
-        width: 100%;
-    }
-    h1, h2, h3 {
-        font-size: 18px;
-    }
+.purchase-history-table td {
+    background-color: #fff;
 }
 
-/* Responsive for very small screens */
-@media (max-width: 480px) {
-    body {
+.purchase-history-table ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.purchase-history-table li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;  /* Thêm đường gạch ngang giữa các sản phẩm */
+}
+
+.purchase-history-table li:last-child {
+    border-bottom: none;  /* Loại bỏ đường gạch ngang ở phần tử cuối cùng */
+}
+
+@media screen and (max-width: 768px) {
+    .purchase-history-table th,
+    .purchase-history-table td {
         font-size: 12px;
     }
-    .product {
-        flex: 1 1 100%; /* 1 product per row */
-    }
-    .modal-content {
-        width: 90%;
-    }
-    .header, .footer, .banner-text {
-        text-align: center;
-        padding: 10px;
+
+    .purchase-history-table ul {
+        padding-left: 20px;
     }
 }

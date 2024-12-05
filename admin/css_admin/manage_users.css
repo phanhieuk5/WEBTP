@@ -1,154 +1,128 @@
-/* manage_users.css */
-
-/* Tiêu đề chính */
+/* Tiêu đề chính của trang (Quản lý người dùng) */
 h1 {
-    width: 200px;
-    text-align: center;
-    color: #4CAF50;
-    font-size: 2em;
-    margin-bottom: 50px;
-    margin: 0 auto;
-    
+    font-size: 32px;
+    color: #4CAF50; /* Màu xanh lá để nổi bật */
+    margin-bottom: 20px; /* Khoảng cách phía dưới tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
 }
 
-.header-container {
+/* Tiêu đề trong form Thêm người dùng */
+.add-user-form h2 {
+    font-size: 24px;
+    color: #4CAF50; /* Màu xanh lá để nổi bật */
+    margin-bottom: 15px;
+    text-align: left; /* Căn trái để tiêu đề trong form dễ nhìn */
+}
+
+/* Main Content */
+.main-container {
+    width: 90%;
+    margin: 120px auto 0 auto; /* Khoảng cách từ header */
+}
+
+/* Form thêm người dùng mới */
+.add-user-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.add-user-form h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.add-user-form form {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.add-user-form input,
+.add-user-form select {
+    flex: 1;
+    min-width: 180px;
     padding: 10px;
-    
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.header-container nav ul li a {
+.add-user-form button.add-user-btn {
+    background-color: #4CAF50;
     color: white;
-    text-decoration: none;
-}
-
-.nav-bar {
-    flex-grow: 1; /* Cho phép nav-bar chiếm không gian còn lại */
-    display: flex; /* Hiển thị nav-bar dưới dạng flex */
-    justify-content: center; /* Căn giữa nav-bar */
-}
-
-.nav-bar ul {
-    list-style-type: none; /* Không sử dụng ký hiệu cho danh sách */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Sử dụng flexbox để sắp xếp các mục */
-}
-
-.nav-bar ul li {
-    margin: 0 15px; /* Khoảng cách giữa các mục */
-}
-
-.nav-bar ul li a {
-    text-decoration: none; /* Không gạch chân */
-    color: #1b5e20; /* Màu chữ cho thanh điều hướng */
-    font-weight: bold; /* Chữ in đậm */
-}
-
-.nav-bar ul li a:hover {
-    color: #FFC107; /* Màu chữ khi hover */
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f1f8e9;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    text-align: center;
-    color: #4CAF50;
-    margin-top: 20px;
-}
-
-button {
-    background-color: #2e7d32;
-    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-button:hover {
-    background-color: #1b5e20;
+.add-user-form button.add-user-btn:hover {
+    background-color: #45a049;
 }
 
+/* Bảng thông tin người dùng */
 table {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
     border-collapse: collapse;
-    background-color: white;
+    margin-top: 20px;
 }
 
-th, td {
-    padding: 12px;
+table th, table td {
+    padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-th {
-    background-color: #A5D6A7;
-    color: #fff;
-}
-
-tr:hover {
-    background-color: #f0f0f0;
-}
-
-footer {
-    background-color: #A5D6A7;
-    text-align: center;
-    padding: 10px;
-    color: #fff;
-}
-
-/* Common Header and Navbar Styles */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+table th {
     background-color: #4CAF50;
-    padding: 10px 20px;
-}
-
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-.header-container nav ul li a {
-    text-decoration: none;
     color: white;
-    font-weight: bold;
 }
 
-.header-container nav ul li a:hover {
-    color: #FFC107;
+table td {
+    background-color: #fff;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+/* Media Queries cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    .add-user-form form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
 }

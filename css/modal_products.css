@@ -1,0 +1,101 @@
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    max-height: 90%; /* Giới hạn chiều cao toàn bộ modal */
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow: auto; /* Cuộn nội dung nếu quá dài */
+    justify-content: center;
+    align-items: center;
+}
+/* Nội dung modal */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Hình ảnh (bên trái) */
+.modal-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px; /* Giới hạn chiều rộng ảnh */
+    height: auto;
+}
+
+/* Ảnh sản phẩm (cố định kích thước) */
+.modal-image img {
+    width: 300px; /* Cố định chiều rộng */
+    height: 200px; /* Cố định chiều cao */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    border-radius: 8px;
+}
+
+/* Thông tin sản phẩm (bên phải) */
+.modal-info {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.modal-info h2 {
+    font-size: 24px;
+    text-align: center; /* Tiêu đề căn giữa */
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modal-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+}
+.modal-info p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Nút đóng */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close-button:hover {
+    color: #f00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column; /* Hiển thị dọc trên màn hình nhỏ */
+    }
+
+    .modal-image {
+        margin-bottom: 15px; /* Thêm khoảng cách dưới ảnh */
+    }
+
+    .modal-info h2 {
+        font-size: 20px;
+    }
+}

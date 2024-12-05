@@ -18,7 +18,7 @@ body {
     gap: 20px;
 }
 
-.product {
+ .product {
     flex: 0 0 calc(20% - 20px); /* Mỗi sản phẩm chiếm 20% chiều rộng trừ khoảng cách */
     background-color: white;
     border-radius: 10px;
@@ -45,7 +45,7 @@ body {
     margin-top: 10px;
 }
 
-.product p {
+#tat-ca.product p {
     color: #8B4513;
     font-weight: bold;
     margin-top: 5px;

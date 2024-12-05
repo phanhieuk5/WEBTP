@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thống kê kinh doanh - Green Farm</title>
-
     <link rel="stylesheet" href="../css_admin/business_statistics.css">
     <link rel="stylesheet" href="../css_admin/admin_dashboard.css">
 </head>
 <body>
     <header>
-<header>
-    <div class="header-container">
-        <div class="logo">
-            <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+        <div class="header-container">
+            <div class="logo">
+                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="manage_users.html">Quản lý người dùng</a></li>
+                    <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
+                    <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
+                    <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
+                    <li><a href="#" id="logout">Đăng xuất</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="manage_users.html">Quản lý người dùng</a></li>
-                <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
-                <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
-                <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
-                <li><a href="#" id="logout">Đăng xuất</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-</header>
+    </header>
 
     <main class="content">
         <h1>Thống kê kinh doanh</h1>
@@ -44,34 +41,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Dữ liệu sẽ được thêm từ JavaScript -->
+                    <tr>
+                        <td>Bơ Booth</td>
+                        <td>50</td>
+                        <td>2,500,000 VNĐ</td>
+                        <td><button class="view-product-details" data-product="Bơ Booth">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>Nho mẫu đơn</td>
+                        <td>30</td>
+                        <td>3,600,000 VNĐ</td>
+                        <td><button class="view-product-details" data-product="Nho mẫu đơn">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>Táo Mỹ</td>
+                        <td>40</td>
+                        <td>6,000,000 VNĐ</td>
+                        <td><button class="view-product-details" data-product="Táo Mỹ">Chi tiết</button></td>
+                    </tr>
                 </tbody>
             </table>
-            <p id="total-revenue">Tổng doanh thu: 0 VNĐ</p>
-            <p id="best-selling-product">Mặt hàng bán chạy nhất: N/A</p>
-            <p id="least-selling-product">Mặt hàng bán ế nhất: N/A</p>
+            <p id="total-revenue">Tổng doanh thu: 12,100,000 VNĐ</p>
+            <p id="best-selling-product">Mặt hàng bán chạy nhất: Táo Mỹ</p>
+            <p id="least-selling-product">Mặt hàng bán ế nhất: Nho mẫu đơn</p>
         </section>
-
-        <!-- Modal hiển thị hóa đơn -->
-        <div id="invoice-modal" class="modal">
-            <div id="modal-content">
-                <span id="close-modal">&times;</span>
-                <h2>Danh sách hóa đơn</h2>
-                <table id="invoice-table">
-                    <thead>
-                        <tr>
-                            <th>Mã đơn hàng</th>
-                            <th>Ngày</th>
-                            <th>Khách hàng</th>
-                            <th>Tổng tiền</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Các hóa đơn sẽ được thêm vào đây -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
         <!-- Thống kê theo khách hàng -->
         <section class="statistics-section">
@@ -86,16 +79,139 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Dữ liệu sẽ được thêm từ JavaScript -->
+                    <tr>
+                        <td>Nguyễn Văn A</td>
+                        <td>5</td>
+                        <td>10,000,000 VNĐ</td>
+                        <td><button class="view-customer-details" data-customer="Nguyễn Văn A">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>Trần Thị B</td>
+                        <td>3</td>
+                        <td>6,000,000 VNĐ</td>
+                        <td><button class="view-customer-details" data-customer="Trần Thị B">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>Phạm Minh C</td>
+                        <td>4</td>
+                        <td>7,500,000 VNĐ</td>
+                        <td><button class="view-customer-details" data-customer="Phạm Minh C">Chi tiết</button></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
+
+        <!-- Modal hiển thị chi tiết sản phẩm -->
+        <div id="product-modal" class="modal">
+            <div id="modal-content">
+                <span id="close-modal" class="close-modal">&times;</span>
+                <h2>Chi tiết sản phẩm</h2>
+                <table id="product-detail-table">
+                    <thead>
+                        <tr>
+                            <th>Tên khách hàng</th>
+                            <th>Mã đơn</th>
+                            <th>Ngày đặt</th>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dữ liệu chi tiết sản phẩm -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal hiển thị chi tiết khách hàng -->
+        <div id="customer-modal" class="modal">
+            <div id="modal-content">
+                <span id="close-modal" class="close-modal">&times;</span>
+                <h2>Chi tiết khách hàng</h2>
+                <table id="customer-detail-table">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày</th>
+                            <th>Tên khách hàng</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dữ liệu chi tiết khách hàng -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
-    <script src="../js_admin/business_statistics.js"></script>
+    <!-- Scripts cho Modal -->
+    <script>
+        const productButtons = document.querySelectorAll('.view-product-details');
+        const customerButtons = document.querySelectorAll('.view-customer-details');
+        const productModal = document.getElementById('product-modal');
+        const customerModal = document.getElementById('customer-modal');
+        const closeModal = document.querySelectorAll('.close-modal');
+
+        // Mở modal chi tiết sản phẩm
+        productButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = button.getAttribute('data-product');
+                // Lấy thông tin chi tiết sản phẩm từ server hoặc xử lý tại đây
+                // Ví dụ thêm vào bảng chi tiết sản phẩm
+                document.querySelector('#product-detail-table tbody').innerHTML = `
+                    <tr>
+                        <td>Nguyễn Văn A</td>
+                        <td>ORD001</td>
+                        <td>2024-01-15</td>
+                        <td>${productName}</td>
+                        <td>10</td>
+                        <td>250,000 VNĐ</td>
+                    </tr>
+                `;
+                productModal.style.display = 'flex';
+            });
+        });
+
+        // Mở modal chi tiết khách hàng
+        customerButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const customerName = button.getAttribute('data-customer');
+                // Lấy thông tin chi tiết khách hàng từ server hoặc xử lý tại đây
+                // Ví dụ thêm vào bảng chi tiết khách hàng
+                document.querySelector('#customer-detail-table tbody').innerHTML = `
+                    <tr>
+                        <td>ORD001</td>
+                        <td>2024-01-15</td>
+                        <td>${customerName}</td>
+                        <td>2,500,000 VNĐ</td>
+                    </tr>
+                `;
+                customerModal.style.display = 'flex';
+            });
+        });
+
+        // Đóng modal
+        closeModal.forEach(close => {
+            close.addEventListener('click', () => {
+                productModal.style.display = 'none';
+                customerModal.style.display = 'none';
+            });
+        });
+
+        // Đóng modal khi click ra ngoài vùng modal
+        window.addEventListener('click', function(event) {
+            if (event.target === productModal) {
+                productModal.style.display = 'none';
+            } else if (event.target === customerModal) {
+                customerModal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

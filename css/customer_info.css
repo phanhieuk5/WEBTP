@@ -1,0 +1,127 @@
+/* Tiêu đề chính */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+
+/* Cải thiện vùng chứa 2 bảng */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 85%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Bảng sửa thông tin (bên trái) và Bảng thông tin đã lưu (bên phải) */
+.form-container,
+.display-container {
+    width: 48%; /* Đảm bảo cả hai bảng có kích thước giống nhau */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Căn chỉnh các label và input trong form */
+.form-container label,
+.display-container label {
+    font-weight: bold;
+    margin: 6px 0;
+    display: inline-block;
+    width: 40%;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container input[type="tel"],
+.display-container input[type="text"],
+.display-container input[type="tel"] {
+    width: 55%; /* Đảm bảo input có độ rộng vừa phải */
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff; /* Đảm bảo input có nền trắng */
+}
+
+.display-container input[readonly] {
+    background-color: #f0f0f0; /* Phần đọc chỉ có nền màu xám nhạt */
+    cursor: not-allowed; /* Không cho phép chỉnh sửa */
+}
+
+/* Căn chỉnh các mục trong bảng thông tin đã lưu */
+.display-container p {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.display-container p strong {
+    width: 40%;
+    display: inline-block;
+    font-weight: bold;
+    color: #333;
+}
+
+.display-container p span {
+    width: 55%;
+    display: inline-block;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Căn giữa tiêu đề h2 */
+h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Cải thiện hiển thị thông báo thành công */
+#success-message {
+    display: block;
+    margin-top: 20px;
+    color: green;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Phong cách cho các input readonly trong bảng thông tin đã lưu */
+.display-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Cải thiện nút Lưu Thông Tin để nó nằm ở giữa */
+.form-container button {
+    display: block; /* Chuyển nút thành block element */
+    width: 200px; /* Cố định kích thước nút */
+    margin: 20px auto; /* Căn giữa nút */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}

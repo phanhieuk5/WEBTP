@@ -9,66 +9,182 @@
 </head>
 <body>
     <header>
-<header>
-    <div class="header-container">
-        <div class="logo">
-            <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+        <div class="header-container">
+            <div class="logo">
+                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="manage_users.html">Quản lý người dùng</a></li>
+                    <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
+                    <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
+                    <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
+                    <li><a href="#" id="logout">Đăng xuất</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="manage_users.html">Quản lý người dùng</a></li>
-                <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
-                <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
-                <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
-                <li><a href="#" id="logout">Đăng xuất</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-</header>
+    </header>
 
-   <main class="content">
-     <h1>Quản lý đơn hàng</h1>
+    <main class="main-container">
+        <h1>Quản lý đơn hàng</h1>
 
-    <!-- Bộ lọc và sắp xếp đơn hàng -->
-    <div class="order-filters">
-        <h2>Bộ lọc đơn hàng</h2>
-        <div class="filter-group">
-            <label>Ngày bắt đầu: <input type="date" id="startDate"></label>
-            <label>Ngày kết thúc: <input type="date" id="endDate"></label>
-            <label>Quận:
-                <input type="text" id="districtFilter" placeholder="Nhập quận">
-            </label>
-            <label>Tình trạng:
-                <select id="statusFilter">
-                    <option value="">Tất cả</option>
-                    <option value="delivered">Đã nhận hàng</option>
-                    <option value="cancelled">Đã hủy</option>
-                    <option value="pending">Chưa xử lý</option>
-                    <option value="confirmed">Đã xác nhận</option>
-                </select>
-            </label>
-            <button onclick="applyFilters()">Lọc</button>
+        <!-- Bộ lọc và sắp xếp đơn hàng -->
+        <div class="order-filters">
+            <h2>Bộ lọc đơn hàng</h2>
+            <div class="filter-group">
+                <label>Ngày bắt đầu: <input type="date" id="startDate"></label>
+                <label>Ngày kết thúc: <input type="date" id="endDate"></label>
+                <label>Quận:
+                    <input type="text" id="districtFilter" placeholder="Nhập quận">
+                </label>
+                <label>Tình trạng:
+                    <select id="statusFilter">
+                        <option value="">Tất cả</option>
+                        <option value="delivered">Đã nhận hàng</option>
+                        <option value="cancelled">Đã hủy</option>
+                        <option value="pending">Chưa xử lý</option>
+                        <option value="confirmed">Đã xác nhận</option>
+                    </select>
+                </label>
+                <button onclick="applyFilters()">Lọc</button>
+            </div>
         </div>
-    </div>
 
-    <section class="order-list">
-        <table>
-            <thead>
-                <tr>
-                    <th onclick="sortOrdersByDistrict()">Địa chỉ</th>
-                    <th>Mã đơn hàng</th>
-                    <th>Ngày đặt</th>
-                    <th>Khách hàng</th>
-                    <th>Trạng thái</th>
-                    <th>Thao tác</th>
-                </tr>
-            </thead>
-            <tbody id="order-table-body">
-                <!-- Các đơn hàng sẽ được thêm từ JavaScript -->
-            </tbody>
-        </table>
-    </section>
+        <!-- Danh sách đơn hàng -->
+        <section class="order-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Địa chỉ</th>
+                        <th>Mã đơn hàng</th>
+                        <th>Ngày đặt</th>
+                        <th>Khách hàng</th>
+                        <th>Trạng thái</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody id="order-table-body">
+                    <!-- Đơn hàng 1 -->
+                    <tr class="order-item" data-district="Quận 1, Hồ Chí Minh" data-status="pending">
+                        <td>1</td>
+                        <td>Số 10, Đường Nguyễn Thị Minh Khai, Phường 6, Quận 1, Hồ Chí Minh</td>
+                        <td>ORD001</td>
+                        <td>2024-01-15</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>
+                            <select>
+                                <option value="pending" selected>Chưa xử lý</option>
+                                <option value="confirmed">Đã xác nhận</option>
+                                <option value="delivered">Đã nhận hàng</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                        </td>
+                        <td>
+                            <details>
+                                <summary>Chi tiết</summary>
+                                <p><strong>Sản phẩm:</strong></p>
+                                <ul>
+                                    <li>Bơ Booth - 1kg - 50,000 VND</li>
+                                    <li>Nho mẫu đơn - 2kg - 360,000 VND</li>
+                                </ul>
+                                <p><strong>Thời gian đặt:</strong> 15/01/2024</p>
+                                <p><strong>Số điện thoại:</strong> 0123456789</p>
+                            </details>
+                        </td>
+                    </tr>
+
+                    <!-- Đơn hàng 2 -->
+                    <tr class="order-item" data-district="Quận 3, Hồ Chí Minh" data-status="delivered">
+                        <td>2</td>
+                        <td>Số 15, Đường Cách Mạng Tháng 8, Phường 10, Quận 3, Hồ Chí Minh</td>
+                        <td>ORD002</td>
+                        <td>2024-01-20</td>
+                        <td>Trần Thị B</td>
+                        <td>
+                            <select>
+                                <option value="pending">Chưa xử lý</option>
+                                <option value="confirmed">Đã xác nhận</option>
+                                <option value="delivered" selected>Đã nhận hàng</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                        </td>
+                        <td>
+                            <details>
+                                <summary>Chi tiết</summary>
+                                <p><strong>Sản phẩm:</strong></p>
+                                <ul>
+                                    <li>Táo Mỹ - 1kg - 150,000 VND</li>
+                                    <li>Việt quất - 1kg - 180,000 VND</li>
+                                </ul>
+                                <p><strong>Thời gian đặt:</strong> 20/01/2024</p>
+                                <p><strong>Số điện thoại:</strong> 0987654321</p>
+                            </details>
+                        </td>
+                    </tr>
+
+                    <!-- Đơn hàng 3 -->
+                    <tr class="order-item" data-district="Quận 5, Hồ Chí Minh" data-status="pending">
+                        <td>3</td>
+                        <td>Số 25, Đường Lê Hồng Phong, Phường 7, Quận 5, Hồ Chí Minh</td>
+                        <td>ORD003</td>
+                        <td>2024-01-25</td>
+                        <td>Nguyễn Thị C</td>
+                        <td>
+                            <select>
+                                <option value="pending" selected>Chưa xử lý</option>
+                                <option value="confirmed">Đã xác nhận</option>
+                                <option value="delivered">Đã nhận hàng</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                        </td>
+                        <td>
+                            <details>
+                                <summary>Chi tiết</summary>
+                                <p><strong>Sản phẩm:</strong></p>
+                                <ul>
+                                    <li>Cà Rốt - 2kg - 60,000 VND</li>
+                                    <li>Bắp cải xanh - 1kg - 25,000 VND</li>
+                                </ul>
+                                <p><strong>Thời gian đặt:</strong> 25/01/2024</p>
+                                <p><strong>Số điện thoại:</strong> 0912345678</p>
+                            </details>
+                        </td>
+                    </tr>
+
+                    <!-- Đơn hàng 4 -->
+                    <tr class="order-item" data-district="Quận 6, Hồ Chí Minh" data-status="confirmed">
+                        <td>4</td>
+                        <td>Số 30, Đường Bình Tây, Phường 11, Quận 6, Hồ Chí Minh</td>
+                        <td>ORD004</td>
+                        <td>2024-01-30</td>
+                        <td>Lê Văn D</td>
+                        <td>
+                            <select>
+                                <option value="pending">Chưa xử lý</option>
+                                <option value="confirmed" selected>Đã xác nhận</option>
+                                <option value="delivered">Đã nhận hàng</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                        </td>
+                        <td>
+                            <details>
+                                <summary>Chi tiết</summary>
+                                <p><strong>Sản phẩm:</strong></p>
+                                <ul>
+                                    <li>Táo xanh - 1kg - 80,000 VND</li>
+                                    <li>Cà chua - 2kg - 40,000 VND</li>
+                                </ul>
+                                <p><strong>Thời gian đặt:</strong> 30/01/2024</p>
+                                <p><strong>Số điện thoại:</strong> 0123456789</p>
+                            </details>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
     </footer>

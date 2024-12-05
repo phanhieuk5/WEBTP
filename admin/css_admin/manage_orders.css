@@ -1,189 +1,141 @@
+
 /* Tiêu đề chính */
 h1 {
-    width: 300px;
-    text-align: center;
+    font-size: 32px;
     color: #4CAF50;
-    font-size: 2em;
-    margin-bottom: 50px;
-    margin: 0 auto;
-    
+    margin-bottom: 20px;
+    text-align: center;
 }
-
 
 /* Bộ lọc đơn hàng */
 .order-filters {
-    margin: 20px auto;
-    max-width: 800px;
+    background-color: #fff;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    margin: 10px auto; /* Căn giữa */
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Căn chỉnh chiều rộng theo tỷ lệ màn hình */
+    width: 1200px; /* Đảm bảo giới hạn chiều rộng tối đa */
 }
 
-.order-filters h2 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
+/* Căn chỉnh bộ lọc */
 .filter-group {
     display: flex;
-    gap: 15px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
 }
 
 .filter-group label {
-    font-weight: bold;
-    color: #555;
+    font-size: 14px;
+    margin-right: 10px;
+    flex-shrink: 0;
 }
 
-.filter-group input[type="date"],
-.filter-group input[type="text"],
-.filter-group select {
+/* Cập nhật chiều rộng của các input, select và button */
+.filter-group input,
+.filter-group select,
+.filter-group button {
     padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 150px; /* Giảm chiều rộng của các phần tử để phù hợp với kích thước màn hình */
+    min-width: 100px; /* Thiết lập chiều rộng tối thiểu */
+    box-sizing: border-box; /* Đảm bảo padding không vượt ra ngoài chiều rộng */
 }
 
-.order-filters button {
-    padding: 10px 20px;
+/* Nếu cần, giảm chiều rộng của các button */
+.filter-group button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    width: auto; /* Button có thể thay đổi chiều rộng tự động */
 }
 
-.order-filters button:hover {
+.filter-group button:hover {
     background-color: #45a049;
 }
 
-/* Bảng đơn hàng */
+/* Danh sách đơn hàng */
+.order-list {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto; /* Căn giữa */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Căn chỉnh chiều rộng theo tỷ lệ màn hình */
+    width: 1200px; /* Đảm bảo giới hạn chiều rộng tối đa */
+}
+
+/* Bảng danh sách */
 .order-list table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .order-list th, .order-list td {
-    padding: 12px;
-    border: 1px solid #ddd;
+    padding: 12px 15px;
     text-align: left;
+    border: 1px solid #ddd;
 }
 
 .order-list th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
 }
 
-.order-list tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.order-list tr:hover {
-    background-color: #e6f7e6;
-}
-
-/* Dropdown trạng thái đơn hàng */
-.order-list select {
-    padding: 6px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+.order-list td {
     background-color: #fff;
 }
 
-/* Link chi tiết đơn hàng */
-.order-list .view-link {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
+/* Dropdown trạng thái */
+select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
 }
 
-.order-list .view-link:hover {
-    text-decoration: underline;
+select option {
+    padding: 5px;
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
+/* Chi tiết đơn hàng */
+details {
+    background-color: #f9f9f9;
     padding: 10px;
-    
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.header-container nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav-bar {
-    flex-grow: 1; /* Cho phép nav-bar chiếm không gian còn lại */
-    display: flex; /* Hiển thị nav-bar dưới dạng flex */
-    justify-content: center; /* Căn giữa nav-bar */
-}
-
-.nav-bar ul {
-    list-style-type: none; /* Không sử dụng ký hiệu cho danh sách */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Sử dụng flexbox để sắp xếp các mục */
-}
-
-.nav-bar ul li {
-    margin: 0 15px; /* Khoảng cách giữa các mục */
-}
-
-.nav-bar ul li a {
-    text-decoration: none; /* Không gạch chân */
-    color: #1b5e20; /* Màu chữ cho thanh điều hướng */
-    font-weight: bold; /* Chữ in đậm */
-}
-
-.nav-bar ul li a:hover {
-    color: #FFC107; /* Màu chữ khi hover */
-}
-/* Common Header and Navbar Styles */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 10px 20px;
-}
-
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-.header-container nav ul li a {
-    text-decoration: none;
-    color: white;
+details summary {
+    cursor: pointer;
     font-weight: bold;
+    color: #4CAF50;
 }
 
-.header-container nav ul li a:hover {
-    color: #FFC107;
+details ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filter-group {
+        flex-direction: column; /* Thay đổi sang dạng cột trên màn hình nhỏ */
+    }
+    .filter-group input,
+    .filter-group select,
+    .filter-group button {
+        width: 100%; /* Chiếm hết chiều rộng khi trên màn hình nhỏ */
+    }
+
+    /* Điều chỉnh các yếu tố khác cho màn hình nhỏ nếu cần */
 }

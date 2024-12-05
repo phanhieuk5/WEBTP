@@ -6,10 +6,10 @@
     <title>GreenFarm - Lịch Sử Mua Hàng</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/purchase_history.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -19,8 +19,8 @@
                 <ul>
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
                     <li><a href="../index.html#product-list">Sản phẩm</a></li>
-                    <li><a href="information.html">Công thức nấu ăn</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="information.html">Thông tin liên hệ</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
                 </ul>
             </nav>
 
@@ -42,13 +42,127 @@
             </div>
         </div>
     </header>
-
+    
     <!-- Nội dung Lịch Sử Mua Hàng -->
     <main class="content">
         <div class="container">
             <h1>Lịch Sử Mua Hàng</h1>
             <div id="purchase-history">
-                <!-- Bảng lịch sử đơn hàng sẽ được thêm từ JavaScript -->
+                <table class="purchase-history-table">
+                    <thead>
+                        <tr>
+                            <th>Mã Đơn Hàng</th>
+                            <th>Ngày Mua</th>
+                            <th>Sản Phẩm</th>
+                            <th>Số Lượng</th>
+                            <th>Đơn Giá</th>
+                            <th>Tổng Tiền</th>
+                            <th>Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Đơn hàng 1 -->
+                        <tr>
+                            <td>#1001</td>
+                            <td>01/06/2024</td>
+                            <td>
+                                <ul>
+                                    <li>Khoai Tây</li>
+                                    <li>Bông Cải Trắng</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>2kg</li>
+                                    <li>1kg</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>25,000 VND/kg</li>
+                                    <li>35,000 VND/kg</li>
+                                </ul>
+                            </td>
+                            <td>300,000 VND</td>
+                            <td>Đã giao</td>
+                        </tr>
+                        <!-- Đơn hàng 2 -->
+                        <tr>
+                            <td>#1002</td>
+                            <td>10/06/2024</td>
+                            <td>
+                                <ul>
+                                    <li>Cà Chua</li>
+                                    <li>Dưa Leo</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>3kg</li>
+                                    <li>2kg</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>20,000 VND/kg</li>
+                                    <li>15,000 VND/kg</li>
+                                </ul>
+                            </td>
+                            <td>200,000 VND</td>
+                            <td>Đang xử lý</td>
+                        </tr>
+                        <!-- Đơn hàng 3 -->
+                        <tr>
+                            <td>#1003</td>
+                            <td>15/06/2024</td>
+                            <td>
+                                <ul>
+                                    <li>Cà tím</li>
+                                    <li>Củ cải</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>1kg</li>
+                                    <li>1kg</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>20,000 VND/kg</li>
+                                    <li>15,000 VND/kg</li>
+                                </ul>
+                            </td>
+                            <td>150,000 VND</td>
+                            <td>Đã giao</td>
+                        </tr>
+                        <!-- Đơn hàng 4 -->
+                        <tr>
+                            <td>#1004</td>
+                            <td>20/06/2024</td>
+                            <td>
+                                <ul>
+                                    <li>Củ hành</li>
+                                    <li>Ớt chuông</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>2kg</li>
+                                    <li>1kg</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>15,000 VND/kg</li>
+                                    <li>30,000 VND/kg</li>
+                                </ul>
+                            </td>
+                            <td>250,000 VND</td>
+                            <td>Đang vận chuyển</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
@@ -56,7 +170,6 @@
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
-
-    <script src="../js/purchase_history.js"></script>
+<script src="../js/script.js"></script>  
 </body>
 </html>

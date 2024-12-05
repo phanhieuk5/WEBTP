@@ -1,4 +1,3 @@
-<!-- customer_info.html -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -6,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenFarm - Thông Tin Khách Hàng</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/customer_infor.css">
+    <link rel="stylesheet" href="../css/customer_info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
@@ -20,8 +20,8 @@
                 <ul>
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
                     <li><a href="../index.html#product-list">Sản phẩm</a></li>
-                    <li><a href="information.html">Công thức nấu ăn</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="information.html">Thông tin liên hệ</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
                 </ul>
             </nav>
 
@@ -48,44 +48,80 @@
     <main class="content">
         <div class="container">
             <h1>Thông Tin Khách Hàng</h1>
-            <form id="customer-info-form">
-                <label for="name">Tên:</label>
-                <input type="text" id="name" placeholder="Nhập tên của bạn">
+            <div class="info-container">
+                <!-- Bảng sửa thông tin (bên trái) -->
+                <div class="form-container">
+                    <h2>Sửa Thông Tin</h2>
+                    <form id="customer-info-form">
+                        <label for="name">Tên:</label>
+                        <input type="text" id="name" placeholder="Nhập tên của bạn" value="Nguyễn Văn A">
+                        
+                        <label for="phone">Số điện thoại:</label>
+                        <input type="tel" id="phone" placeholder="Nhập số điện thoại" value="0987654321">
 
-                <label for="phone">Số điện thoại:</label>
-                <input type="tel" id="phone" placeholder="Nhập số điện thoại">
+                        <label for="province">Tỉnh/Thành phố:</label>
+                        <input type="text" id="province" placeholder="Nhập tên tỉnh hoặc thành phố" value="TP.HCM">
 
-                <label for="province">Tỉnh/Thành phố:</label>
-                <input type="text" id="province" placeholder="Nhập tên tỉnh hoặc thành phố">
+                        <label for="district">Quận/Huyện:</label>
+                        <input type="text" id="district" placeholder="Nhập tên quận hoặc huyện" value="Quận 1">
 
-                <label for="district">Quận/Huyện:</label>
-                <input type="text" id="district" placeholder="Nhập tên quận hoặc huyện">
+                        <label for="ward">Phường/Xã:</label>
+                        <input type="text" id="ward" placeholder="Nhập tên phường hoặc xã" value="Phường Bến Nghé">
 
-                <label for="ward">Phường/Xã:</label>
-                <input type="text" id="ward" placeholder="Nhập tên phường hoặc xã">
+                        <label for="street">Tên đường:</label>
+                        <input type="text" id="street" placeholder="Nhập tên đường" value="Đường Nguyễn Huệ">
 
-                <label for="street">Tên đường:</label>
-                <input type="text" id="street" placeholder="Nhập tên đường">
+                        <label for="houseNumber">Số nhà/Thôn:</label>
+                        <input type="text" id="houseNumber" placeholder="Nhập số nhà hoặc thôn" value="123">
+                      <button type="button" onclick="showSuccessMessage()">Lưu Thông Tin</button>
 
-                <label for="houseNumber">Số nhà/Thôn:</label>
-                <input type="text" id="houseNumber" placeholder="Nhập số nhà hoặc thôn">
 
-                <button type="button" onclick="saveCustomerInfo()">Lưu Thông Tin</button>
-            </form>
+                    </form>
+                </div>
 
-            <!-- Phần hiển thị thông tin khách hàng sau khi lưu -->
-            <div id="display-customer-info" style="margin-top: 20px;">
-                <h2>Thông Tin Đã Lưu</h2>
-                <p><strong>Tên:</strong> <span id="display-name"></span></p>
-                <p><strong>Số điện thoại:</strong> <span id="display-phone"></span></p>
-                <p><strong>Địa chỉ:</strong> <span id="display-address"></span></p>
+               <!-- Bảng thông tin đã lưu (bên phải) -->
+<div class="display-container">
+    <h2>Thông Tin Đã Lưu</h2>
+    <label for="display-name"><strong>Tên:</strong></label>
+    <input type="text" id="display-name" value="Nguyễn Văn A" readonly>
+
+    <label for="display-phone"><strong>Số điện thoại:</strong></label>
+    <input type="tel" id="display-phone" value="0987654321" readonly>
+
+    <label for="display-province"><strong>Tỉnh/Thành phố:</strong></label>
+    <input type="text" id="display-province" value="TP.HCM" readonly>
+
+    <label for="display-district"><strong>Quận/Huyện:</strong></label>
+    <input type="text" id="display-district" value="Quận 1" readonly>
+
+    <label for="display-ward"><strong>Phường/Xã:</strong></label>
+    <input type="text" id="display-ward" value="Phường Bến Nghé" readonly>
+
+    <label for="display-street"><strong>Tên đường:</strong></label>
+    <input type="text" id="display-street" value="Đường Nguyễn Huệ" readonly>
+
+    <label for="display-houseNumber"><strong>Số nhà/Thôn:</strong></label>
+    <input type="text" id="display-houseNumber" value="123" readonly>
+
+    <label for="display-fullAddress"><strong>Địa chỉ đầy đủ:</strong></label>
+    <input type="text" id="display-fullAddress" value="123 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM" readonly>
+</div>
+
+            <!-- Thông báo thành công -->
+            <div id="success-message" style="display:none; margin-top: 20px; color: green;">
+                <p>Thông tin đã được lưu thành công!</p>
             </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
+    <script>
+            function showSuccessMessage() {
+    alert('Thông tin đã được lưu thành công!');
+}
 
-    <script src="../js/customer_info.js"></script>
+    </script>
+    <script src="../js/script.js"></script>   
 </body>
 </html>

@@ -1,195 +1,101 @@
-/* Căn chỉnh lại thanh tìm kiếm và lọc */
-.search-filter-dropdown {
+/* Khu vực danh mục và tìm kiếm */
+.horizontal-category {
+    background-color: rgb(178, 224, 192); /* Màu nền */
+    padding: 15px 20px;
+    border-radius: 25px; /* Bo tròn toàn bộ thanh */
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa các phần tử */
+    gap: 15px; /* Khoảng cách giữa các thành phần */
+    flex-wrap: wrap; /* Tự động xuống hàng khi không đủ không gian */
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    background-color: #A5D6A7;
-    border-radius: 15px;
-    padding: 0;
-    height: 40px;
-    position: relative;
-    z-index: 1;
+    gap: 10px; /* Khoảng cách giữa các ô */
+    flex: 1; /* Chiếm không gian linh hoạt */
+    max-width: 800px; /* Đặt giới hạn chiều rộng tổng */
+    justify-content: center; /* Căn giữa các thành phần trong thanh tìm kiếm */
+    margin-right: -50px; /* Giảm khoảng cách giữa search-bar và horizontal-category */
 }
 
-/* Nút Tìm kiếm và Lọc */
-.dropdown-button {
-    padding: 0 20px;
-    height: 100%;
-    background-color: #A5D6A7;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 18px; /* Tăng kích thước chữ */
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    transition: background-color 0.3s, color 0.3s;
+
+
+/* Ô nhập tìm kiếm */
+.search-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Bo tròn từng ô */
+    width: 200px; /* Cố định chiều rộng vừa phải */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Hiệu ứng thay đổi viền */
 }
 
-.dropdown-button:hover {
-    background-color: #91c7a3;
-    color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.search-input:focus {
+    border-color: #4CAF50; /* Màu viền khi ô nhập được focus */
+    outline: none;
 }
 
-/* Hộp tìm kiếm và lọc */
-.search-filter-container {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 30px; /* Tăng padding cho dễ nhìn */
-    border-radius: 10px;
-    top: 100%;
-    margin-top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+/* Ô nhập giá */
+.price-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    width: 120px; /* Đặt kích thước hợp lý cho ô nhập giá */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-/* Điều chỉnh ô tìm kiếm và lọc */
-.search-filter-container input[type="text"],
-.search-filter-container input[type="number"] {
-    padding: 15px; /* Tăng padding cho các ô input */
-    font-size: 18px; /* Tăng kích thước chữ */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: calc(100% - 30px); /* Đảm bảo canh lề đều cho các ô */
-    margin-bottom: 15px;
+.price-input:focus {
+    border-color: #4CAF50;
+    outline: none;
 }
 
-/* Điều chỉnh kích cỡ và vị trí của nút */
-.search-filter-container input[type="button"] {
-    padding: 15px 0; /* Tăng chiều cao cho nút */
-    font-size: 18px; /* Tăng kích thước chữ */
+/* Nút tìm kiếm */
+.search-button {
+    padding: 10px 20px;
+    font-size: 14px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    width: 100%; /* Đặt chiều rộng của nút bằng chiều rộng của hộp */
-    margin-bottom: 15px; /* Khoảng cách giữa các nút */
-    transition: background-color 0.3s;
+    height: 100%; /* Đồng bộ chiều cao với ô nhập */
+    transition: background-color 0.3s ease;
 }
 
-.search-filter-container input[type="button"]:hover {
+.search-button:hover {
     background-color: #45a049;
 }
 
-/* Hiển thị dropdown khi có class `show` */
-.search-filter-container.show {
-    display: block;
-}
-
-
-/* Danh mục hàng ngang */
-.horizontal-category {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
-    background-color: #A5D6A7;
-    border-radius: 15px;
-    width: 90%;
-    margin: 0 auto 20px auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.horizontal-category-list {
-    display: flex;
-    list-style-type: none;
-    gap: 30px;
-}
-
-.horizontal-category-list li a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 15px 25px;
-    border-radius: 15px;
-    transition: background-color 0.3s, color 0.3s;
+/* Dropdown danh mục */
+.dropdown-category {
     display: flex;
     align-items: center;
 }
 
-.horizontal-category-list li a:hover {
-    color: #A5D6A7;
+.category-dropdown {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Bo tròn dropdown */
     background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-
-    .horizontal-category {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .horizontal-category-list {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .horizontal-category-list li a {
-        width: 100%;
-        text-align: center;
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    body {
-        font-size: 14px;
-    }
-    .container, .checkout-container, .modal-content, .content, .hero {
-        width: 95%;
-        margin: 0 auto;
-        padding: 10px;
-    }
-    .product {
-        flex: 1 1 calc(50% - 10px); /* 2 products per row */
-    }
-    .button-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .btn-back, .btn-checkout, button {
-        width: 100%;
-    }
-    h1, h2, h3 {
-        font-size: 18px;
-    }
+    cursor: pointer;
+    width: 150px; /* Giới hạn kích thước dropdown */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
 }
 
-/* Responsive for very small screens */
+.category-dropdown:hover {
+    background-color: #f1f1f1; /* Màu nền khi hover */
+}
 
-    .horizontal-category {
-        padding: 5px;
-    }
-
-    .horizontal-category-list li a {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-@media (max-width: 480px) {
-    body {
-        font-size: 12px;
-    }
-    .product {
-        flex: 1 1 100%; /* 1 product per row */
-    }
-    .modal-content {
-        width: 90%;
-    }
-    .header, .footer, .banner-text {
-        text-align: center;
-        padding: 10px;
-    }
+/* Đảm bảo căn giữa toàn bộ thanh */
+.horizontal-category > * {
+    display: flex;
+    align-items: center;
 }

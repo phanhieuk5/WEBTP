@@ -1,212 +1,174 @@
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
-}
-
+/* Tiêu đề chính */
 h1 {
-    width: 300px;
-    text-align: center;
+    font-size: 32px;
     color: #4CAF50;
-    font-size: 2em;
-    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: center; /* Căn giữa tiêu đề */
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 10px;
-    
-}
 
-.header-container .logo img {
-    height: 50px;
-}
 
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.header-container nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav-bar {
-    flex-grow: 1; /* Cho phép nav-bar chiếm không gian còn lại */
-    display: flex; /* Hiển thị nav-bar dưới dạng flex */
-    justify-content: center; /* Căn giữa nav-bar */
-    margin-bottom: 95px; /* Increased margin-bottom by 5px */
-}
-
-.nav-bar ul {
-    list-style-type: none; /* Không sử dụng ký hiệu cho danh sách */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Sử dụng flexbox để sắp xếp các mục */
-}
-
-.nav-bar ul li {
-    margin: 0 15px; /* Khoảng cách giữa các mục */
-}
-
-.nav-bar ul li a {
-    text-decoration: none; /* Không gạch chân */
-    color: #1b5e20; /* Màu chữ cho thanh điều hướng */
-    font-weight: bold; /* Chữ in đậm */
-}
-
-.nav-bar ul li a:hover {
-    color: #FFC107; /* Màu chữ khi hover */
-}
-
-#add-product-form, #edit-product-form {
-    margin: 20px 0;
-}
-
-#product-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#product-table th, #product-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-#product-table th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.product-image {
-    width: 50px;
-    height: auto;
-}
-
-.btn-edit {
-    background-color: #ffa500;
-    color: white;
-    padding: 5px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.btn-edit:hover {
-    background-color: #ff8c00;
-}
-
-.btn-delete {
-    background-color: #f44336;
-    color: white;
-    padding: 5px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.btn-delete:hover {
-    background-color: #e53935;
-}
-
-.pagination {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.pagination button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 12px;
-    margin: 2px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.pagination button.active {
-    background-color: #45a049;
-}
-
-.pagination button:hover {
-    background-color: #45a049;
-}
-
-/* Thêm định dạng cho form thêm sản phẩm */
-#add-product-form {
-    background-color: #ffffff;
+/* Form thêm sản phẩm */
+.add-product-form {
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-#add-product-form label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-#add-product-form input[type="text"],
-#add-product-form input[type="number"],
-#add-product-form textarea,
-#add-product-form input[type="file"],
-#add-product-form select {
-    width: 100%;
-    padding: 10px;
+.add-product-form h2 {
+    font-size: 24px;
+    color: #4CAF50;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    text-align: left;
 }
 
-#add-product-form button {
+.add-product-form form {
+    display: flex; 
+    justify-content: space-between; /* Các ô nhập sẽ chia đều không gian */
+    gap: 10px;
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ không gian */
+}
+
+.add-product-form input,
+.add-product-form select,
+.add-product-form textarea,
+.add-product-form button {
+    width: 19%; /* Mỗi ô sẽ chiếm khoảng 19% chiều rộng của form */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Tăng chiều cao cho textarea */
+.add-product-form textarea {
+    height: 50px; /* Tăng chiều cao */
+    resize: vertical;
+}
+
+/* Nút "Thêm sản phẩm" */
+.add-product-form button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 15px;
+    font-size: 16px;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Nút chiếm toàn bộ chiều rộng của dòng */
 }
 
-#add-product-form button:hover {
+.add-product-form button:hover {
     background-color: #45a049;
 }
 
-/* Common Header and Navbar Styles */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Media Queries cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    .add-product-form form {
+        flex-direction: column; /* Khi màn hình nhỏ, chuyển thành dạng cột */
+    }
+
+    .add-product-form input,
+    .add-product-form select,
+    .add-product-form textarea,
+    .add-product-form button {
+        width: 100%; /* Mỗi ô chiếm toàn bộ chiều rộng */
+    }
+}
+
+
+
+/* Bảng danh sách sản phẩm */
+.product-table {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.product-table h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
     background-color: #4CAF50;
-    padding: 10px 20px;
-}
-
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-.header-container nav ul li a {
-    text-decoration: none;
     color: white;
-    font-weight: bold;
 }
 
-.header-container nav ul li a:hover {
-    color: #FFC107;
+table td {
+    background-color: #fff;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+/* Đặt kích thước hình ảnh sản phẩm trong bảng */
+table td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* Media Queries cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    .add-product-form form {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .product-table {
+        padding: 15px;
+    }
+
+    table td img {
+        width: 40px;
+        height: 40px;
+    }
 }

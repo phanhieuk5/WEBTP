@@ -1,7 +1,6 @@
 /* cart.css */
-/* Định dạng container giỏ hàng */
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -9,42 +8,44 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Tiêu đề giỏ hàng */
 h1, h2 {
     text-align: center;
     color: #4CAF50;
 }
 
-/* Danh sách sản phẩm trong giỏ hàng */
-.cart-items {
-    margin-bottom: 20px;
-     min-height: 100px;
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
 }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.cart-table th, .cart-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
 }
 
-.cart-item img {
+.cart-table th {
+    background-color: rgb(178, 224, 192);
+    color: white;
+}
+
+.cart-product-image {
     width: 60px;
     height: 60px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.quantity-input {
-    width: 60px;
+.cart-product-quantity {
+    width: 50px;
     padding: 5px;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Nút Xóa sản phẩm */
 .btn-remove {
     background-color: #d9534f;
     color: white;
@@ -58,7 +59,6 @@ h1, h2 {
     background-color: #c9302c;
 }
 
-/* Tổng giá */
 #total-price {
     font-size: 24px;
     font-weight: bold;
@@ -66,7 +66,6 @@ h1, h2 {
     color: #333;
 }
 
-/* Nút Thanh toán */
 .btn-checkout {
     display: block;
     width: 100%;
@@ -84,84 +83,17 @@ h1, h2 {
 .btn-checkout:hover {
     background-color: #7b3e14;
 }
-.profile-dropdown {
-    position: relative;
-    display: inline-block;
-}
 
-.profile-dropdown-btn {
-    cursor: pointer;
-    color: #333;
-}
-
-.profile-dropdown-list {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 160px;
-    z-index: 1;
-    border-radius: 5px;
-    padding: 10px 0;
-}
-
-.profile-dropdown-list li {
-    list-style: none;
-}
-
-.profile-dropdown-list a {
-    color: black;
-    padding: 10px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.profile-dropdown-list a:hover {
-    background-color: #f1f1f1;
-}
-
-.show {
-    display: block;
-}
 /* Responsive for smaller screens */
 @media (max-width: 768px) {
-    body {
+    .cart-table {
         font-size: 14px;
     }
-    .container, .checkout-container, .modal-content, .content, .hero {
-        width: 95%;
-        margin: 0 auto;
-        padding: 10px;
+    .cart-product-image {
+        width: 50px;
+        height: 50px;
     }
-    .product {
-        flex: 1 1 calc(50% - 10px); /* 2 products per row */
-    }
-    .button-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .btn-back, .btn-checkout, button {
-        width: 100%;
-    }
-    h1, h2, h3 {
-        font-size: 18px;
-    }
-}
-
-/* Responsive for very small screens */
-@media (max-width: 480px) {
-    body {
-        font-size: 12px;
-    }
-    .product {
-        flex: 1 1 100%; /* 1 product per row */
-    }
-    .modal-content {
-        width: 90%;
-    }
-    .header, .footer, .banner-text {
-        text-align: center;
-        padding: 10px;
+    .cart-product-quantity {
+        width: 40px;
     }
 }

@@ -10,7 +10,6 @@
 </head>
 <body>
 
-    <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -20,8 +19,8 @@
                 <ul>
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
                     <li><a href="../index.html#product-list">Sản phẩm</a></li>
-                    <li><a href="information.html">Công thức nấu ăn</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="information.html">Thông tin liên hệ</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
                 </ul>
             </nav>
 
@@ -44,19 +43,70 @@
         </div>
     </header>
 
-    <!-- Nội dung giỏ hàng -->
     <main class="content">
         <div class="container">
             <h1>Giỏ Hàng</h1>
-            <div id="cart-items" class="cart-items"></div>
-            <h2>Tổng giá: <span id="total-price">0 VNĐ</span></h2>
-         <button id="btn-checkout" class="btn-checkout" onclick="checkout()">Thanh toán</button>
+            
+            <!-- Giỏ hàng dạng bảng -->
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Thành tiền</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="../img/khoaitay.jpg" alt="Khoai Tây" class="cart-product-image"></td>
+                        <td>Khoai Tây</td>
+                        <td><input type="number" value="1" min="1" class="cart-product-quantity"></td>
+                        <td>25,000 VND/1kg</td>
+                        <td>25,000 VND</td>
+                        <td><button class="btn-remove">Xóa</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="../img/bongcaitrang.jpg" alt="Bông cải trắng" class="cart-product-image"></td>
+                        <td>Bông cải trắng</td>
+                        <td><input type="number" value="1" min="1" class="cart-product-quantity"></td>
+                        <td>35,000 VND/1kg</td>
+                        <td>35,000 VND</td>
+                        <td><button class="btn-remove">Xóa</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="../img/catimloai1.jpg" alt="Cà tím loại 1" class="cart-product-image"></td>
+                        <td>Cà tím loại 1</td>
+                        <td><input type="number" value="1" min="1" class="cart-product-quantity"></td>
+                        <td>20,000 VND/1kg</td>
+                        <td>20,000 VND</td>
+                        <td><button class="btn-remove">Xóa</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="../img/cuahoangde.jpg" alt="Cua Hoàng Đế" class="cart-product-image"></td>
+                        <td>Cua Hoàng Đế</td>
+                        <td><input type="number" value="1" min="1" class="cart-product-quantity"></td>
+                        <td>800,000 VND/1kg</td>
+                        <td>800,000 VND</td>
+                        <td><button class="btn-remove">Xóa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Tổng giá: <span id="total-price">880,000 VND</span></h2>
+            <a href="checkout.html" id="btn-checkout" class="btn-checkout">Thanh toán</a>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
-    <script src="../js/cart.js"></script>  
+
+    <script src="../js/script.js"></script>  
 </body>
 </html>

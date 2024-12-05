@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenFarm - Thanh Toán</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../hieuungchoweb/header.css">
     <link rel="stylesheet" href="../css/checkout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
-     <!-- Header giống với trang chủ -->
+    <!-- Header giống với trang chủ -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -20,8 +21,8 @@
                 <ul>
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
                     <li><a href="../index.html#product-list">Sản phẩm</a></li>
-                    <li><a href="information.html">Công thức nấu ăn</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="information.html">Thông tin liên hệ</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
                 </ul>
             </nav>
 
@@ -44,64 +45,111 @@
         </div>
     </header>
 
-    <!-- Nội dung chính - Thanh Toán -->
- <main class="content">
-        <div class="checkout-container">
-            <h1>Thanh Toán</h1>
-            <div class="checkout-form">
-                <label for="recipient-name">Tên người nhận:</label>
-                <input type="text" id="recipient-name" placeholder="Nhập tên người nhận...">
+<!-- Thanh Toán -->
+<main class="content">
+    <div class="checkout-container">
+        <h1>Thanh Toán</h1>
+        <div class="checkout-form">
+            <!-- Tên người nhận -->
+            <label for="recipient-name">Tên người nhận:</label>
+            <input type="text" id="recipient-name" value="Nguyễn Văn A" placeholder="Nhập tên người nhận...">
 
-                <label for="address-select">Chọn địa chỉ từ tài khoản:</label>
-                <select id="address-select">
-                    <option value="">-- Chọn địa chỉ đã lưu --</option>
-                </select>
-
-                <label for="new-address">Hoặc nhập địa chỉ mới:</label>
-                <input type="text" id="new-address" placeholder="Nhập địa chỉ mới...">
-
-                <label for="payment-method">Phương thức thanh toán:</label>
-                <select id="payment-method">
-                    <option value="cash">Tiền mặt</option>
-                    <option value="bank_transfer">Chuyển khoản</option>
-                    <option value="credit_card">Thẻ tín dụng</option>
-                </select>
-
-                <!-- Phần thông tin thẻ tín dụng -->
-<div id="credit-card-info" style="display:none;">
-    <label for="card-number">Số thẻ:</label>
-    <input type="text" id="card-number" placeholder="Nhập số thẻ...">
-    <label for="expiry-date">Ngày hết hạn:</label>
-    <input type="text" id="expiry-date" placeholder="MM/YY">
-    <label for="cvv">CVV:</label>
-    <input type="text" id="cvv" placeholder="Nhập CVV...">
-</div>
-<!-- Tóm tắt đơn hàng -->
-<div id="order-summary" class="order-summary">
-    <h2>Tóm Tắt Đơn Hàng</h2>
-    <div id="summary-items"></div>
-    <p>Tổng cộng: <span id="summary-total-price">0 VNĐ</span></p>
-</div>
-
-<!-- Phần thông tin chuyển khoản -->
-<div id="bank-transfer-info" style="display:none;">
-    <img src="../img/qr-code.png" alt="QR Code for Bank Transfer">
-    <p>Nội dung chuyển khoản: [Mã đơn hàng - Tên khách hàng]</p>
+           <!-- Địa chỉ -->
+<label for="address-select">Địa chỉ:</label>
+<div class="address-container">
+    <select id="address-select" onchange="toggleAddressInput()">
+        <option value="address-1">123 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM</option>
+        <option value="new">Nhập địa chỉ mới</option>
+    </select>
+    <input type="text" id="new-address" placeholder="Nhập địa chỉ mới..." disabled />
 </div>
 
 
-                <!-- Các nút điều hướng -->
-                <div class="checkout-buttons">
-                    <button class="btn-back" onclick="window.history.back();">Quay lại</button>
-                    <button class="btn-checkout" id="confirm-payment">Xác Nhận Thanh Toán</button>
-                </div>
+            <!-- Phương thức thanh toán -->
+            <label for="payment-method">Phương thức thanh toán:</label>
+            <select id="payment-method" onchange="togglePaymentInfo()">
+                <option value="cash">Tiền mặt</option>
+                <option value="bank_transfer">Chuyển khoản</option>
+                <option value="credit_card">Thẻ tín dụng</option>
+            </select>
+
+            <!-- Phần thông tin thẻ tín dụng -->
+            <div id="credit-card-info">
+                <label for="card-number">Số thẻ:</label>
+                <input type="text" id="card-number" placeholder="Nhập số thẻ..." value="1234 5678 9876 5432">
+                <label for="expiry-date">Ngày hết hạn:</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" value="12/23">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="Nhập CVV..." value="123">
+            </div>
+
+            <!-- Phần thông tin chuyển khoản -->
+            <div id="bank-transfer-info">
+                <img src="../img/GREENFARM.png" alt="QR Code for Bank Transfer" />
+                <p>Nội dung chuyển khoản: [GD999 - Nguyen Van A]</p>
+            </div>
+
+            <!-- Tóm tắt đơn hàng -->
+            <div id="order-summary" class="order-summary">
+                <h2>Tóm Tắt Đơn Hàng</h2>
+                <table class="order-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Ảnh Sản Phẩm</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Số Lượng</th>
+                            <th>Giá</th>
+                            <th>Tổng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../img/khoaitay.jpg" class="product-image"></td>
+                            <td>Khoai Tây</td>
+                            <td>2</td>
+                            <td>25,000 VND/1kg</td>
+                            <td>50,000 VND</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../img/cuahoangde.jpg" class="product-image"></td>
+                            <td>Củ Hòàng Đế</td>
+                            <td>1</td>
+                            <td>800,000 VND/1kg</td>
+                            <td>800,000 VND</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../img/catimloai1.jpg" class="product-image"></td>
+                            <td>Cà Tím Loại 1</td>
+                            <td>3</td>
+                            <td>20,000 VND/1kg</td>
+                            <td>60,000 VND</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../img/bongcaitrang.jpg" class="product-image"></td>
+                            <td>Bông Cải Trắng</td>
+                            <td>1</td>
+                            <td>35,000 VND/1kg</td>
+                            <td>35,000 VND</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Tổng cộng: <span id="summary-total-price">945,000 VND</span></p>
+            </div>
+
+            <!-- Nút thanh toán -->
+            <div class="checkout-buttons">
+                <button class="btn-back" onclick="window.history.back();">Quay lại</button>
+                <button class="btn-checkout" onclick="processCheckout()">Xác Nhận Thanh Toán</button>
             </div>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
-    </footer>
+    </div>
+</main>
 
-    <script src="../js/checkout.js"></script>
+<footer>
+    <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
+</footer>
+<script src="../js/script.js"></script>
+<script src="../js/checkout.js"></script>
+
 </body>
 </html>

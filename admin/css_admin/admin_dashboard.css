@@ -1,98 +1,193 @@
+/* Tổng thể */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
-
 body {
-    background-color: #f1f8e9; /* Màu nền nhẹ nhàng */
-    /*margin: 0;*/
-    width: 800px; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the body horizontally */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+/* Tổng thể */
+html, body {
+    height: 100%; /* Đảm bảo body chiếm toàn bộ chiều cao trang */
+    margin: 0; /* Bỏ margin mặc định */
 }
 
-/* Header Container */
-.header-container {
+/* Main content */
+body {
     display: flex;
-    align-items: center;
-    justify-content: space-between; /* Giữ cho logo bên trái và nav-bar bên phải */
-    background-color: #4CAF50; /* Light pastel green */
-    padding: 15px 20px;
-    height: 80px; /* Adjust the height as needed */
-    
-}
-
-
-/* Thanh Điều Hướng */
-/* Thanh Điều Hướng */
-.nav-bar {
-    flex-grow: 1; /* Cho phép nav-bar chiếm không gian còn lại */
-    display: flex; /* Hiển thị nav-bar dưới dạng flex */
-    justify-content: center; /* Căn giữa nav-bar */
-}
-
-.nav-bar ul {
-    list-style-type: none; /* Không sử dụng ký hiệu cho danh sách */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Sử dụng flexbox để sắp xếp các mục */
-}
-
-.nav-bar ul li {
-    margin: 0 15px; /* Khoảng cách giữa các mục */
-}
-
-.nav-bar ul li a {
-    text-decoration: none; /* Không gạch chân */
-    color: #1b5e20; /* Màu chữ cho thanh điều hướng */
-    font-weight: bold; /* Chữ in đậm */
-}
-
-.nav-bar ul li a:hover {
-    color: #FFC107; /* Màu chữ khi hover */
-}
-/* Nội dung */
-.content {
-    padding: 20px;
+    flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc: header -> main -> footer */
+    min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của trang là 100% */
 }
 
 footer {
-    background-color: #A5D6A7; /* Màu xanh pastel cho footer */
+    background-color: #333; /* Màu nền footer */
+    color: white; /* Màu chữ trắng */
     text-align: center;
-    padding: 10px;
-    width: 800px; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the footer horizontally */
-    color: #fff; /* Màu chữ trắng cho footer */
+    padding: 15px 0;
+    width: 100%;
+    position: relative; /* Đảm bảo footer không đè lên nội dung */
+    margin-top: auto; /* Đẩy footer xuống cuối trang */
 }
 
-/* Common Header and Navbar Styles */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 10px 20px;
-}
-
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+footer p {
     margin: 0;
+    font-weight: normal; /* Bỏ hiệu ứng nổi/chìm */
+    text-decoration: none; /* Bỏ gạch dưới nếu có */
+    color: white;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    padding: 10px 0; /* Giảm chiều cao header */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Trải dài header */
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    width: 100%; /* Đảm bảo header chiếm toàn bộ chiều ngang */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Căn giữa tất cả phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 0 20px; /* Thêm padding để tránh sát mép */
+}
+
+.logo {
+    display: flex;
+    justify-content: center; /* Căn logo chính giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    flex: 0 1 auto; /* Logo không chiếm quá nhiều không gian */
+}
+
+.logo img {
+    height: 40px; /* Giảm chiều cao logo */
+}
+
+nav {
+    display: flex; /* Dùng flexbox để căn chỉnh các mục menu */
+    justify-content: center; /* Căn giữa các mục menu */
+    align-items: center;
+    flex: 1; /* Đảm bảo menu chiếm không gian còn lại */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Đảm bảo các mục menu nằm trên cùng một dòng */
     padding: 0;
 }
 
-.header-container nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+nav ul li {
+    margin-left: 20px; /* Khoảng cách giữa các mục menu */
 }
 
-.header-container nav ul li a:hover {
-    color: #FFC107;
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #45a049;
+}
+
+/* Main Content */
+.main-container {
+    width: 90%;
+    margin: 100px auto 0 auto; /* Khoảng cách từ header */
+}
+
+/* Section Summary */
+.content-summary {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Dashboard Statistics */
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stat-box {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 20px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.stat-description {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Cấu trúc bao quanh nội dung */
+
+
+.main-container {
+    flex: 1; /* Cho phép phần này chiếm toàn bộ không gian trống còn lại */
+}
+
+
+/* Media Queries cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Đưa logo và menu xuống dòng */
+        align-items: center; /* Căn giữa nội dung theo chiều ngang */
+        padding: 0 10px; /* Giảm padding hai bên cho phù hợp với màn hình nhỏ */
+    }
+
+    nav ul {
+        flex-direction: column; /* Các mục trong menu sẽ xuống dòng */
+        align-items: center; /* Căn giữa menu */
+        width: 100%; /* Đảm bảo menu chiếm toàn bộ chiều rộng */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Thêm khoảng cách giữa các mục menu */
+    }
+
+    .logo img {
+        margin-bottom: 10px; /* Thêm khoảng cách dưới logo */
+    }
 }
