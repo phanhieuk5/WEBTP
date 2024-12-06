@@ -4,8 +4,8 @@ h1 {
     color: #4CAF50;
     margin-bottom: 20px;
     text-align: center;
-    padding-left: 20px; /* Thêm padding để tạo khoảng cách từ lề trái */
-    padding-right: 20px; /* Thêm padding để tạo khoảng cách từ lề phải */
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Phần thống kê */
@@ -15,8 +15,8 @@ h1 {
     margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 20px; /* Thêm margin để tránh sát lề trái */
-    margin-right: 20px; /* Thêm margin để tránh sát lề phải */
+    margin-left:    100px;
+    margin-right: 100px;
 }
 
 /* Bảng thống kê */
@@ -24,24 +24,46 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    margin-left: auto; /* Căn trái phải tự động để trung tâm bảng */
+    margin-left: auto;
     margin-right: auto;
 }
 
 th, td {
-    padding: 12px 15px;
-    text-align: justify; /* Căn đều hai bên cho các cột dữ liệu */
+    padding: 8px 12px;
+    text-align: center;
     border: 1px solid #ddd;
+    font-size: 14px;
 }
 
 th {
     background-color: #4CAF50;
     color: white;
-    text-align: center; /* Căn giữa cho tiêu đề bảng */
+    font-size: 16px;
 }
 
 td {
     background-color: #fff;
+}
+
+/* Các cột cụ thể */
+#product-stats-table td:nth-child(1),
+#customer-stats-table td:nth-child(1) {
+    width: 20%;
+}
+
+#product-stats-table td:nth-child(2),
+#customer-stats-table td:nth-child(2) {
+    width: 15%;
+}
+
+#product-stats-table td:nth-child(3),
+#customer-stats-table td:nth-child(3) {
+    width: 20%;
+}
+
+#product-stats-table td:nth-child(4),
+#customer-stats-table td:nth-child(4) {
+    width: 15%;
 }
 
 /* Nút Chi tiết trong bảng */
@@ -55,23 +77,22 @@ td button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 td button:hover {
     background-color: #45a049;
 }
 
 /* Modal */
 .modal {
-    display: none; /* Ẩn mặc định */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1001;
     overflow-y: auto;
-
-    /* Sử dụng Flexbox để căn giữa modal */
     align-items: center;
     justify-content: center;
 }
@@ -108,8 +129,8 @@ td button:hover {
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 20px; /* Thêm margin để tránh sát lề trái */
-    margin-right: 20px; /* Thêm margin để tránh sát lề phải */
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .product-details h2, .customer-details h2 {
@@ -124,7 +145,7 @@ td button:hover {
 }
 
 .product-details th, .customer-details th, .product-details td, .customer-details td {
-    text-align: justify; /* Căn đều hai bên cho nội dung trong bảng */
+    text-align: justify;
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
@@ -147,7 +168,7 @@ td button:hover {
 
 .invoice-table th, .invoice-table td {
     padding: 12px 15px;
-    text-align: justify; /* Căn đều hai bên */
+    text-align: justify;
     border: 1px solid #ddd;
 }
 
@@ -164,7 +185,7 @@ td button:hover {
 @media (max-width: 768px) {
     main.content {
         padding: 20px;
-        margin-top: 100px; /* Điều chỉnh margin-top cho màn hình nhỏ */
+        margin-top: 100px;
     }
 
     h1 {

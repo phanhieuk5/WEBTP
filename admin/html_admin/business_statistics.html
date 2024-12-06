@@ -81,20 +81,20 @@
                 <tbody>
                     <tr>
                         <td>Nguyễn Văn Tuấn</td>
-                        <td>5</td>
-                        <td>10,000,000 VNĐ</td>
+                        <td>2</td>
+                        <td>2,500,000 VNĐ</td>
                         <td><button class="view-customer-details" data-customer="Nguyễn Văn Tuấn">Chi tiết</button></td>
                     </tr>
                     <tr>
                         <td>Trần Thị Xuân</td>
-                        <td>3</td>
-                        <td>6,000,000 VNĐ</td>
+                        <td>2</td>
+                        <td>2,500,000 VNĐ</td>
                         <td><button class="view-customer-details" data-customer="Trần Thị Xuân">Chi tiết</button></td>
                     </tr>
                     <tr>
                         <td>Phạm Minh Diệu</td>
-                        <td>4</td>
-                        <td>7,500,000 VNĐ</td>
+                        <td>1</td>
+                        <td>2,500,000 VNĐ</td>
                         <td><button class="view-customer-details" data-customer="Phạm Minh Diệu">Chi tiết</button></td>
                     </tr>
                 </tbody>
@@ -115,10 +115,37 @@
                             <th>Sản phẩm</th>
                             <th>Số lượng</th>
                             <th>Đơn giá</th>
+                            <th>Tổng tiền</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dữ liệu chi tiết sản phẩm -->
+                        <tr>
+                            <td>Nguyễn Văn Tuấn</td>
+                            <td>ORD001</td>
+                            <td>2024-12-06</td>
+                            <td>Bơ Booth</td>
+                            <td>20</td>
+                            <td>50,000 VNĐ</td>
+                            <td>1,000,000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Trần Thị Xuân</td>
+                            <td>ORD002</td>
+                            <td>2024-12-06</td>
+                            <td>Bơ Booth</td>
+                            <td>15</td>
+                            <td>50,000 VNĐ</td>
+                            <td>750,000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Phạm Minh Diệu</td>
+                            <td>ORD003</td>
+                            <td>2024-12-06</td>
+                            <td>Bơ Booth</td>
+                            <td>15</td>
+                            <td>50,000 VNĐ</td>
+                            <td>750,000 VNĐ</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -135,13 +162,43 @@
                             <th>Mã đơn hàng</th>
                             <th>Ngày</th>
                             <th>Tên khách hàng</th>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
                             <th>Tổng tiền</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dữ liệu chi tiết khách hàng -->
+                        <tr>
+                            <td>ORD001</td>
+                            <td>2024-12-06</td>
+                            <td>Nguyễn Văn Tuấn</td>
+                            <td>Bơ Booth</td>
+                            <td>20</td>
+                            <td>50,000 VNĐ</td>
+                            <td>1,000,000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>ORD002</td>
+                            <td>2024-12-06</td>
+                            <td>Trần Thị Xuân</td>
+                            <td>Bơ Booth</td>
+                            <td>15</td>
+                            <td>50,000 VNĐ</td>
+                            <td>750,000 VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>ORD003</td>
+                            <td>2024-12-06</td>
+                            <td>Phạm Minh Diệu</td>
+                            <td>Bơ Booth</td>
+                            <td>15</td>
+                            <td>50,000 VNĐ</td>
+                            <td>750,000 VNĐ</td>
+                        </tr>
                     </tbody>
                 </table>
+                <p><strong>Tổng tiền chi tiêu:</strong> 2,500,000 VNĐ</p>
             </div>
         </div>
     </main>
@@ -150,8 +207,8 @@
         <p>&copy; 2024 Bản quyền thuộc về GreenFarm. Thực phẩm sạch và an toàn.</p>
     </footer>
 
-    <!-- Scripts cho Modal -->
     <script>
+        // JavaScript code for modal functionality
         const productButtons = document.querySelectorAll('.view-product-details');
         const customerButtons = document.querySelectorAll('.view-customer-details');
         const productModal = document.getElementById('product-modal');
@@ -162,16 +219,33 @@
         productButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const productName = button.getAttribute('data-product');
-                // Lấy thông tin chi tiết sản phẩm từ server hoặc xử lý tại đây
-                // Ví dụ thêm vào bảng chi tiết sản phẩm
                 document.querySelector('#product-detail-table tbody').innerHTML = `
                     <tr>
                         <td>Nguyễn Văn Tuấn</td>
                         <td>ORD001</td>
-                        <td>2024-01-15</td>
+                        <td>2024-12-06</td>
                         <td>${productName}</td>
-                        <td>10</td>
-                        <td>250,000 VNĐ</td>
+                        <td>20</td>
+                        <td>50,000 VNĐ</td>
+                        <td>1,000,000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>Trần Thị Xuân</td>
+                        <td>ORD002</td>
+                        <td>2024-12-06</td>
+                        <td>${productName}</td>
+                        <td>15</td>
+                        <td>50,000 VNĐ</td>
+                        <td>750,000 VNĐ</td>
+                    </tr>
+                     <tr>
+                        <td>Phạm Minh Diệu</td>
+                        <td>ORD003</td>
+                        <td>2024-12-06</td>
+                        <td>${productName}</td>
+                        <td>15</td>
+                        <td>50,000 VNĐ</td>
+                        <td>750,000 VNĐ</td>
                     </tr>
                 `;
                 productModal.style.display = 'flex';
@@ -182,14 +256,33 @@
         customerButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const customerName = button.getAttribute('data-customer');
-                // Lấy thông tin chi tiết khách hàng từ server hoặc xử lý tại đây
-                // Ví dụ thêm vào bảng chi tiết khách hàng
                 document.querySelector('#customer-detail-table tbody').innerHTML = `
                     <tr>
                         <td>ORD001</td>
-                        <td>2024-01-15</td>
+                        <td>2024-12-06</td>
                         <td>${customerName}</td>
-                        <td>2,500,000 VNĐ</td>
+                        <td>Bơ Booth</td>
+                        <td>20</td>
+                        <td>50,000 VNĐ</td>
+                        <td>1,000,000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>ORD002</td>
+                        <td>2024-12-06</td>
+                        <td>${customerName}</td>
+                        <td>Bơ Booth</td>
+                        <td>15</td>
+                        <td>50,000 VNĐ</td>
+                        <td>750,000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>ORD003</td>
+                        <td>2024-12-06</td>
+                        <td>${customerName}</td>
+                        <td>Bơ Booth</td>
+                        <td>15</td>
+                        <td>50,000 VNĐ</td>
+                        <td>750,000 VNĐ</td>
                     </tr>
                 `;
                 customerModal.style.display = 'flex';
