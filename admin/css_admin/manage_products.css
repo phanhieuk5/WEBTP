@@ -1,3 +1,23 @@
+/* Tiêu đề chính */
+h1 {
+    font-size: 32px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Tiêu đề trong form Thêm người dùng */
+.add-product-form h2 {
+    font-size: 24px;
+    color: #4CAF50; /* Màu xanh lá để nổi bật */
+    margin-bottom: 15px;
+    text-align: left; /* Căn trái để tiêu đề trong form dễ nhìn */
+}
+
+/* Main Content */
+.content {
+    width: 90%;
+    margin: 120px auto 0 auto; /* Khoảng cách từ header */
+}
 /* Danh sách sản phẩm */
 .product-list {
     display: flex;
@@ -256,25 +276,6 @@ h1 {
     align-items: center;
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 50%;
-    text-align: center;
-}
 #pagination {
     display: flex;
     justify-content: center;

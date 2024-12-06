@@ -90,8 +90,9 @@ table td {
 button {
     padding: 5px 10px;
     font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
+    color: white;
+    border: none;
+    background-color: #4CAF50
 }
 
 .delete-btn {
@@ -107,16 +108,19 @@ button {
 
 /* Media Queries cho các màn hình nhỏ */
 @media (max-width: 768px) {
+    /* Căn chỉnh form cho màn hình nhỏ */
     .add-user-form form {
         flex-direction: column;
         gap: 15px;
     }
 
+    /* Căn chỉnh header container cho màn hình nhỏ */
     .header-container {
         flex-direction: column;
         align-items: center;
     }
 
+    /* Căn chỉnh menu cho màn hình nhỏ */
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -124,5 +128,24 @@ button {
 
     nav ul li {
         margin: 10px 0;
+    }
+
+    /* Căn chỉnh bảng cho màn hình nhỏ */
+    table {
+        font-size: 14px;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+
+    /* Cải thiện form trên các thiết bị di động */
+    .add-user-form input, .add-user-form select {
+        min-width: 100%; /* Các trường nhập liệu sẽ chiếm 100% chiều rộng */
+    }
+
+    .add-user-form button.add-user-btn {
+        width: 100%; /* Nút sẽ chiếm 100% chiều rộng */
+        padding: 12px 0; /* Điều chỉnh kích thước nút cho dễ nhấn */
     }
 }

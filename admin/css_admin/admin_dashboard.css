@@ -4,25 +4,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
-}
-/* Tổng thể */
-html, body {
-    height: 100%; /* Đảm bảo body chiếm toàn bộ chiều cao trang */
-    margin: 0; /* Bỏ margin mặc định */
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử */
+    flex-direction: column; /* Các phần tử con (header, main, footer) sẽ sắp xếp theo chiều dọc */
+    min-height: 100vh; /* Đảm bảo body luôn chiếm ít nhất chiều cao của viewport */
 }
 
-/* Main content */
-body {
-    display: flex;
-    flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc: header -> main -> footer */
-    min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của trang là 100% */
+/* Phần nội dung */
+main {
+    flex: 1; /* Đảm bảo phần nội dung chiếm hết không gian còn lại */
 }
 
+/* Chỉnh sửa footer */
 footer {
     background-color: #333; /* Màu nền footer */
     color: white; /* Màu chữ trắng */
@@ -33,12 +31,14 @@ footer {
     margin-top: auto; /* Đẩy footer xuống cuối trang */
 }
 
+/* Footer paragraph */
 footer p {
     margin: 0;
     font-weight: normal; /* Bỏ hiệu ứng nổi/chìm */
     text-decoration: none; /* Bỏ gạch dưới nếu có */
     color: white;
 }
+
 
 /* Header */
 header {

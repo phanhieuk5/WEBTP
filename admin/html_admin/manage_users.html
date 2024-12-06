@@ -12,7 +12,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+                <a href="../../admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
             </div>
             <nav>
                 <ul>
@@ -20,7 +20,7 @@
                     <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
                     <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
                     <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
-                    <li><a href="#" id="logout">Đăng xuất</a></li>
+                    <li><a href="login_admin.html">Đăng xuất</a></li>
                 </ul>
             </nav>
         </div>
@@ -38,7 +38,7 @@
                 <input type="text" id="userAddress" placeholder="Địa chỉ" required>
                 <input type="text" id="userPhone" placeholder="Số điện thoại" required>
                 <select id="userStatus">
-                    <option value="Hoạt động">Hoạt động</option>
+                    <option value="Hoạt động" selected>Hoạt động</option>
                     <option value="Ngừng hoạt động">Ngừng hoạt động</option>
                 </select>
                 <button type="submit" class="add-user-btn">Thêm người dùng</button>
@@ -59,8 +59,8 @@
             </thead>
             <tbody id="users-table">
                 <tr>
-                    <td contenteditable="true">Nguyễn Văn A</td>
-                    <td contenteditable="true">nguyenvana@gmail.com</td>
+                    <td contenteditable="true">Nguyễn Văn Tuấn</td>
+                    <td contenteditable="true">nguyenvantuan@gmail.com</td>
                     <td contenteditable="true">Hà Nội</td>
                     <td contenteditable="true">0123456789</td>
                     <td>
@@ -70,28 +70,13 @@
                         </select>
                     </td>
                     <td>
-                        <button class="delete-btn">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td contenteditable="true">Trần Thị B</td>
-                    <td contenteditable="true">tranb@gmail.com</td>
-                    <td contenteditable="true">TP.HCM</td>
-                    <td contenteditable="true">0987654321</td>
-                    <td>
-                        <select>
-                            <option value="Hoạt động">Hoạt động</option>
-                            <option value="Ngừng hoạt động">Ngừng hoạt động</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button class="delete-btn">Xóa</button>
+                        <button class="edit-btn" onclick="save_info()">Lưu</button>
+                        <button class="delete-btn" onclick="deleteProduct()">Xóa</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
     <footer>
         <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
     </footer>

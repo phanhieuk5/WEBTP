@@ -1,83 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f8e9; /* Màu nền nhẹ nhàng */
+
+/* Thêm nền cho trang */
+.background {
+    background-image: url('../../img/background.jpg'); /* Đường dẫn tới ảnh nền thương hiệu */
+    background-size: cover; /* Kéo dài ảnh để che phủ toàn bộ */
+    background-position: center; /* Căn giữa ảnh */
+    height: 100vh; /* Đặt chiều cao đầy đủ cho trang */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
 }
 
-.login-container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px;
-    text-align: center;
+/* Cấu trúc chung cho container */
+.container {
+    max-width: 400px; /* Đặt chiều rộng tối đa */
+    margin: 20px; /* Thêm khoảng cách */
+    padding: 20px; /* Padding cho các phần tử bên trong */
+    background-color: rgba(255, 255, 255, 0.9); /* Màu nền trắng với độ trong suốt */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
 }
 
-.form-group {
-    margin: 15px 0;
+/* Định dạng tiêu đề */
+h1 {
+    text-align: center; /* Căn giữa tiêu đề */
+    color: #333; /* Màu chữ */
 }
 
+/* Định dạng label cho các trường nhập liệu */
 label {
-    display: block;
-    margin-bottom: 5px;
+    display: block; /* Hiển thị mỗi label trên một dòng */
+    margin-top: 10px; /* Khoảng cách trên mỗi label */
 }
 
-input {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Định dạng input */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Chiều rộng đầy đủ */
+    padding: 10px; /* Padding cho input */
+    margin-top: 5px; /* Khoảng cách trên input */
+    border: 1px solid #ccc; /* Viền xung quanh */
+    border-radius: 5px; /* Bo tròn góc */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
 }
 
+/* Định dạng nút */
 button {
-    background-color: #4CAF50; /* Màu xanh lá cây */
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 100%; /* Chiều rộng đầy đủ */
+    padding: 10px; /* Padding cho nút */
+    background-color: #4CAF50; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không viền */
+    border-radius: 5px; /* Bo tròn góc */
+    cursor: pointer; /* Con trỏ tay khi di chuột */
+    margin-top: 15px; /* Khoảng cách trên nút */
+    font-size: 16px; /* Kích thước chữ */
 }
 
+/* Hiệu ứng hover cho nút */
 button:hover {
-    background-color: #45a049; /* Màu xanh đậm hơn khi hover */
+    background-color: #45a049; /* Thay đổi màu khi hover */
 }
 
-#message {
-    color: red; /* Màu đỏ cho thông báo lỗi */
-    margin-top: 10px;
+/* Định dạng liên kết */
+p {
+    text-align: center; /* Căn giữa */
 }
 
-/* Common Header and Navbar Styles */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 10px 20px;
+a {
+    color: #4CAF50; /* Màu chữ liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
 }
 
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-.header-container nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.header-container nav ul li a:hover {
-    color: #FFC107;
+a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
 }

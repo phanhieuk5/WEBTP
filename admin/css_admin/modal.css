@@ -1,0 +1,257 @@
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    max-height: 90%;
+    z-index: 1000;
+    overflow: auto; /* Cuộn nội dung nếu quá dài */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lớp phủ mờ nền khi modal bật lên */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Lớp phủ mờ che khuất phần nền */
+    z-index: 1; /* Đảm bảo lớp phủ này luôn nằm dưới modal */
+}
+
+/* Nội dung modal */
+.modal-content {
+    background-color: rgba(255, 255, 255, 1); /* Nền trắng, độ mờ 100% để dễ nhìn */
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    flex-wrap: wrap;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Hình ảnh và thông tin cơ bản (bên trái) */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 15px;
+    padding-bottom: 15px;
+}
+
+.modal-image {
+    width: 100%;
+    max-width: 300px; /* Giới hạn chiều rộng ảnh */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.modal-image img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Thông tin sản phẩm (bên phải) */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Điều chỉnh căn đúng đầu */
+    margin-top: 15px;
+}
+
+/* Mô tả sản phẩm */
+.modal-description {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Phân chia mô tả và thông tin thành 2 hàng */
+    width: 90%; /* Đảm bảo phần mô tả chiếm toàn bộ chiều rộng */
+}
+
+/* Căn chỉnh các phần tử trong mô tả */
+.modal-description p,
+.modal-description label {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+/* Các phần in đậm */
+.modal-description p strong {
+    font-weight: bold;
+}
+
+/* Phần giỏ hàng */
+.save-section {
+    display: flex;
+    justify-content: center; /* Giữ nút Lưu ở giữa */
+    margin-top: 20px;
+}
+
+/* Nút Lưu */
+.save-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+/* Cải thiện chiều rộng của textarea cho mô tả */
+.modal-description textarea {
+    width: 100%; /* Đảm bảo textarea chiếm toàn bộ chiều rộng */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 105px; /* Chiều cao textarea có thể điều chỉnh */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-image {
+        margin-bottom: 15px;
+    }
+
+    .modal-description p {
+        font-size: 14px;
+    }
+
+    .save-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Nút đóng */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close-button:hover {
+    color: #f00;
+}
+
+/* Đồng bộ kích thước các trường nhập liệu */
+.modal-content input[type="text"],
+.modal-content input[type="number"] {
+    flex: 1; /* Đảm bảo các trường nhập liệu có cùng chiều rộng */
+    max-width: 100%; /* Tránh bị vượt quá khung */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Căn chỉnh Tên sản phẩm và Giá trong một hàng ngang */
+.product-basic-info {
+    display: flex;
+    flex-direction: column; /* Đảm bảo Tên sản phẩm và Giá nằm trên hai hàng */
+    gap: 10px; /* Khoảng cách giữa Tên sản phẩm và Giá */
+    width: 100%;
+    align-items: flex-start; /* Căn chỉnh về bên trái */
+    margin-left: 80px
+}
+
+/* Nhãn */
+.product-basic-info label {
+    font-size: 14px;
+    color: #333;
+    text-align: left ; /* Căn trái nhãn */
+}
+
+/* Trường nhập liệu cho Tên sản phẩm */
+#modal-title {
+    width: 80%; /* Thu hẹp chiều rộng ô Tên sản phẩm */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Trường nhập liệu cho Giá */
+#modal-price {
+    width: 80%; /* Thu hẹp chiều rộng ô "Giá" */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Căn chỉnh "VND" cho ô Giá */
+#modal-price + span {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-image {
+        margin-bottom: 15px;
+    }
+
+    .modal-description p {
+        font-size: 14px;
+    }
+
+    .save-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}

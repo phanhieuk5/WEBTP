@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUẢN LÝ SẢN PHẨM - GREEN FARM</title>
-    <link rel="stylesheet" href="../css_admin/admin_dashboard.css">
+    <title>QUẢN LÝ SẢN PHẨM</title>
+    <link rel="stylesheet" href="../css_admin/modal.css">
     <link rel="stylesheet" href="../css_admin/manage_products.css">
+    <link rel="stylesheet" href="../css_admin/admin_dashboard.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
+<header>
         <div class="header-container">
             <div class="logo">
-                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
+                <a href="../../admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
             </div>
             <nav>
                 <ul>
@@ -20,12 +21,15 @@
                     <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
                     <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
                     <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
-                    <li><a href="#" id="logout">Đăng xuất</a></li>
+                    <li><a href="login_admin.html">Đăng xuất</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-  <!-- Form thêm sản phẩm -->
+    
+<main class="content">
+    <h1>Quản lý sản phẩm </h1>
+<!-- Form thêm sản phẩm -->
             <section class="add-product-form">
                 <h2>Thêm sản phẩm mới</h2>
                 <form id="add-product-form">
@@ -44,8 +48,6 @@
                     <button type="button" onclick="addProduct()">Thêm Sản Phẩm</button>
                 </form>
             </section>
-<main class="content">
-
     <section class="horizontal-category">
     <div class="search-bar">
         <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm..." class="search-input">
@@ -78,8 +80,8 @@
             </div>
             <!-- Chi tiết sản phẩm 1 (ban đầu ẩn) -->
             <div id="product-1" class="product-details" style="display: none;">
-                <p><strong>Mô tả:</strong> Bơ Booth giàu dinh dưỡng, mềm mịn và ngon tuyệt. Đây là loại trái cây nhập khẩu nổi tiếng với hương vị đặc trưng và chất lượng vượt trội.</p>
-                <p><strong>Thông tin sản phẩm:</strong> Bơ Booth là loại trái cây cao cấp, giàu vitamin, đặc biệt có tác dụng tốt cho sức khỏe tim mạch và tiêu hóa.</p>
+                <p><strong></strong> Bơ Booth giàu dinh dưỡng, mềm mịn và ngon tuyệt. Đây là loại trái cây nhập khẩu nổi tiếng với hương vị đặc trưng và chất lượng vượt trội.</p>
+                <p><strong></strong> Bơ Booth là loại trái cây cao cấp, giàu vitamin, đặc biệt có tác dụng tốt cho sức khỏe tim mạch và tiêu hóa.</p>
             </div>
         </div>
 
@@ -94,8 +96,8 @@
             </div>
             <!-- Chi tiết sản phẩm 2 (ban đầu ẩn) -->
             <div id="product-2" class="product-details" style="display: none;">
-                <p><strong>Mô tả:</strong> Nho mẫu đơn tươi ngon, ngọt ngào, và có tác dụng làm đẹp da, tăng cường sức khỏe.</p>
-                <p><strong>Thông tin sản phẩm:</strong> Nho mẫu đơn có nguồn gốc từ các vườn nho nổi tiếng, có chứa nhiều vitamin C và chất chống oxi hóa.</p>
+                <p><strong></strong> Nho mẫu đơn tươi ngon, ngọt ngào, và có tác dụng làm đẹp da, tăng cường sức khỏe.</p>
+                <p><strong></strong> Nho mẫu đơn có nguồn gốc từ các vườn nho nổi tiếng, có chứa nhiều vitamin C và chất chống oxi hóa.</p>
             </div>
         </div>
          <!-- Sản phẩm 3: Táo Mỹ -->
@@ -110,8 +112,8 @@
             </div>
             <!-- Chi tiết sản phẩm 3 (ban đầu ẩn) -->
             <div id="product-3" class="product-details" style="display: none;">
-                <p><strong>Mô tả:</strong> Táo Mỹ thơm ngon, giòn và chứa nhiều vitamin C, rất tốt cho sức khỏe.</p>
-                <p><strong>Thông tin sản phẩm:</strong> Táo Mỹ là một trong những loại trái cây được ưa chuộng nhất, giúp cung cấp năng lượng và hỗ trợ hệ tiêu hóa.</p>
+                <p><strong></strong> Táo Mỹ thơm ngon, giòn và chứa nhiều vitamin C, rất tốt cho sức khỏe.</p>
+                <p><strong></strong> Táo Mỹ là một trong những loại trái cây được ưa chuộng nhất, giúp cung cấp năng lượng và hỗ trợ hệ tiêu hóa.</p>
             </div>
         </div>
 
@@ -127,8 +129,8 @@
             </div>
             <!-- Chi tiết sản phẩm 4 (ban đầu ẩn) -->
             <div id="product-4" class="product-details" style="display: none;">
-                <p><strong>Mô tả:</strong> Việt quất tươi mới và bổ dưỡng, giàu vitamin C và chống oxi hóa hiệu quả.</p>
-                <p><strong>Thông tin sản phẩm:</strong> Việt quất là loại quả mọng, giàu dưỡng chất, có tác dụng tăng cường sức khỏe tim mạch và cải thiện hệ miễn dịch.</p>
+                <p><strong></strong> Việt quất tươi mới và bổ dưỡng, giàu vitamin C và chống oxi hóa hiệu quả.</p>
+                <p><strong></strong> Việt quất là loại quả mọng, giàu dưỡng chất, có tác dụng tăng cường sức khỏe tim mạch và cải thiện hệ miễn dịch.</p>
             </div>
         </div>
 
@@ -144,8 +146,8 @@
             </div>
             <!-- Chi tiết sản phẩm 5 (ban đầu ẩn) -->
             <div id="product-5" class="product-details" style="display: none;">
-                <p><strong>Mô tả:</strong> Táo xanh tươi ngon, giòn và chứa nhiều vitamin giúp làm đẹp da.</p>
-                <p><strong>Thông tin sản phẩm:</strong> Táo xanh có hương vị đặc trưng, cung cấp nhiều chất xơ và vitamin A, C tốt cho sức khỏe.</p>
+                <p><strong></strong> Táo xanh tươi ngon, giòn và chứa nhiều vitamin giúp làm đẹp da.</p>
+                <p><strong></strong> Táo xanh có hương vị đặc trưng, cung cấp nhiều chất xơ và vitamin A, C tốt cho sức khỏe.</p>
             </div>
         </div>
 
@@ -161,8 +163,8 @@
             </div>
             <!-- Chi tiết sản phẩm 6 (ban đầu ẩn) -->
             <div id="product-6" class="product-details" style="display: none;">
-                <p><strong>Mô tả:</strong> Dâu Tây Đà Lạt ngọt ngào và tươi mới, được trồng ở vùng đất nổi tiếng về dâu tây.</p>
-                <p><strong>Thông tin sản phẩm:</strong> Dâu Tây Đà Lạt là loại quả mọng nước, giàu vitamin C và tốt cho sức khỏe. Thường được sử dụng làm sinh tố, tráng miệng hoặc ăn tươi.</p>
+                <p><strong></strong> Dâu Tây Đà Lạt ngọt ngào và tươi mới, được trồng ở vùng đất nổi tiếng về dâu tây.</p>
+                <p><strong></strong> Dâu Tây Đà Lạt là loại quả mọng nước, giàu vitamin C và tốt cho sức khỏe. Thường được sử dụng làm sinh tố, tráng miệng hoặc ăn tươi.</p>
             </div>
         </div>
         <!-- Sản phẩm 7: Bắp cải xanh -->
@@ -176,8 +178,8 @@
         <button class="delete-btn" onclick="deleteProduct(7)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-7" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Bắp cải xanh tươi, giòn ngon, là nguyên liệu cho nhiều món ăn hấp dẫn.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Bắp cải xanh có tác dụng hỗ trợ hệ tiêu hóa và chứa nhiều vitamin tốt cho sức khỏe.</p>
+        <p><strong></strong> Bắp cải xanh tươi, giòn ngon, là nguyên liệu cho nhiều món ăn hấp dẫn.</p>
+        <p><strong></strong> Bắp cải xanh có tác dụng hỗ trợ hệ tiêu hóa và chứa nhiều vitamin tốt cho sức khỏe.</p>
     </div>
 </div>
 
@@ -192,8 +194,8 @@
         <button class="delete-btn" onclick="deleteProduct(8)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-8" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Cà chua chín mọng, tươi ngon, thích hợp cho nhiều món salad hoặc chế biến món ăn.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Cà chua là nguồn cung cấp vitamin C tự nhiên, rất tốt cho da và hệ miễn dịch.</p>
+        <p><strong></strong> Cà chua chín mọng, tươi ngon, thích hợp cho nhiều món salad hoặc chế biến món ăn.</p>
+        <p><strong></strong> Cà chua là nguồn cung cấp vitamin C tự nhiên, rất tốt cho da và hệ miễn dịch.</p>
     </div>
 </div>
 
@@ -208,8 +210,8 @@
         <button class="delete-btn" onclick="deleteProduct(9)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-9" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Cà rốt giúp cải thiện thị lực và tăng cường sức đề kháng.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Cà rốt là loại rau củ giàu vitamin A và chất chống oxi hóa, tốt cho sức khỏe mắt và da.</p>
+        <p><strong></strong> Cà rốt giúp cải thiện thị lực và tăng cường sức đề kháng.</p>
+        <p><strong></strong> Cà rốt là loại rau củ giàu vitamin A và chất chống oxi hóa, tốt cho sức khỏe mắt và da.</p>
     </div>
 </div>
 
@@ -224,8 +226,8 @@
         <button class="delete-btn" onclick="deleteProduct(10)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-10" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Khoai Tây giòn ngon, thích hợp cho nhiều món ăn và làm khoai tây chiên, khoai tây nghiền.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Khoai tây cung cấp nhiều năng lượng, giúp bổ sung carbohydrate và vitamin C.</p>
+        <p><strong></strong> Khoai Tây giòn ngon, thích hợp cho nhiều món ăn và làm khoai tây chiên, khoai tây nghiền.</p>
+        <p><strong></strong> Khoai tây cung cấp nhiều năng lượng, giúp bổ sung carbohydrate và vitamin C.</p>
     </div>
 </div>
 
@@ -240,8 +242,8 @@
         <button class="delete-btn" onclick="deleteProduct(11)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-11" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Bông cải trắng bổ dưỡng, giúp tăng cường sức khỏe và cung cấp nhiều vitamin cho cơ thể.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Bông cải trắng có thể chế biến thành nhiều món ăn ngon và giàu dinh dưỡng.</p>
+        <p><strong></strong> Bông cải trắng bổ dưỡng, giúp tăng cường sức khỏe và cung cấp nhiều vitamin cho cơ thể.</p>
+        <p><strong></strong> Bông cải trắng có thể chế biến thành nhiều món ăn ngon và giàu dinh dưỡng.</p>
     </div>
 </div>
 
@@ -256,8 +258,8 @@
         <button class="delete-btn" onclick="deleteProduct(12)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-12" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Cà tím loại 1 tươi ngon, là nguyên liệu lý tưởng cho nhiều món ăn như xào, nướng hay nhồi thịt.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Cà tím có chứa nhiều vitamin và khoáng chất giúp chống lão hóa và hỗ trợ hệ tiêu hóa.</p>
+        <p><strong></strong> Cà tím loại 1 tươi ngon, là nguyên liệu lý tưởng cho nhiều món ăn như xào, nướng hay nhồi thịt.</p>
+        <p><strong></strong> Cà tím có chứa nhiều vitamin và khoáng chất giúp chống lão hóa và hỗ trợ hệ tiêu hóa.</p>
     </div>
 </div>
 
@@ -272,8 +274,8 @@
         <button class="delete-btn" onclick="deleteProduct(13)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-13" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Cua Hoàng Đế tươi sống, thịt ngọt và chắc, là món ăn cao cấp không thể bỏ qua.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Cua Hoàng Đế là loại cua biển có giá trị dinh dưỡng cao và được ưa chuộng trong các bữa tiệc sang trọng.</p>
+        <p><strong></strong> Cua Hoàng Đế tươi sống, thịt ngọt và chắc, là món ăn cao cấp không thể bỏ qua.</p>
+        <p><strong></strong> Cua Hoàng Đế là loại cua biển có giá trị dinh dưỡng cao và được ưa chuộng trong các bữa tiệc sang trọng.</p>
     </div>
 </div>
 
@@ -288,8 +290,8 @@
         <button class="delete-btn" onclick="deleteProduct(14)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-14" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Cá hồi miền có thịt mềm, giàu omega-3 và rất tốt cho tim mạch và làn da.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Cá hồi miền được đánh bắt từ các vùng biển sạch, đảm bảo chất lượng và độ tươi ngon tuyệt vời.</p>
+        <p><strong></strong> Cá hồi miền có thịt mềm, giàu omega-3 và rất tốt cho tim mạch và làn da.</p>
+        <p><strong></strong> Cá hồi miền được đánh bắt từ các vùng biển sạch, đảm bảo chất lượng và độ tươi ngon tuyệt vời.</p>
     </div>
 </div>
 
@@ -304,8 +306,8 @@
         <button class="delete-btn" onclick="deleteProduct(15)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-15" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Thịt cá ngừ đại dương tươi ngon, giàu protein và omega-3, rất tốt cho sức khỏe tim mạch.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Thịt cá ngừ đại dương có thể chế biến thành nhiều món ăn như sashimi, sushi hay nướng, rất bổ dưỡng.</p>
+        <p><strong></strong> Thịt cá ngừ đại dương tươi ngon, giàu protein và omega-3, rất tốt cho sức khỏe tim mạch.</p>
+        <p><strong></strong> Thịt cá ngừ đại dương có thể chế biến thành nhiều món ăn như sashimi, sushi hay nướng, rất bổ dưỡng.</p>
     </div>
 </div>
 <!-- Sản phẩm 16: Ghẹ -->
@@ -319,8 +321,8 @@
         <button class="delete-btn" onclick="deleteProduct(16)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-16" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Ghẹ tươi, thịt ngọt, dễ chế biến, thích hợp cho các món ăn hải sản như ghẹ hấp, xào, luộc.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Ghẹ là món ăn được ưa chuộng trong các bữa tiệc, cung cấp nhiều khoáng chất và vitamin.</p>
+        <p><strong></strong> Ghẹ tươi, thịt ngọt, dễ chế biến, thích hợp cho các món ăn hải sản như ghẹ hấp, xào, luộc.</p>
+        <p><strong></strong> Ghẹ là món ăn được ưa chuộng trong các bữa tiệc, cung cấp nhiều khoáng chất và vitamin.</p>
     </div>
 </div>
 
@@ -335,8 +337,8 @@
         <button class="delete-btn" onclick="deleteProduct(17)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-17" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Tôm tươi ngon, thịt ngọt, được nuôi trồng sạch, an toàn cho sức khỏe.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Tôm có thể chế biến thành nhiều món như tôm hấp, tôm nướng, tôm xào, rất giàu protein và khoáng chất.</p>
+        <p><strong></strong> Tôm tươi ngon, thịt ngọt, được nuôi trồng sạch, an toàn cho sức khỏe.</p>
+        <p><strong></strong> Tôm có thể chế biến thành nhiều món như tôm hấp, tôm nướng, tôm xào, rất giàu protein và khoáng chất.</p>
     </div>
 </div>
 
@@ -351,8 +353,8 @@
         <button class="delete-btn" onclick="deleteProduct(18)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-18" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Sò huyết tươi ngon, giàu canxi và các dưỡng chất thiết yếu cho cơ thể.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Sò huyết có thể chế biến thành các món ăn hải sản hấp dẫn như sò huyết nướng, sò huyết hấp tỏi.</p>
+        <p><strong></strong> Sò huyết tươi ngon, giàu canxi và các dưỡng chất thiết yếu cho cơ thể.</p>
+        <p><strong></strong> Sò huyết có thể chế biến thành các món ăn hải sản hấp dẫn như sò huyết nướng, sò huyết hấp tỏi.</p>
     </div>
 </div>
 
@@ -367,8 +369,8 @@
         <button class="delete-btn" onclick="deleteProduct(19)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-19" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Đùi gà thả vườn tươi ngon, thịt mềm và thơm, là món ăn tuyệt vời cho gia đình.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Đùi gà thả vườn là sản phẩm sạch, đảm bảo an toàn và giàu dinh dưỡng, thích hợp chế biến nhiều món ăn ngon.</p>
+        <p><strong></strong> Đùi gà thả vườn tươi ngon, thịt mềm và thơm, là món ăn tuyệt vời cho gia đình.</p>
+        <p><strong></strong> Đùi gà thả vườn là sản phẩm sạch, đảm bảo an toàn và giàu dinh dưỡng, thích hợp chế biến nhiều món ăn ngon.</p>
     </div>
 </div>
 
@@ -383,8 +385,8 @@
         <button class="delete-btn" onclick="deleteProduct(20)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-20" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Thịt bò thượng hạng, mềm mại, thớ thịt đẹp, phù hợp cho các món bít tết cao cấp.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Thịt bò thượng hạng được nhập khẩu, có chất lượng cao và đảm bảo an toàn thực phẩm.</p>
+        <p><strong></strong> Thịt bò thượng hạng, mềm mại, thớ thịt đẹp, phù hợp cho các món bít tết cao cấp.</p>
+        <p><strong></strong> Thịt bò thượng hạng được nhập khẩu, có chất lượng cao và đảm bảo an toàn thực phẩm.</p>
     </div>
 </div>
 
@@ -399,8 +401,8 @@
         <button class="delete-btn" onclick="deleteProduct(21)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-21" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Trứng gà thả vườn tươi ngon, giàu dưỡng chất, rất tốt cho sức khỏe và thích hợp chế biến nhiều món ăn.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Trứng gà thả vườn có hương vị đậm đà, đảm bảo chất lượng và an toàn.</p>
+        <p><strong></strong> Trứng gà thả vườn tươi ngon, giàu dưỡng chất, rất tốt cho sức khỏe và thích hợp chế biến nhiều món ăn.</p>
+        <p><strong></strong> Trứng gà thả vườn có hương vị đậm đà, đảm bảo chất lượng và an toàn.</p>
     </div>
 </div>
 
@@ -415,8 +417,8 @@
         <button class="delete-btn" onclick="deleteProduct(22)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-22" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Gà ta tươi ngon, thịt chắc và ngọt, là món ăn bổ dưỡng cho bữa cơm gia đình.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Gà ta có chất lượng cao, được nuôi thả tự nhiên, không có chất bảo quản, đảm bảo an toàn thực phẩm.</p>
+        <p><strong></strong> Gà ta tươi ngon, thịt chắc và ngọt, là món ăn bổ dưỡng cho bữa cơm gia đình.</p>
+        <p><strong></strong> Gà ta có chất lượng cao, được nuôi thả tự nhiên, không có chất bảo quản, đảm bảo an toàn thực phẩm.</p>
     </div>
 </div>
 
@@ -431,8 +433,8 @@
         <button class="delete-btn" onclick="deleteProduct(23)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-23" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Thịt cá ngừ tươi ngon, chứa nhiều omega-3, rất tốt cho sức khỏe tim mạch.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Thịt cá ngừ đại dương được nuôi trồng tự nhiên, thịt săn chắc, thích hợp chế biến nhiều món ăn như sashimi, nướng, hay xào.</p>
+        <p><strong></strong> Thịt cá ngừ tươi ngon, chứa nhiều omega-3, rất tốt cho sức khỏe tim mạch.</p>
+        <p><strong></strong> Thịt cá ngừ đại dương được nuôi trồng tự nhiên, thịt săn chắc, thích hợp chế biến nhiều món ăn như sashimi, nướng, hay xào.</p>
     </div>
 </div>
 
@@ -447,8 +449,8 @@
         <button class="delete-btn" onclick="deleteProduct(24)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-24" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Bắp Mỹ ngọt, tươi ngon, thường được dùng làm món ăn phụ hoặc chế biến món ngô nướng, ngô hấp.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Bắp Mỹ là một nguồn thực phẩm giàu năng lượng, giàu vitamin B và chất xơ tốt cho hệ tiêu hóa.</p>
+        <p><strong></strong> Bắp Mỹ ngọt, tươi ngon, thường được dùng làm món ăn phụ hoặc chế biến món ngô nướng, ngô hấp.</p>
+        <p><strong></strong> Bắp Mỹ là một nguồn thực phẩm giàu năng lượng, giàu vitamin B và chất xơ tốt cho hệ tiêu hóa.</p>
     </div>
 </div>
 
@@ -463,8 +465,8 @@
         <button class="delete-btn" onclick="deleteProduct(25)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-25" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Dưa chuột giòn ngon, được dùng nhiều trong các món salad hoặc chế biến các món ăn nhẹ.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Dưa chuột có nhiều nước, ít calo, giúp làm mát cơ thể và cung cấp vitamin C tốt cho da.</p>
+        <p><strong></strong> Dưa chuột giòn ngon, được dùng nhiều trong các món salad hoặc chế biến các món ăn nhẹ.</p>
+        <p><strong></strong> Dưa chuột có nhiều nước, ít calo, giúp làm mát cơ thể và cung cấp vitamin C tốt cho da.</p>
     </div>
 </div>
 <!-- Sản phẩm 26: Tỏi khô -->
@@ -478,8 +480,8 @@
         <button class="delete-btn" onclick="deleteProduct(26)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-26" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Tỏi khô chất lượng, là nguyên liệu không thể thiếu trong các món ăn và có tác dụng tốt cho sức khỏe, đặc biệt là hệ tiêu hóa.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Tỏi khô có tính kháng khuẩn mạnh, giúp tăng cường hệ miễn dịch và phòng ngừa bệnh tật.</p>
+        <p><strong></strong> Tỏi khô chất lượng, là nguyên liệu không thể thiếu trong các món ăn và có tác dụng tốt cho sức khỏe, đặc biệt là hệ tiêu hóa.</p>
+        <p><strong></strong> Tỏi khô có tính kháng khuẩn mạnh, giúp tăng cường hệ miễn dịch và phòng ngừa bệnh tật.</p>
     </div>
 </div>
 
@@ -494,8 +496,8 @@
         <button class="delete-btn" onclick="deleteProduct(27)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-27" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Bí ngòi xanh tươi, ngọt, là nguyên liệu tuyệt vời cho các món ăn chay hoặc xào với thịt.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Bí ngòi xanh rất giàu chất xơ và vitamin C, giúp cải thiện hệ tiêu hóa và giảm cân.</p>
+        <p><strong></strong> Bí ngòi xanh tươi, ngọt, là nguyên liệu tuyệt vời cho các món ăn chay hoặc xào với thịt.</p>
+        <p><strong></strong> Bí ngòi xanh rất giàu chất xơ và vitamin C, giúp cải thiện hệ tiêu hóa và giảm cân.</p>
     </div>
 </div>
 
@@ -510,8 +512,8 @@
         <button class="delete-btn" onclick="deleteProduct(28)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-28" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Rong nho tươi ngon, cung cấp nhiều vitamin và khoáng chất, giúp bảo vệ sức khỏe và làm đẹp da.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Rong nho là một thực phẩm giàu protein và các khoáng chất cần thiết cho cơ thể, tốt cho sức khỏe tổng thể.</p>
+        <p><strong></strong> Rong nho tươi ngon, cung cấp nhiều vitamin và khoáng chất, giúp bảo vệ sức khỏe và làm đẹp da.</p>
+        <p><strong></strong> Rong nho là một thực phẩm giàu protein và các khoáng chất cần thiết cho cơ thể, tốt cho sức khỏe tổng thể.</p>
     </div>
 </div>
 
@@ -526,8 +528,8 @@
         <button class="delete-btn" onclick="deleteProduct(29)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-29" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Lúa mì nguyên hạt, giàu dinh dưỡng, là nguồn cung cấp carbohydrate tuyệt vời cho cơ thể.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Lúa mì có nhiều vitamin B và chất xơ, giúp tăng cường năng lượng và hỗ trợ tiêu hóa.</p>
+        <p><strong></strong> Lúa mì nguyên hạt, giàu dinh dưỡng, là nguồn cung cấp carbohydrate tuyệt vời cho cơ thể.</p>
+        <p><strong></strong> Lúa mì có nhiều vitamin B và chất xơ, giúp tăng cường năng lượng và hỗ trợ tiêu hóa.</p>
     </div>
 </div>
 
@@ -542,8 +544,8 @@
         <button class="delete-btn" onclick="deleteProduct(30)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-30" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Ngô ngọt tươi, ngọt ngào, là món ăn tuyệt vời cho mùa hè hoặc chế biến món ngô nướng.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Ngô ngọt chứa nhiều vitamin A, C và các khoáng chất giúp tăng cường sức khỏe và chống oxy hóa.</p>
+        <p><strong></strong> Ngô ngọt tươi, ngọt ngào, là món ăn tuyệt vời cho mùa hè hoặc chế biến món ngô nướng.</p>
+        <p><strong></strong> Ngô ngọt chứa nhiều vitamin A, C và các khoáng chất giúp tăng cường sức khỏe và chống oxy hóa.</p>
     </div>
 </div>
 
@@ -558,8 +560,8 @@
         <button class="delete-btn" onclick="deleteProduct(31)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-31" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Khoai lang ngọt bùi, giàu vitamin A và chất xơ, là món ăn bổ dưỡng cho mọi lứa tuổi.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Khoai lang có nhiều tác dụng tốt cho cơ thể, giúp cải thiện thị lực và cung cấp năng lượng cho cơ thể.</p>
+        <p><strong></strong> Khoai lang ngọt bùi, giàu vitamin A và chất xơ, là món ăn bổ dưỡng cho mọi lứa tuổi.</p>
+        <p><strong></strong> Khoai lang có nhiều tác dụng tốt cho cơ thể, giúp cải thiện thị lực và cung cấp năng lượng cho cơ thể.</p>
     </div>
 </div>
 
@@ -574,34 +576,55 @@
         <button class="delete-btn" onclick="deleteProduct(32)"><i class="fas fa-trash"></i> Xóa</button>
     </div>
     <div id="product-32" class="product-details" style="display: none;">
-        <p><strong>Mô tả:</strong> Hành tây giòn, ngọt, giúp tăng cường sức khỏe và làm gia vị tuyệt vời cho món ăn.</p>
-        <p><strong>Thông tin sản phẩm:</strong> Hành tây chứa nhiều vitamin C và chất xơ, tốt cho tiêu hóa và sức khỏe tim mạch.</p>
+        <p><strong></strong> Hành tây giòn, ngọt, giúp tăng cường sức khỏe và làm gia vị tuyệt vời cho món ăn.</p>
+        <p><strong></strong> Hành tây chứa nhiều vitamin C và chất xơ, tốt cho tiêu hóa và sức khỏe tim mạch.</p>
     </div>
 </div>
     </section>
     
 
 </main>
-<!-- Modal Sửa sản phẩm -->
-<div id="edit-modal" class="modal" style="display: none;">
+<div id="product-modal" class="modal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
     <div class="modal-content">
-        <h2>Chỉnh sửa sản phẩm</h2>
-        <form id="edit-product-form">
-            <input type="text" id="edit-name" placeholder="Tên sản phẩm" required>
-            <input type="number" id="edit-price" placeholder="Giá sản phẩm" required>
-            <textarea id="edit-description" placeholder="Mô tả sản phẩm" required></textarea>
-            <input type="file" id="edit-image" accept="image/*">
-            <button type="button" onclick="saveEdit()">Lưu</button>
-        </form>
-        <button onclick="closeModal()">Đóng</button>
+        <!-- Nút đóng modal -->
+        <button class="close-button" onclick="closeModal()">&times;</button>
+
+        <!-- Hình ảnh và thông tin cơ bản -->
+        <div class="left-section">
+            <div class="modal-image">
+                <img id="modal-image" src="" alt="Sản phẩm">
+            </div>
+            <div class="product-basic-info">
+    <label for="modal-title"><strong>Tên sản phẩm:</strong> </label>
+    <input type="text" id="modal-title">
+    
+    <label for="modal-price"><strong>Giá:</strong> </label>
+    <input type="number" id="modal-price">
+    <span></span>
+</div>
+        </div>
+
+        <!-- Thông tin mô tả và giỏ hàng -->
+        <div class="right-section">
+            <div class="modal-description">
+                <label for="modal-description">Mô tả sản phẩm:</label>
+                <textarea id="modal-description"></textarea>
+                
+                <label for="modal-info">Thông tin sản phẩm:</label>
+                <textarea id="modal-info"></textarea>
+            </div>
+            <div class="save-section">
+                <button class="save-button" onclick="saveChanges()">Lưu</button>
+            </div>
+        </div>
     </div>
 </div>
-<div class="pagination">
-    
-    </div>
+<div id="pagination"></div>
 <footer>
     <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
 </footer>
- <script src="../../js/search.js"></script> 
+ <script src="../js_admin/manage_products.js"></script> 
+ <script src="../js_admin/modal.js"></script> 
 </body>
 </html>
