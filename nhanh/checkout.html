@@ -1,48 +1,64 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenFarm - Thanh Toán</title>
+    <title>GreenFarm - THANH TOÁN</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../hieuungchoweb/header.css">
-    <link rel="stylesheet" href="../css/checkout.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/checkout.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header giống với trang chủ -->
+    <!-- Header với logo và thanh điều hướng -->
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="../index.html"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
+                <a href="#"><img src="../img/logo.png" alt="GreenFarm Logo"></a>
             </div>
             <nav>
                 <ul>
                     <li><a href="../index.html">🏠 Trang chủ</a></li>
                     <li><a href="../index.html#product-list">Sản phẩm</a></li>
-                    <li><a href="information.html">Thông tin liên hệ</a></li>
+                    <li><a href="information.html">Thông tin thương hiệu</a></li>
                     <li><a href="cart.html">Giỏ hàng</a></li>
                 </ul>
             </nav>
 
-            <div class="header-icons">
-                <div class="profile-dropdown">
-                    <div class="profile-dropdown-btn" onclick="toggleDropdown()">
-                        <i class="fa fa-user"></i>
-                        <span>Tài khoản <i class="fa fa-angle-down"></i></span>
-                    </div>
-
-                    <ul class="profile-dropdown-list">
-                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                        <li><a href="customer_info.html"><i class="fa-regular fa-user"></i> Thông tin khách hàng</a></li>
-                        <li><a href="purchase_history.html"><i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng</a></li>
-                        <hr>
-                        <li><a href="javascript:void(0);" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+           <div class="header-icons">
+    <!-- Dropdown Tài khoản -->
+    <div class="profile-dropdown">
+        <div class="profile-dropdown-btn" onclick="toggleDropdown()">
+            <i class="fa fa-user"></i>
+            <span>Tài khoản <i class="fa fa-angle-down"></i></span>
         </div>
+
+        <ul class="profile-dropdown-list">
+            <li class="profile-dropdown-list-item">
+                <a href="cart.html">
+                    <i class="fa fa-shopping-cart"></i> Giỏ hàng
+                </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+                <a href="customer_info.html">
+                    <i class="fa-regular fa-user"></i> Thông tin khách hàng
+                </a>
+            </li>
+            <li class="profile-dropdown-list-item">
+                <a href="purchase_history.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Lịch sử mua hàng
+                </a>
+            </li>
+            <hr>
+            <li class="profile-dropdown-list-item">
+                <a href="login.html">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
     </header>
 
 <!-- Thanh Toán -->

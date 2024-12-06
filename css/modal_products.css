@@ -1,4 +1,5 @@
 /* Modal */
+    
 .modal {
     display: none;
     position: fixed;
@@ -8,36 +9,56 @@
     width: 90%;
     max-width: 800px;
     height: auto;
-    max-height: 90%; /* Giới hạn chiều cao toàn bộ modal */
-    background-color: rgba(0, 0, 0, 0.6);
+    max-height: 90%;
     z-index: 1000;
     overflow: auto; /* Cuộn nội dung nếu quá dài */
     justify-content: center;
     align-items: center;
 }
+
+/* Lớp phủ mờ nền khi modal bật lên */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Lớp phủ mờ che khuất phần nền */
+    z-index: 999; /* Đảm bảo lớp phủ này luôn nằm dưới modal */
+}
+
 /* Nội dung modal */
 .modal-content {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9); /* Nền trắng mờ */
     border-radius: 10px;
-    width: 90%;
-    max-width: 800px;
     display: flex;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     position: relative;
+    height: 100%;
+    flex-wrap: wrap;
+    overflow: hidden; /* Đảm bảo lớp phủ không tràn ra ngoài */
+    z-index: 1; /* Đảm bảo nội dung modal luôn hiển thị phía trên lớp phủ */
 }
 
-/* Hình ảnh (bên trái) */
-.modal-image {
+/* Hình ảnh và thông tin cơ bản (bên trái) */
+.left-section {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    max-width: 300px; /* Giới hạn chiều rộng ảnh */
-    height: auto;
+    justify-content: flex-start;
+    margin-right: 15px;
+    padding-bottom: 15px; /* Điều chỉnh khoảng cách dưới ảnh */
 }
 
-/* Ảnh sản phẩm (cố định kích thước) */
+.modal-image {
+    width: 100%;
+    max-width: 300px; /* Giới hạn chiều rộng ảnh */
+    height: auto;
+    margin-bottom: 15px;
+}
+
 .modal-image img {
     width: 300px; /* Cố định chiều rộng */
     height: 200px; /* Cố định chiều cao */
@@ -46,27 +67,71 @@
 }
 
 /* Thông tin sản phẩm (bên phải) */
-.modal-info {
+.right-section {
     flex: 1;
-    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
-.modal-info h2 {
-    font-size: 24px;
-    text-align: center; /* Tiêu đề căn giữa */
-    margin-bottom: 15px;
-    color: #333;
+.modal-description {
+    margin-bottom: 20px;
 }
 
-.modal-info p {
+/* Mô tả sản phẩm */
+.modal-description p {
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 10px;
     color: #555;
+    text-align: justify;
+    word-wrap: break-word;
 }
-.modal-info p strong {
+ 
+/* Các phần in đậm */
+.modal-description p strong {
     font-weight: bold;
+}
+
+/* Phần giỏ hàng */
+.cart-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Điều chỉnh căn trái */
+    margin-top: 10px;
+    margin-bottom: 15px; /* Giảm khoảng cách dưới cùng */
+}
+
+.cart-section label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
     color: #333;
+}
+
+.cart-section input {
+    width: 60px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.cart-section button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 120px;
+    margin-left: 10px;
+}
+
+.cart-section button:hover {
+    background-color: #218838;
 }
 
 /* Nút đóng */
@@ -88,14 +153,34 @@
 /* Responsive */
 @media (max-width: 768px) {
     .modal-content {
-        flex-direction: column; /* Hiển thị dọc trên màn hình nhỏ */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section {
+        align-items: center;
+        justify-content: center;
     }
 
     .modal-image {
-        margin-bottom: 15px; /* Thêm khoảng cách dưới ảnh */
+        margin-bottom: 15px;
     }
 
-    .modal-info h2 {
-        font-size: 20px;
+    .modal-description p {
+        font-size: 14px;
+    }
+
+    .cart-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-section input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .cart-section button {
+        width: 100%;
     }
 }

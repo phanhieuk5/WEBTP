@@ -1,37 +1,31 @@
-    <!DOCTYPE html>
-    <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quản lý Sản Phẩm</title>
-        <link rel="stylesheet" href="../css_admin/manage_products.css">
-        <link rel="stylesheet" href="../css_admin/admin_dashboard.css">
-    </head>
-    <body>
-        <header>
-            <div class="header-container">
-                <div class="logo">
-                    <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="manage_users.html">Quản lý người dùng</a></li>
-                        <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
-                        <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
-                        <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
-                        <li><a href="#" id="logout">Đăng xuất</a></li>
-                    </ul>
-                </nav>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUẢN LÝ SẢN PHẨM - GREEN FARM</title>
+    <link rel="stylesheet" href="../css_admin/admin_dashboard.css">
+    <link rel="stylesheet" href="../css_admin/manage_products.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="admin_dashboard.html"><img src="../../img/logo.png" alt="Green Farm Logo"></a>
             </div>
-        </header>
-
-        <div class="main-container">
-            <h1>Quản lý Sản Phẩm</h1>
-
-            <!-- Thông báo thành công khi thao tác -->
-            <div id="successNotification" class="success-notification"></div>
-
-            <!-- Form thêm sản phẩm -->
+            <nav>
+                <ul>
+                    <li><a href="manage_users.html">Quản lý người dùng</a></li>
+                    <li><a href="manage_products.html">Quản lý sản phẩm</a></li>
+                    <li><a href="manage_orders.html">Quản lý đơn hàng</a></li>
+                    <li><a href="business_statistics.html">Thống kê kinh doanh</a></li>
+                    <li><a href="#" id="logout">Đăng xuất</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+  <!-- Form thêm sản phẩm -->
             <section class="add-product-form">
                 <h2>Thêm sản phẩm mới</h2>
                 <form id="add-product-form">
@@ -50,58 +44,564 @@
                     <button type="button" onclick="addProduct()">Thêm Sản Phẩm</button>
                 </form>
             </section>
+<main class="content">
 
-            <!-- Bảng danh sách sản phẩm -->
-            <section class="product-table">
-                <h2>Danh sách sản phẩm</h2>
-                <table id="product-table">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Phân loại</th>
-                            <th>Mô tả</th>
-                            <th>Hình ảnh</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td contenteditable="true">Bơ Booth</td>
-                            <td contenteditable="true">50,000 VND</td>
-                            <td>
-                                <select contenteditable="true">
-                                    <option value="Trái cây">Trái cây</option>
-                                    <option value="Rau củ">Rau củ</option>
-                                    <option value="Hải sản">Hải sản</option>
-                                    <option value="Thịt và trứng">Thịt và trứng</option>
-                                    <option value="Khác">Khác</option>
-                                </select>
-                            </td>
-                            <td contenteditable="true">Trái bơ ngon, chất lượng cao</td>
-                            <td>
-                                    <img src="../../img/bobooth.jpg" alt="Bơ Booth" width="50" id="product-img" onclick="changeImage(this)">
-                                    <input type="file" id="image-upload" style="display:none" onchange="previewImage(this)">
-                            </td>
+    <section class="horizontal-category">
+    <div class="search-bar">
+        <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm..." class="search-input">
+        <input type="number" id="min-price" placeholder="Giá tối thiểu" class="search-input price-input">
+        <input type="number" id="max-price" placeholder="Giá tối đa" class="search-input price-input">
+        <button id="search-button" class="search-button">Tìm kiếm</button>
+    </div>
+    <div class="dropdown-category">
+        <select id="category-dropdown" class="category-dropdown">
+            <option value="all">Tất cả</option>
+            <option value="Trái cây">Trái cây</option>
+            <option value="Rau củ">Rau củ</option>
+            <option value="Hải sản">Hải sản</option>
+            <option value="Thịt và trứng">Thịt và trứng</option>
+            <option value="Khác">Khác</option>
+        </select>
+    </div>
+</section>
 
-                            <td>
-                                <button class="save-btn" onclick="saveChanges(this)">Lưu</button>
-                                <button class="delete-btn" onclick="deleteProduct(this)">Xóa</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
+    <section class="product-list" id="product-list">
+        <!-- Sản phẩm 1: Bơ Booth -->
+        <div class="product" data-id="1" data-name="Bơ Booth" data-price="50000" data-category="Trái cây" data-image="../../img/bobooth.jpg">
+            <img src="../../img/bobooth.jpg" alt="Bơ Booth">
+            <h2>Bơ Booth</h2>
+            <p>Giá: 50,000 VND/(1kg)</p>
+            <div class="button-container">
+                <!-- Nút Sửa và Xóa -->
+                <button class="button-edit" onclick="openEditModal(1)">Sửa</button>
+                <button class="delete-btn" onclick="deleteProduct(1)"><i class="fas fa-trash"></i> Xóa</button>
+            </div>
+            <!-- Chi tiết sản phẩm 1 (ban đầu ẩn) -->
+            <div id="product-1" class="product-details" style="display: none;">
+                <p><strong>Mô tả:</strong> Bơ Booth giàu dinh dưỡng, mềm mịn và ngon tuyệt. Đây là loại trái cây nhập khẩu nổi tiếng với hương vị đặc trưng và chất lượng vượt trội.</p>
+                <p><strong>Thông tin sản phẩm:</strong> Bơ Booth là loại trái cây cao cấp, giàu vitamin, đặc biệt có tác dụng tốt cho sức khỏe tim mạch và tiêu hóa.</p>
+            </div>
         </div>
 
-        <footer>
-            <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
-        </footer>
+        <!-- Sản phẩm 2: Nho Mẫu Đơn -->
+        <div class="product" data-id="2" data-name="Nho Mẫu Đơn" data-price="150000" data-category="Trái cây" data-image="../../img/nhomaudon.jpg">
+            <img src="../../img/nhomaudon.jpg" alt="Nho Mẫu Đơn">
+            <h2>Nho Mẫu Đơn</h2>
+            <p>Giá: 150,000 VND/(1kg)</p>
+            <div class="button-container">
+                <button class="button-edit" onclick="openEditModal(2)">Sửa</button>
+                <button class="delete-btn" onclick="deleteProduct(2)"><i class="fas fa-trash"></i> Xóa</button>
+            </div>
+            <!-- Chi tiết sản phẩm 2 (ban đầu ẩn) -->
+            <div id="product-2" class="product-details" style="display: none;">
+                <p><strong>Mô tả:</strong> Nho mẫu đơn tươi ngon, ngọt ngào, và có tác dụng làm đẹp da, tăng cường sức khỏe.</p>
+                <p><strong>Thông tin sản phẩm:</strong> Nho mẫu đơn có nguồn gốc từ các vườn nho nổi tiếng, có chứa nhiều vitamin C và chất chống oxi hóa.</p>
+            </div>
+        </div>
+         <!-- Sản phẩm 3: Táo Mỹ -->
+        <div class="product" data-id="3" data-name="Táo Mỹ" data-price="150000" data-category="Trái cây" data-image="../../img/taomy.jpg">
+            <img src="../../img/taomy.jpg" alt="Táo Mỹ">
+            <h2>Táo Mỹ</h2>
+            <p>Giá: 150,000 VND/(1kg)</p>
+            <div class="button-container">
+                <!-- Nút sửa và xóa -->
+                <button class="button-edit" onclick="openEditModal(3)">Sửa</button>
+                <button class="delete-btn" onclick="deleteProduct(3)"><i class="fas fa-trash"></i> Xóa</button>
+            </div>
+            <!-- Chi tiết sản phẩm 3 (ban đầu ẩn) -->
+            <div id="product-3" class="product-details" style="display: none;">
+                <p><strong>Mô tả:</strong> Táo Mỹ thơm ngon, giòn và chứa nhiều vitamin C, rất tốt cho sức khỏe.</p>
+                <p><strong>Thông tin sản phẩm:</strong> Táo Mỹ là một trong những loại trái cây được ưa chuộng nhất, giúp cung cấp năng lượng và hỗ trợ hệ tiêu hóa.</p>
+            </div>
+        </div>
 
-        <script src="../../js/product.js"></script>
-        <script src="../js_admin/manage_products.js"></script>
-    </body>
-    </html>
+        <!-- Sản phẩm 4: Việt quất -->
+        <div class="product" data-id="4" data-name="Việt quất" data-price="180000" data-category="Trái cây" data-image="../../img/vietquat.jpg">
+            <img src="../../img/vietquat.jpg" alt="Việt quất">
+            <h2>Việt quất</h2>
+            <p>Giá: 180,000 VND/(1kg)</p>
+            <div class="button-container">
+                <!-- Nút sửa và xóa -->
+                <button class="button-edit" onclick="openEditModal(4)">Sửa</button>
+                <button class="delete-btn" onclick="deleteProduct(4)"><i class="fas fa-trash"></i> Xóa</button>
+            </div>
+            <!-- Chi tiết sản phẩm 4 (ban đầu ẩn) -->
+            <div id="product-4" class="product-details" style="display: none;">
+                <p><strong>Mô tả:</strong> Việt quất tươi mới và bổ dưỡng, giàu vitamin C và chống oxi hóa hiệu quả.</p>
+                <p><strong>Thông tin sản phẩm:</strong> Việt quất là loại quả mọng, giàu dưỡng chất, có tác dụng tăng cường sức khỏe tim mạch và cải thiện hệ miễn dịch.</p>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 5: Táo xanh -->
+        <div class="product" data-id="5" data-name="Táo xanh" data-price="80000" data-category="Trái cây" data-image="../../img/taoxanh.jpg">
+            <img src="../../img/taoxanh.jpg" alt="Táo xanh">
+            <h2>Táo xanh</h2>
+            <p>Giá: 80,000 VND/(1kg)</p>
+            <div class="button-container">
+                <!-- Nút sửa và xóa -->
+                <button class="button-edit" onclick="openEditModal(5)">Sửa</button>
+                <button class="delete-btn" onclick="deleteProduct(5)"><i class="fas fa-trash"></i> Xóa</button>
+            </div>
+            <!-- Chi tiết sản phẩm 5 (ban đầu ẩn) -->
+            <div id="product-5" class="product-details" style="display: none;">
+                <p><strong>Mô tả:</strong> Táo xanh tươi ngon, giòn và chứa nhiều vitamin giúp làm đẹp da.</p>
+                <p><strong>Thông tin sản phẩm:</strong> Táo xanh có hương vị đặc trưng, cung cấp nhiều chất xơ và vitamin A, C tốt cho sức khỏe.</p>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 6: Dâu Tây Đà Lạt -->
+        <div class="product" data-id="6" data-name="Dâu Tây Đà Lạt" data-price="100000" data-category="Trái cây" data-image="../../img/dautaydalat.jpg">
+            <img src="../../img/dautaydalat.jpg" alt="Dâu Tây Đà Lạt">
+            <h2>Dâu Tây Đà Lạt</h2>
+            <p>Giá: 100,000 VND/(1kg)</p>
+            <div class="button-container">
+                <!-- Nút sửa và xóa -->
+                <button class="button-edit" onclick="openEditModal(6)">Sửa</button>
+                <button class="delete-btn" onclick="deleteProduct(6)"><i class="fas fa-trash"></i> Xóa</button>
+            </div>
+            <!-- Chi tiết sản phẩm 6 (ban đầu ẩn) -->
+            <div id="product-6" class="product-details" style="display: none;">
+                <p><strong>Mô tả:</strong> Dâu Tây Đà Lạt ngọt ngào và tươi mới, được trồng ở vùng đất nổi tiếng về dâu tây.</p>
+                <p><strong>Thông tin sản phẩm:</strong> Dâu Tây Đà Lạt là loại quả mọng nước, giàu vitamin C và tốt cho sức khỏe. Thường được sử dụng làm sinh tố, tráng miệng hoặc ăn tươi.</p>
+            </div>
+        </div>
+        <!-- Sản phẩm 7: Bắp cải xanh -->
+<div class="product" data-id="7" data-name="Bắp cải xanh" data-price="25000" data-category="Rau củ" data-image="../../img/bapcaixanh.jpg">
+    <img src="../../img/bapcaixanh.jpg" alt="Bắp cải xanh">
+    <h2>Bắp cải xanh</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(7)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(7)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-7" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Bắp cải xanh tươi, giòn ngon, là nguyên liệu cho nhiều món ăn hấp dẫn.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Bắp cải xanh có tác dụng hỗ trợ hệ tiêu hóa và chứa nhiều vitamin tốt cho sức khỏe.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 8: Cà Chua -->
+<div class="product" data-id="8" data-name="Cà Chua" data-price="20000" data-category="Rau củ" data-image="../../img/cachua.jpg">
+    <img src="../../img/cachua.jpg" alt="Cà Chua">
+    <h2>Cà Chua</h2>
+    <p>Giá: 20,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(8)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(8)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-8" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Cà chua chín mọng, tươi ngon, thích hợp cho nhiều món salad hoặc chế biến món ăn.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Cà chua là nguồn cung cấp vitamin C tự nhiên, rất tốt cho da và hệ miễn dịch.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 9: Cà Rốt -->
+<div class="product" data-id="9" data-name="Cà Rốt" data-price="30000" data-category="Rau củ" data-image="../../img/carot.jpg">
+    <img src="../../img/carot.jpg" alt="Cà Rốt">
+    <h2>Cà Rốt</h2>
+    <p>Giá: 30,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(9)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(9)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-9" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Cà rốt giúp cải thiện thị lực và tăng cường sức đề kháng.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Cà rốt là loại rau củ giàu vitamin A và chất chống oxi hóa, tốt cho sức khỏe mắt và da.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 10: Khoai Tây -->
+<div class="product" data-id="10" data-name="Khoai Tây" data-price="25000" data-category="Rau củ" data-image="../../img/khoaitay.jpg">
+    <img src="../../img/khoaitay.jpg" alt="Khoai Tây">
+    <h2>Khoai Tây</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(10)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(10)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-10" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Khoai Tây giòn ngon, thích hợp cho nhiều món ăn và làm khoai tây chiên, khoai tây nghiền.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Khoai tây cung cấp nhiều năng lượng, giúp bổ sung carbohydrate và vitamin C.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 11: Bông cải trắng -->
+<div class="product" data-id="11" data-name="Bông cải trắng" data-price="35000" data-category="Rau củ" data-image="../../img/bongcaitrang.jpg">
+    <img src="../../img/bongcaitrang.jpg" alt="Bông cải trắng">
+    <h2>Bông cải trắng</h2>
+    <p>Giá: 35,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(11)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(11)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-11" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Bông cải trắng bổ dưỡng, giúp tăng cường sức khỏe và cung cấp nhiều vitamin cho cơ thể.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Bông cải trắng có thể chế biến thành nhiều món ăn ngon và giàu dinh dưỡng.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 12: Cà tím loại 1 -->
+<div class="product" data-id="12" data-name="Cà tím loại 1" data-price="20000" data-category="Rau củ" data-image="../../img/catimloai1.jpg">
+    <img src="../../img/catimloai1.jpg" alt="Cà tím loại 1">
+    <h2>Cà tím loại 1</h2>
+    <p>Giá: 20,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(12)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(12)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-12" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Cà tím loại 1 tươi ngon, là nguyên liệu lý tưởng cho nhiều món ăn như xào, nướng hay nhồi thịt.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Cà tím có chứa nhiều vitamin và khoáng chất giúp chống lão hóa và hỗ trợ hệ tiêu hóa.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 13: Cua Hoàng Đế -->
+<div class="product" data-id="13" data-name="Cua Hoàng Đế" data-price="800000" data-category="Hải sản" data-image="../../img/cuahoangde.jpg">
+    <img src="../../img/cuahoangde.jpg" alt="Cua Hoàng Đế">
+    <h2>Cua Hoàng Đế</h2>
+    <p>Giá: 800,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(13)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(13)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-13" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Cua Hoàng Đế tươi sống, thịt ngọt và chắc, là món ăn cao cấp không thể bỏ qua.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Cua Hoàng Đế là loại cua biển có giá trị dinh dưỡng cao và được ưa chuộng trong các bữa tiệc sang trọng.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 14: Cá hồi miền -->
+<div class="product" data-id="14" data-name="Cá hồi miền" data-price="200000" data-category="Hải sản" data-image="../../img/cahoimien.jpg">
+    <img src="../../img/cahoimien.jpg" alt="Cá hồi miền">
+    <h2>Cá hồi miền</h2>
+    <p>Giá: 200,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(14)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(14)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-14" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Cá hồi miền có thịt mềm, giàu omega-3 và rất tốt cho tim mạch và làn da.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Cá hồi miền được đánh bắt từ các vùng biển sạch, đảm bảo chất lượng và độ tươi ngon tuyệt vời.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 15: Thịt cá ngừ đại dương -->
+<div class="product" data-id="15" data-name="Thịt cá ngừ đại dương" data-price="200000" data-category="Hải sản" data-image="../../img/thitcangudaiduong.jpg">
+    <img src="../../img/thitcangudaiduong.jpg" alt="Thịt cá ngừ đại dương">
+    <h2>Thịt cá ngừ đại dương</h2>
+    <p>Giá: 200,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(15)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(15)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-15" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Thịt cá ngừ đại dương tươi ngon, giàu protein và omega-3, rất tốt cho sức khỏe tim mạch.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Thịt cá ngừ đại dương có thể chế biến thành nhiều món ăn như sashimi, sushi hay nướng, rất bổ dưỡng.</p>
+    </div>
+</div>
+<!-- Sản phẩm 16: Ghẹ -->
+<div class="product" data-id="16" data-name="Ghẹ" data-price="250000" data-category="Hải sản" data-image="../../img/ghe.jpg">
+    <img src="../../img/ghe.jpg" alt="Ghẹ">
+    <h2>Ghẹ</h2>
+    <p>Giá: 250,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(16)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(16)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-16" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Ghẹ tươi, thịt ngọt, dễ chế biến, thích hợp cho các món ăn hải sản như ghẹ hấp, xào, luộc.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Ghẹ là món ăn được ưa chuộng trong các bữa tiệc, cung cấp nhiều khoáng chất và vitamin.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 17: Tôm -->
+<div class="product" data-id="17" data-name="Tôm" data-price="250000" data-category="Hải sản" data-image="../../img/tom.jpg">
+    <img src="../../img/tom.jpg" alt="Tôm">
+    <h2>Tôm</h2>
+    <p>Giá: 250,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(17)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(17)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-17" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Tôm tươi ngon, thịt ngọt, được nuôi trồng sạch, an toàn cho sức khỏe.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Tôm có thể chế biến thành nhiều món như tôm hấp, tôm nướng, tôm xào, rất giàu protein và khoáng chất.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 18: Sò Huyết -->
+<div class="product" data-id="18" data-name="Sò Huyết" data-price="70000" data-category="Hải sản" data-image="../../img/sohuyet.jpg">
+    <img src="../../img/sohuyet.jpg" alt="Sò Huyết">
+    <h2>Sò Huyết</h2>
+    <p>Giá: 70,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(18)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(18)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-18" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Sò huyết tươi ngon, giàu canxi và các dưỡng chất thiết yếu cho cơ thể.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Sò huyết có thể chế biến thành các món ăn hải sản hấp dẫn như sò huyết nướng, sò huyết hấp tỏi.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 19: Đùi gà thả vườn -->
+<div class="product" data-id="19" data-name="Đùi gà thả vườn" data-price="120000" data-category="Thịt và trứng" data-image="../../img/duigathavuon.jpg">
+    <img src="../../img/duigathavuon.jpg" alt="Đùi gà thả vườn">
+    <h2>Đùi gà thả vườn</h2>
+    <p>Giá: 120,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(19)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(19)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-19" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Đùi gà thả vườn tươi ngon, thịt mềm và thơm, là món ăn tuyệt vời cho gia đình.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Đùi gà thả vườn là sản phẩm sạch, đảm bảo an toàn và giàu dinh dưỡng, thích hợp chế biến nhiều món ăn ngon.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 20: Thịt bò thượng hạng -->
+<div class="product" data-id="20" data-name="Thịt bò thượng hạng" data-price="350000" data-category="Thịt và trứng" data-image="../../img/thitbothuonghang.jpg">
+    <img src="../../img/thitbothuonghang.jpg" alt="Thịt bò thượng hạng">
+    <h2>Thịt bò thượng hạng</h2>
+    <p>Giá: 350,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(20)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(20)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-20" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Thịt bò thượng hạng, mềm mại, thớ thịt đẹp, phù hợp cho các món bít tết cao cấp.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Thịt bò thượng hạng được nhập khẩu, có chất lượng cao và đảm bảo an toàn thực phẩm.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 21: Trứng gà thả vườn -->
+<div class="product" data-id="21" data-name="Trứng gà thả vườn" data-price="40000" data-category="Thịt và trứng" data-image="../../img/trunggathavuon.jpg">
+    <img src="../../img/trunggathavuon.jpg" alt="Trứng gà thả vườn">
+    <h2>Trứng gà thả vườn</h2>
+    <p>Giá: 40,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(21)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(21)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-21" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Trứng gà thả vườn tươi ngon, giàu dưỡng chất, rất tốt cho sức khỏe và thích hợp chế biến nhiều món ăn.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Trứng gà thả vườn có hương vị đậm đà, đảm bảo chất lượng và an toàn.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 22: Gà ta -->
+<div class="product" data-id="22" data-name="Gà ta" data-price="150000" data-category="Thịt và trứng" data-image="../../img/gata.jpg">
+    <img src="../../img/gata.jpg" alt="Gà ta">
+    <h2>Gà ta</h2>
+    <p>Giá: 150,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(22)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(22)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-22" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Gà ta tươi ngon, thịt chắc và ngọt, là món ăn bổ dưỡng cho bữa cơm gia đình.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Gà ta có chất lượng cao, được nuôi thả tự nhiên, không có chất bảo quản, đảm bảo an toàn thực phẩm.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 23: Thịt cá ngừ đại dương -->
+<div class="product" data-id="23" data-name="Thịt cá ngừ đại dương" data-price="200000" data-category="Thịt và trứng" data-image="../../img/thitcangudaiduong.jpg">
+    <img src="../../img/thitcangudaiduong.jpg" alt="Thịt cá ngừ đại dương">
+    <h2>Thịt cá ngừ đại dương</h2>
+    <p>Giá: 200,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(23)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(23)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-23" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Thịt cá ngừ tươi ngon, chứa nhiều omega-3, rất tốt cho sức khỏe tim mạch.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Thịt cá ngừ đại dương được nuôi trồng tự nhiên, thịt săn chắc, thích hợp chế biến nhiều món ăn như sashimi, nướng, hay xào.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 24: Bắp Mỹ -->
+<div class="product" data-id="24" data-name="Bắp Mỹ" data-price="15000" data-category="Khác" data-image="../../img/bapmy.jpg">
+    <img src="../../img/bapmy.jpg" alt="Bắp Mỹ">
+    <h2>Bắp Mỹ</h2>
+    <p>Giá: 15,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(24)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(24)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-24" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Bắp Mỹ ngọt, tươi ngon, thường được dùng làm món ăn phụ hoặc chế biến món ngô nướng, ngô hấp.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Bắp Mỹ là một nguồn thực phẩm giàu năng lượng, giàu vitamin B và chất xơ tốt cho hệ tiêu hóa.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 25: Dưa chuột -->
+<div class="product" data-id="25" data-name="Dưa chuột" data-price="18000" data-category="Khác" data-image="../../img/duachuot.jpg">
+    <img src="../../img/duachuot.jpg" alt="Dưa chuột">
+    <h2>Dưa chuột</h2>
+    <p>Giá: 18,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(25)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(25)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-25" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Dưa chuột giòn ngon, được dùng nhiều trong các món salad hoặc chế biến các món ăn nhẹ.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Dưa chuột có nhiều nước, ít calo, giúp làm mát cơ thể và cung cấp vitamin C tốt cho da.</p>
+    </div>
+</div>
+<!-- Sản phẩm 26: Tỏi khô -->
+<div class="product" data-id="26" data-name="Tỏi khô" data-price="50000" data-category="Khác" data-image="../../img/toikho.jpg">
+    <img src="../../img/toikho.jpg" alt="Tỏi khô">
+    <h2>Tỏi khô</h2>
+    <p>Giá: 50,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(26)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(26)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-26" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Tỏi khô chất lượng, là nguyên liệu không thể thiếu trong các món ăn và có tác dụng tốt cho sức khỏe, đặc biệt là hệ tiêu hóa.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Tỏi khô có tính kháng khuẩn mạnh, giúp tăng cường hệ miễn dịch và phòng ngừa bệnh tật.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 27: Bí ngòi xanh -->
+<div class="product" data-id="27" data-name="Bí ngòi xanh" data-price="25000" data-category="Khác" data-image="../../img/bingoixanh.jpg">
+    <img src="../../img/bingoixanh.jpg" alt="Bí ngòi xanh">
+    <h2>Bí ngòi xanh</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(27)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(27)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-27" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Bí ngòi xanh tươi, ngọt, là nguyên liệu tuyệt vời cho các món ăn chay hoặc xào với thịt.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Bí ngòi xanh rất giàu chất xơ và vitamin C, giúp cải thiện hệ tiêu hóa và giảm cân.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 28: Rong nho -->
+<div class="product" data-id="28" data-name="Rong nho" data-price="50000" data-category="Khác" data-image="../../img/rongnho.jpg">
+    <img src="../../img/rongnho.jpg" alt="Rong nho">
+    <h2>Rong nho</h2>
+    <p>Giá: 50,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(28)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(28)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-28" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Rong nho tươi ngon, cung cấp nhiều vitamin và khoáng chất, giúp bảo vệ sức khỏe và làm đẹp da.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Rong nho là một thực phẩm giàu protein và các khoáng chất cần thiết cho cơ thể, tốt cho sức khỏe tổng thể.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 29: Lúa mì -->
+<div class="product" data-id="29" data-name="Lúa mì" data-price="30000" data-category="Khác" data-image="../../img/luami.jpg">
+    <img src="../../img/luami.jpg" alt="Lúa mì">
+    <h2>Lúa mì</h2>
+    <p>Giá: 30,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(29)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(29)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-29" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Lúa mì nguyên hạt, giàu dinh dưỡng, là nguồn cung cấp carbohydrate tuyệt vời cho cơ thể.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Lúa mì có nhiều vitamin B và chất xơ, giúp tăng cường năng lượng và hỗ trợ tiêu hóa.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 30: Ngô ngọt -->
+<div class="product" data-id="30" data-name="Ngô ngọt" data-price="17000" data-category="Khác" data-image="../../img/ngongot.jpg">
+    <img src="../../img/ngongot.jpg" alt="Ngô ngọt">
+    <h2>Ngô ngọt</h2>
+    <p>Giá: 17,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(30)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(30)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-30" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Ngô ngọt tươi, ngọt ngào, là món ăn tuyệt vời cho mùa hè hoặc chế biến món ngô nướng.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Ngô ngọt chứa nhiều vitamin A, C và các khoáng chất giúp tăng cường sức khỏe và chống oxy hóa.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 31: Khoai lang -->
+<div class="product" data-id="31" data-name="Khoai lang" data-price="30000" data-category="Khác" data-image="../../img/khoailang.jpg">
+    <img src="../../img/khoailang.jpg" alt="Khoai lang">
+    <h2>Khoai lang</h2>
+    <p>Giá: 30,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(31)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(31)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-31" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Khoai lang ngọt bùi, giàu vitamin A và chất xơ, là món ăn bổ dưỡng cho mọi lứa tuổi.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Khoai lang có nhiều tác dụng tốt cho cơ thể, giúp cải thiện thị lực và cung cấp năng lượng cho cơ thể.</p>
+    </div>
+</div>
+
+<!-- Sản phẩm 32: Hành tây -->
+<div class="product" data-id="32" data-name="Hành tây" data-price="25000" data-category="Khác" data-image="../../img/hanhtay.jpg">
+    <img src="../../img/hanhtay.jpg" alt="Hành tây">
+    <h2>Hành tây</h2>
+    <p>Giá: 25,000 VND/(1kg)</p>
+    <div class="button-container">
+        <!-- Nút sửa và xóa -->
+        <button class="button-edit" onclick="openEditModal(32)">Sửa</button>
+        <button class="delete-btn" onclick="deleteProduct(32)"><i class="fas fa-trash"></i> Xóa</button>
+    </div>
+    <div id="product-32" class="product-details" style="display: none;">
+        <p><strong>Mô tả:</strong> Hành tây giòn, ngọt, giúp tăng cường sức khỏe và làm gia vị tuyệt vời cho món ăn.</p>
+        <p><strong>Thông tin sản phẩm:</strong> Hành tây chứa nhiều vitamin C và chất xơ, tốt cho tiêu hóa và sức khỏe tim mạch.</p>
+    </div>
+</div>
+    </section>
+    
+
+</main>
+<!-- Modal Sửa sản phẩm -->
+<div id="edit-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Chỉnh sửa sản phẩm</h2>
+        <form id="edit-product-form">
+            <input type="text" id="edit-name" placeholder="Tên sản phẩm" required>
+            <input type="number" id="edit-price" placeholder="Giá sản phẩm" required>
+            <textarea id="edit-description" placeholder="Mô tả sản phẩm" required></textarea>
+            <input type="file" id="edit-image" accept="image/*">
+            <button type="button" onclick="saveEdit()">Lưu</button>
+        </form>
+        <button onclick="closeModal()">Đóng</button>
+    </div>
+</div>
+<div class="pagination">
+    
+    </div>
+<footer>
+    <p>&copy; 2024 Bản quyền thuộc về Green Farm. Thực phẩm sạch và an toàn.</p>
+</footer>
+ <script src="../../js/search.js"></script> 
+</body>
+</html>

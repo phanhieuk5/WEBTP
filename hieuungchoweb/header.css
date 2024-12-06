@@ -1,3 +1,4 @@
+/* header.css */
 * {
     padding: 0;
     margin: 0;
@@ -19,8 +20,6 @@
 .header-container .logo img {
     height: 50px; /* Adjust logo height */
 }
-
-
 
 /* Navigation Styles */
 nav ul {
@@ -45,67 +44,30 @@ nav ul li a:hover {
     color: #FFC107; /* Yellow on hover */
 }
 
-.profile-dropdown-list {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    min-width: 160px;
-    z-index: 20; /* Đảm bảo menu nằm trên banner và các phần tử khác */
-    padding: 10px 0;
-    border-radius: 5px;
-    display: none;
-}
-
-.profile-dropdown-list.show {
-    display: block !important;
-}
-/* Header */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-    background-color:  #b2e0c0;
-}
-
-.header-container .logo img {
-    height: 50px;
-}
-
-.header-container nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.header-container nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+/* Dropdown Styles */
 .header-container .header-icons .profile-dropdown {
     position: relative;
     color: white;
     cursor: pointer;
 }
 
-.profile-dropdown .profile-dropdown-list {
-    display: none;
+.profile-dropdown-list {
+    display: none; /* Ẩn mặc định */
     position: absolute;
-    right: 0;
     top: 100%;
-    background-color: #333;
-    padding: 10px;
+    right: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 20;
+    padding: 10px 0;
     border-radius: 5px;
-    min-width: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none; /* Loại bỏ dấu chấm */
 }
 
-.profile-dropdown:hover .profile-dropdown-list {
-    display: block;
+.profile-dropdown:hover .profile-dropdown-list,
+.profile-dropdown-list.show {
+    display: block; /* Hiển thị khi hover hoặc có class "show" */
 }
 
 .profile-dropdown-list-item {
@@ -113,54 +75,15 @@ nav ul li a:hover {
 }
 
 .profile-dropdown-list-item a {
-    color: white;
     text-decoration: none;
+    padding: 10px 15px;
+    color: #333;
+    background-color: transparent;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-    .header-container, .banner-slider, .banner-text {
-        width: 95%;
-        margin: 0 auto;
-        padding: 10px;
-        flex-direction: column;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .banner-text h1, .banner-text p {
-        font-size: 16px;
-    }
-    .banner-text .btn {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-}
-
-/* Responsive for very small screens */
-@media (max-width: 480px) {
-    body {
-        font-size: 12px;
-    }
-    .banner-slide img {
-        height: auto;
-    }
-    .banner-text {
-        padding: 10px;
-    }
-    .header-container {
-        text-align: center;
-        padding: 5px;
-    }
-    .banner-text h1, .banner-text p {
-        font-size: 14px;
-    }
-    .banner-text .btn {
-        padding: 6px 8px;
-        font-size: 12px;
-    }
+.profile-dropdown-list-item a:hover {
+    background-color: #f1f1f1;
+    color: #000;
 }

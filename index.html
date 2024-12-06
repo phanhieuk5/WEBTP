@@ -51,7 +51,7 @@
             </li>
             <hr>
             <li class="profile-dropdown-list-item">
-                <a href="javascript:void(0);" onclick="logout()">
+                <a href="nhanh/login.html">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
                 </a>
             </li>
@@ -603,17 +603,32 @@
 <div id="product-modal" class="modal">
     <div class="modal-content">
         <button class="close-button" onclick="closeModal()">&times;</button>
-        <div class="modal-image">
-            <img id="modal-image" src="" alt="Sản phẩm">
+        <!-- Hình ảnh và thông tin cơ bản -->
+        <div class="left-section">
+            <div class="modal-image">
+                <img id="modal-image" src="" alt="Sản phẩm">
+            </div>
+            <div class="product-basic-info">
+                <h2 id="modal-title"></h2>
+                <p><strong>Giá:</strong> <span id="modal-price"></span> VND</p>
+            </div>
         </div>
-        <div class="modal-info">
-            <h2 id="modal-title"></h2>
-            <p><strong>Giá:</strong> <span id="modal-price"></span> VND</p>
-            <p id="modal-description"></p>
-            <p id="modal-info"></p>
+        <!-- Thông tin mô tả và thêm vào giỏ hàng -->
+        <div class="right-section">
+            <div class="modal-description">
+                <p id="modal-description"></p>
+                <p id="modal-info"></p>
+            </div>
+            <div class="cart-section">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1" max="100">
+                <button class="add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+            </div>
         </div>
     </div>
 </div>
+
+
 <div id="pagination">
     <!-- Nút phân trang sẽ được tạo động ở đây -->
 </div>
@@ -624,6 +639,5 @@
     <script src="js/script.js"></script>    
     <script src="js/modal-products.js"></script>
     <script src="js/search.js"></script>
-    <script src="js/pagination.js"></script>
 </body>
 </html>

@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("modal-title").textContent = productName;
             document.getElementById("modal-price").textContent = productPrice;
             document.getElementById("modal-image").src = productImage;
-            document.getElementById("modal-description").innerHTML = `<strong>Mô tả:</strong> ${productDescription}`;
-            document.getElementById("modal-info").innerHTML = `<strong>Thông tin sản phẩm:</strong> ${productInfo}`;
+            document.getElementById("modal-description").innerHTML = ` ${productDescription}`;
+            document.getElementById("modal-info").innerHTML = ` ${productInfo}`;
 
             modal.style.display = "flex"; // Hiển thị modal khi bấm vào sản phẩm
         }
@@ -46,7 +46,5 @@ function addToCart(productId) {
     if (productElement) {
         const productName = productElement.getAttribute("data-name");
         alert(`Sản phẩm "${productName}" đã được thêm vào giỏ hàng!`);
-    } else {
-        alert("Sản phẩm không tồn tại.");
-    }
+    } 
 }

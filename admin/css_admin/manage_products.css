@@ -1,3 +1,78 @@
+/* Danh sách sản phẩm */
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép dòng mới khi hết không gian */
+    gap: 20px;
+}
+
+ .product {
+    flex: 0 0 calc(20% - 20px); /* Mỗi sản phẩm chiếm 20% chiều rộng trừ khoảng cách */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h2 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+#tat-ca.product p {
+    color: #8B4513;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Button container để căn 2 nút */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.button-container .button-edit,
+.button-container .delete-btn {
+    width: 48%; /* Đảm bảo cùng độ rộng */
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button-container .button-edit {
+    background-color: #8B4513;
+}
+
+.button-container .button-edit:hover {
+    background-color: #7b3e14;
+}
+
+.button-container .delete-btn {
+    background-color: #4CAF50;
+}
+
+.button-container .delete-btn:hover {
+    background-color: #45a049;
+}
 
 /* Tiêu đề chính */
 h1 {
@@ -79,96 +154,149 @@ h1 {
         width: 100%; /* Mỗi ô chiếm toàn bộ chiều rộng */
     }
 }
-
-
-
-/* Bảng danh sách sản phẩm */
-.product-table {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+/* Khu vực danh mục và tìm kiếm */
+.horizontal-category {
+    background-color: rgb(178, 224, 192); /* Màu nền */
+    padding: 15px 20px;
+    border-radius: 25px; /* Bo tròn toàn bộ thanh */
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa các phần tử */
+    gap: 15px; /* Khoảng cách giữa các thành phần */
+    flex-wrap: wrap; /* Tự động xuống hàng khi không đủ không gian */
 }
 
-.product-table h2 {
-    font-size: 24px;
-    color: #4CAF50;
-    margin-bottom: 15px;
+/* Thanh tìm kiếm */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa các ô */
+    flex: 1; /* Chiếm không gian linh hoạt */
+    max-width: 800px; /* Đặt giới hạn chiều rộng tổng */
+    justify-content: center; /* Căn giữa các thành phần trong thanh tìm kiếm */
+    margin-right: -50px; /* Giảm khoảng cách giữa search-bar và horizontal-category */
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
-table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
 
-table th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-table td {
-    background-color: #fff;
-}
-
-button {
-    padding: 5px 10px;
+/* Ô nhập tìm kiếm */
+.search-input {
+    padding: 10px;
     font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Bo tròn từng ô */
+    width: 200px; /* Cố định chiều rộng vừa phải */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Hiệu ứng thay đổi viền */
 }
 
-.save-btn {
+.search-input:focus {
+    border-color: #4CAF50; /* Màu viền khi ô nhập được focus */
+    outline: none;
+}
+
+/* Ô nhập giá */
+.price-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    width: 120px; /* Đặt kích thước hợp lý cho ô nhập giá */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.price-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Nút tìm kiếm */
+.search-button {
+    padding: 10px 20px;
+    font-size: 14px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    transition: background-color 0.3s;
+    border-radius: 25px;
+    cursor: pointer;
+    height: 100%; /* Đồng bộ chiều cao với ô nhập */
+    transition: background-color 0.3s ease;
 }
 
-.save-btn:hover {
+.search-button:hover {
     background-color: #45a049;
 }
 
-.delete-btn {
-    background-color: #f44336;
+/* Dropdown danh mục */
+.dropdown-category {
+    display: flex;
+    align-items: center;
+}
+
+.category-dropdown {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Bo tròn dropdown */
+    background-color: white;
+    cursor: pointer;
+    width: 150px; /* Giới hạn kích thước dropdown */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.category-dropdown:hover {
+    background-color: #f1f1f1; /* Màu nền khi hover */
+}
+
+/* Đảm bảo căn giữa toàn bộ thanh */
+.horizontal-category > * {
+    display: flex;
+    align-items: center;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+}
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#pagination button.active {
+    background-color: #28a745;
     color: white;
-    border: none;
-    transition: background-color 0.3s;
+    border: 1px solid #28a745;
 }
 
-.delete-btn:hover {
-    background-color: #e53935;
-}
-
-/* Đặt kích thước hình ảnh sản phẩm trong bảng */
-table td img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-}
-
-/* Media Queries cho các màn hình nhỏ */
-@media (max-width: 768px) {
-    .add-product-form form {
-        flex-direction: column;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    .product-table {
-        padding: 15px;
-    }
-
-    table td img {
-        width: 40px;
-        height: 40px;
-    }
+#pagination button:hover {
+    background-color: #ddd;
 }

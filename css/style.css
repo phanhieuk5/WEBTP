@@ -1,10 +1,9 @@
-/* style.css */
+/* Import các tệp liên quan */
 @import url('../hieuungchoweb/header.css');
 @import url('../hieuungchoweb/banner.css');
 @import url('../hieuungchoweb/product.css');
 @import url('search.css');
-/* Cài đặt chung */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,200;1,400;1,500&display=swap');
+
 /* Footer */
 footer {
     text-align: center;
@@ -18,7 +17,7 @@ footer p {
     margin: 0;
 }
 
-/*địa chỉ */
+/* Định dạng chung */
 .address-item {
     display: flex;
     justify-content: space-between;
@@ -41,39 +40,10 @@ footer p {
 .address-item button:hover {
     background-color: #45a049;
 }
+
 /* Định dạng cho dropdown menu */
 .header-icons {
-    position: relative; /* Đặt vị trí tương đối để menu căn cứ */
-}
-
-/* Định dạng cho menu người dùng */
-.dropdown-menu {
-    display: none; /* Ẩn menu mặc định */
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    min-width: 160px;
-    z-index: 1;
-    border-radius: 5px;
-    right: 0; /* Căn bên phải với phần tử cha */
-    top: 100%; /* Hiển thị ngay bên dưới `user-greeting` */
-    padding: 10px 0;
-}
-
-.dropdown-menu.show {
-    display: block !important; /* Hiển thị menu khi có class `show` */
-}
-
-.dropdown-menu a {
-    color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f1f1f1;
+    position: relative;
 }
 #pagination {
     display: flex;
@@ -111,17 +81,7 @@ footer p {
         padding: 10px;
     }
     .product {
-        flex: 1 1 calc(50% - 10px); /* 2 products per row */
-    }
-    .button-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .btn-back, .btn-checkout, button {
-        width: 100%;
-    }
-    h1, h2, h3 {
-        font-size: 18px;
+        flex: 1 1 calc(50% - 10px);
     }
 }
 
@@ -131,7 +91,7 @@ footer p {
         font-size: 12px;
     }
     .product {
-        flex: 1 1 100%; /* 1 product per row */
+        flex: 1 1 100%;
     }
     .modal-content {
         width: 90%;
@@ -141,4 +101,3 @@ footer p {
         padding: 10px;
     }
 }
-
