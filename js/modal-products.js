@@ -45,6 +45,6 @@ function addToCart(productId) {
     const productElement = document.querySelector(`[data-id="${productId}"]`);
     if (productElement) {
         const productName = productElement.getAttribute("data-name");
-        alert(`Sản phẩm "${productName}" đã được thêm vào giỏ hàng!`);
+        alert(`Sản phẩm đã được thêm vào giỏ hàng!`);
     } 
 }
