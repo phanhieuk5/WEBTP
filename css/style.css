@@ -4,18 +4,48 @@
 @import url('../hieuungchoweb/product.css');
 @import url('search.css');
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    margin-top: 50px;
+/* Tổng thể */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử */
+    flex-direction: column; /* Các phần tử con (header, main, footer) sẽ sắp xếp theo chiều dọc */
+    min-height: 100vh; /* Đảm bảo body luôn chiếm ít nhất chiều cao của viewport */
+}
+
+/* Phần nội dung */
+main {
+    flex: 1; /* Đảm bảo phần nội dung chiếm hết không gian còn lại */
+}
+
+/* Chỉnh sửa footer */
+footer {
+    background-color: #333; /* Màu nền footer */
+    color: white; /* Màu chữ trắng */
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    position: relative; /* Đảm bảo footer không đè lên nội dung */
+    margin-top: 20px; /* Đẩy footer xuống cuối trang */
+}
+
+/* Footer paragraph */
 footer p {
     margin: 0;
+    font-weight: normal; /* Bỏ hiệu ứng nổi/chìm */
+    text-decoration: none; /* Bỏ gạch dưới nếu có */
+    color: white;
 }
+
+
 
 /* Định dạng chung */
 .address-item {
