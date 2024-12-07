@@ -123,7 +123,7 @@ h1 {
 .add-product-form select,
 .add-product-form textarea,
 .add-product-form button {
-    width: 19%; /* Mỗi ô sẽ chiếm khoảng 19% chiều rộng của form */
+    width: 15%; /* Mỗi ô sẽ chiếm khoảng 19% chiều rộng của form */
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ddd;
