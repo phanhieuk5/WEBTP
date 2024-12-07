@@ -5,7 +5,6 @@ function save_info() {
 }
 ;
 
-
 // Hàm xóa sản phẩm (người dùng)
 function deleteProduct() {
     if (confirm("Bạn có chắc chắn muốn xóa người dùng này không?")) {

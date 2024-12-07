@@ -255,3 +255,42 @@
         align-items: center;
     }
 }
+/* Phần danh mục (dropdown) */
+#modal-category {
+    width: 80%; /* Chiều rộng của dropdown */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fff; /* Màu nền trắng cho dropdown */
+    margin-top: -5px; /* Khoảng cách phía trên */
+}
+
+/* Cải thiện màu sắc khi hover trên dropdown */
+#modal-category:hover {
+    border-color: #28a745; /* Màu viền khi hover */
+}
+
+/* Căn chỉnh nhãn của dropdown */
+.product-basic-info label[for="modal-category"] {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left; /* Căn trái nhãn */
+}
+
+/* Đảm bảo dropdown phù hợp với các phần tử khác trong modal */
+.product-basic-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các phần tử trong thông tin cơ bản */
+    width: 100%;
+    align-items: flex-start; /* Căn chỉnh các trường nhập liệu về phía bên trái */
+}
+
+/* Tạo hiệu ứng cho dropdown khi được chọn */
+#modal-category:focus {
+    border-color: #4CAF50; /* Màu viền khi focus */
+    outline: none; /* Loại bỏ viền mặc định */
+}

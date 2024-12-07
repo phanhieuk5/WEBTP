@@ -94,14 +94,6 @@ h1 {
     background-color: #45a049;
 }
 
-/* Tiêu đề chính */
-h1 {
-    font-size: 32px;
-    color: #4CAF50;
-    margin-bottom: 20px;
-    text-align: center; /* Căn giữa tiêu đề */
-}
-
 
 
 /* Form thêm sản phẩm */
@@ -194,10 +186,7 @@ h1 {
     flex: 1; /* Chiếm không gian linh hoạt */
     max-width: 800px; /* Đặt giới hạn chiều rộng tổng */
     justify-content: center; /* Căn giữa các thành phần trong thanh tìm kiếm */
-    margin-right: -50px; /* Giảm khoảng cách giữa search-bar và horizontal-category */
 }
-
-
 
 /* Ô nhập tìm kiếm */
 .search-input {
@@ -252,6 +241,8 @@ h1 {
 .dropdown-category {
     display: flex;
     align-items: center;
+    justify-content: center; /* Căn giữa dropdown */
+    margin-left: 10px; 
 }
 
 .category-dropdown {
@@ -271,9 +262,29 @@ h1 {
 }
 
 /* Đảm bảo căn giữa toàn bộ thanh */
-.horizontal-category > * {
+.horizontal-category  * {
     display: flex;
     align-items: center;
+}
+
+/* Chỉnh lại chiều rộng khi thu nhỏ màn hình */
+@media (max-width: 768px) {
+    .horizontal-category {
+        flex-direction: column; /* Xếp dọc khi màn hình nhỏ */
+        gap: 20px;
+    }
+
+    .search-bar {
+        max-width: 100%; /* Đảm bảo thanh tìm kiếm chiếm hết chiều rộng */
+    }
+
+    .category-dropdown {
+        width: 100%; /* Dropdown chiếm hết chiều rộng */
+    }
+
+    .search-input, .price-input {
+        width: 100%; /* Các ô nhập chiếm hết chiều rộng */
+    }
 }
 
 #pagination {

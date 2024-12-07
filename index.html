@@ -90,26 +90,28 @@
     </div>
 </section>
 <section class="horizontal-category">
-    <!-- Thanh tìm kiếm -->
-    <div class="search-bar">
-        <input type="text" id="search-name" placeholder="Tìm theo tên sản phẩm..." class="search-input">
-        <input type="number" id="min-price" placeholder="Giá tối thiểu" class="search-input price-input">
-        <input type="number" id="max-price" placeholder="Giá tối đa" class="search-input price-input">
+    <form action="index.html" method="GET"> <!-- Thêm action để tải lại trang -->
+        <!-- Thanh tìm kiếm -->
+        <div class="search-bar">
+            <input type="text" name="search-name" id="search-name" placeholder="Tìm theo tên sản phẩm..." class="search-input">
+            <input type="number" name="min-price" id="min-price" placeholder="Giá tối thiểu" class="search-input price-input">
+            <input type="number" name="max-price" id="max-price" placeholder="Giá tối đa" class="search-input price-input">
 
-        <button id="search-button" class="search-button">Tìm kiếm</button>
-    </div>
+            <button type="submit" id="search-button" class="search-button">Tìm kiếm</button>
+        </div>
 
-    <!-- Dropdown danh mục -->
-    <div class="dropdown-category">
-        <select id="category-dropdown" class="category-dropdown">
-            <option value="all">Tất cả</option>
-            <option value="Trái cây">Trái cây</option>
-            <option value="Rau củ">Rau củ</option>
-            <option value="Hải sản">Hải sản</option>
-            <option value="Thịt và trứng">Thịt và trứng</option>
-            <option value="Khác">Khác</option>
-        </select>
-    </div>
+        <!-- Dropdown danh mục -->
+        <div class="dropdown-category">
+            <select name="category" id="category-dropdown" class="category-dropdown" onchange="this.form.submit();">
+                <option value="all">Tất cả</option>
+                <option value="Trái cây">Trái cây</option>
+                <option value="Rau củ">Rau củ</option>
+                <option value="Hải sản">Hải sản</option>
+                <option value="Thịt và trứng">Thịt và trứng</option>
+                <option value="Khác">Khác</option>
+            </select>
+        </div>
+    </form>
 </section>
    <!-- Nội dung chính về sản phẩm -->
   <main class="content">
